@@ -27,7 +27,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
   return (
     <header
-      className={`z-20 sticky top-0 transition-all duration-300 ${isScrolled ? 'bg-background/50 backdrop-blur-md rounded-lg' : ''}`}
+      className={`z-20 sticky top-0 transition-all duration-300 ${isScrolled ? 'bg-background' : ''}`}
     >
       <div className="container p-6 flex justify-between items-center">
         <Link href="/">
