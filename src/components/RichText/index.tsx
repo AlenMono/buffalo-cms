@@ -15,7 +15,6 @@ import {
 import { CodeBlock, CodeBlockProps } from '@/blocks/Code/Component'
 import type {
   BannerBlock as BannerBlockProps,
-  CallToActionBlock as CTABlockProps,
   MediaBlock as MediaBlockProps,
 } from '@/payload-types'
 import { BannerBlock } from '@/blocks/Banner/Component'
@@ -25,7 +24,7 @@ import React from 'react'
 
 type NodeTypes =
   | DefaultNodeTypes
-  | SerializedBlockNode<CTABlockProps | MediaBlockProps | BannerBlockProps | CodeBlockProps>
+  | SerializedBlockNode<MediaBlockProps | BannerBlockProps | CodeBlockProps>
 
 const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
   const { value, relationTo } = linkNode.fields.doc!
@@ -45,20 +44,44 @@ const jsxConverters = (
   ...LinkJSXConverter({ internalDocToHref }),
   heading: ({ node, nodesToJSX }: any) => {
     const Tag = node.tag as keyof JSX.IntrinsicElements
-    const children = node.children.map((child: any, index: number) =>
-      child.type === 'lineBreak' ? (
-        <br key={index} />
-      ) : (
-        <React.Fragment key={index}>{nodesToJSX({ nodes: [child] })}</React.Fragment>
-      ),
-    )
+
+    const children = node.children.map((child: any, index: number) => {
+      if (child.type === 'heading') {
+        const inner = child.children.map((n: any, i: number) => {
+          if (n.type === 'text') {
+            return (
+              <span
+                key={i}
+                className={cn(
+                  n.format === 0 && 'font-faustina font-normal',
+                  n.format === 1 && 'font-semibold',
+                  n.format === 3 && 'font-faustina-italic font-semibold',
+                )}
+              >
+                {n.text}
+              </span>
+            )
+          }
+
+          if (n.type === 'linebreak') {
+            return <br key={i} />
+          }
+
+          return <React.Fragment key={i}>{nodesToJSX({ nodes: [n] })}</React.Fragment>
+        })
+
+        return <React.Fragment key={index}>{inner}</React.Fragment>
+      }
+
+      if (child.type === 'linebreak') {
+        return <br key={index} />
+      }
+
+      return <React.Fragment key={index}>{nodesToJSX({ nodes: [child] })}</React.Fragment>
+    })
 
     if (node.tag === 'h4') {
-      return (
-        <Tag className="text-lg font-normal">
-          {children}
-        </Tag>
-      )
+      return <Tag className="text-lg font-normal">{children}</Tag>
     }
 
     if (node.tag === 'h2') {
@@ -68,13 +91,37 @@ const jsxConverters = (
         </Tag>
       )
     }
+
     if (node.tag === 'h1') {
-      return (
-        <Tag className="text-4xl leading-[44px] xl:text-[56px] xl:leading-[64px] font-semibold text-text-primary font-faustina-italic">
-          {children}
-        </Tag>
-      )
+      // map over children and preserve text + formatting + linebreaks
+      const children = node.children.map((child: any, index: number) => {
+        if (child.type === 'text') {
+          return (
+            <span
+              key={index}
+              className={cn(
+                child.format === 0 && 'font-faustina font-normal',
+                child.format === 1 && 'font-faustina font-semibold',
+                child.format === 2 && 'font-faustina-italic',
+                child.format === 3 && 'font-faustina-italic font-semibold',
+              )}
+            >
+              {child.text}
+            </span>
+          )
+        }
+
+        if (child.type === 'linebreak') {
+          return <br key={index} />
+        }
+
+        // fallback for other node types (like links)
+        return <React.Fragment key={index}>{nodesToJSX({ nodes: [child] })}</React.Fragment>
+      })
+
+      return <h1>{children}</h1>
     }
+
     return <Tag>{children}</Tag>
   },
   paragraph: ({ node, nodesToJSX }: any) => {

@@ -39,6 +39,14 @@ export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richTex
         height={855}
         className="absolute top-[160px] right-0 z-[-1] max-h-[855px] max-w-[540px] w-full object-contain"
       />
+      {/* 
+      <Image
+        src="/img/medium-impact/hero-right.svg"
+        alt="Floral"
+        width={411}
+        height={628}
+        className="-right-52  scale-75 lg:scale-100 absolute -top-16 lg:-right-20 object-contain z-[-1]"
+      /> */}
 
       <div className="container flex flex-col items-center">
         {media && typeof media === 'object' && (
