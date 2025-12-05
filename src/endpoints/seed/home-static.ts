@@ -13,9 +13,85 @@ export const homeStatic: RequiredDataFromCollectionSlug<'pages'> = {
           {
             type: 'heading',
             children: [
-              { type: 'text', text: 'Honoring Life.' },
-              { type: 'lineBreak' },
-              { type: 'text', text: 'Supporting You.' },
+              {
+                tag: 'h1',
+                type: 'heading',
+                format: '',
+                indent: 0,
+                version: 1,
+
+                children: [
+                  {
+                    mode: 'normal',
+                    text: 'Honoring',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 3,
+                    version: 1,
+                  },
+
+                  {
+                    mode: 'normal',
+                    text: ' Life.',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 0,
+                    version: 1,
+                  },
+
+                  {
+                    type: 'linebreak',
+                    version: 1,
+                  },
+
+                  {
+                    mode: 'normal',
+                    text: 'Supporting',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 3,
+                    version: 1,
+                  },
+
+                  {
+                    mode: 'normal',
+                    text: ' Every Journey.',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 0,
+                    version: 1,
+                  },
+                ],
+                direction: null,
+                textFormat: 3,
+              },
+
+              {
+                tag: 'h4',
+                type: 'heading',
+                format: '',
+                indent: 0,
+                version: 1,
+
+                children: [],
+                direction: null,
+              },
+
+              {
+                type: 'paragraph',
+                format: '',
+                indent: 0,
+                version: 1,
+
+                children: [],
+                direction: null,
+                textStyle: '',
+                textFormat: 0,
+              },
             ],
             direction: 'ltr',
             format: '',
@@ -62,7 +138,7 @@ export const homeStatic: RequiredDataFromCollectionSlug<'pages'> = {
         link: {
           type: 'custom',
           url: '/plan-a-funeral',
-          label: 'Plan a Funeral',
+          label: 'Arrange a Resting Place',
           appearance: 'default',
           newTab: false,
         },

@@ -18,24 +18,30 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
   })
 
   return (
-    <div className="relative flex items-center justify-center flex-col overflow-hidden p-4">
+    <div className="container mt-16 relative">
       <Image
-        src="/img/left-rose-icon.png"
+        src="/img/high-impact/hero-left.svg"
         alt="Floral"
         width={411}
         height={628}
-        className="-left-52 rotate-[30deg] scale-75 lg:scale-100 lg:rotate-0 absolute top-1/2 -translate-y-1/2 lg:-left-11 object-contain z-0"
+        className="-left-52 scale-75 lg:scale-100 absolute -top-16 lg:-left-20 object-contain z-[-1]"
       />
       <Image
-        src="/img/right-rose-icon.png"
+        src="/img/high-impact/hero-right.svg"
         alt="Floral"
         width={411}
         height={628}
-        className="-right-52 -rotate-[30deg] scale-75 lg:scale-100 lg:rotate-0 absolute top-1/2 -translate-y-1/2 lg:-right-11 object-contain z-0"
+        className="-right-52  scale-75 lg:scale-100 absolute -top-16 lg:-right-20 object-contain z-[-1]"
       />
       <div className="container mb-8 z-10 relative flex items-center justify-center">
         <div className="max-w-[746px] md:text-center space-y-7">
-          {richText && <RichText data={richText} enableGutter={false} />}
+          {richText && (
+            <RichText
+              data={richText}
+              enableGutter={false}
+              paragraphClassName="text-lg leading-[24px] pt-1"
+            />
+          )}
 
           {Array.isArray(links) && links.length > 0 && (
             <div className="flex flex-col sm:flex-row md:justify-center gap-4 max-w-[398px] m-auto">
