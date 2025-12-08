@@ -60,6 +60,12 @@ export const guidanceAndComfortFields = {
     required: false,
     admin: { condition: isGuideSection },
   },
+  guideButtonLink: {
+    name: 'guideButtonLink',
+    type: 'text',
+    required: false,
+    admin: { condition: isGuideSection },
+  },
   promoImage: {
     name: 'promoImage',
     label: 'Promo Image',

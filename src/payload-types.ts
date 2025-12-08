@@ -712,6 +712,7 @@ export interface CustomBlock {
   } | null;
   guideDescription?: string | null;
   guideButtonText?: string | null;
+  guideButtonLink?: string | null;
   promoImage?: (number | null) | Media;
   resourcesLayot?: ('default' | 'wrapped') | null;
   resourceTitle?: {
@@ -1524,6 +1525,7 @@ export interface CustomBlockSelect {
   guideTitle?: boolean;
   guideDescription?: boolean;
   guideButtonText?: boolean;
+  guideButtonLink?: boolean;
   promoImage?: boolean;
   resourcesLayot?: boolean;
   resourceTitle?: boolean;
