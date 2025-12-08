@@ -160,6 +160,7 @@ export interface Page {
   title: string;
   hero: {
     type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    backgroundVisual?: ('landing-a' | 'landing-b' | 'landing-c' | 'landing-d' | 'landing-e') | null;
     richText?: {
       root: {
         type: string;
@@ -710,6 +711,7 @@ export interface CustomBlock {
     [k: string]: unknown;
   } | null;
   guideDescription?: string | null;
+  guideButtonText?: string | null;
   promoImage?: (number | null) | Media;
   resourcesLayot?: ('default' | 'wrapped') | null;
   resourceTitle?: {
@@ -1354,6 +1356,7 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         type?: T;
+        backgroundVisual?: T;
         richText?: T;
         links?:
           | T
@@ -1520,6 +1523,7 @@ export interface CustomBlockSelect {
   promoLayot?: boolean;
   guideTitle?: boolean;
   guideDescription?: boolean;
+  guideButtonText?: boolean;
   promoImage?: boolean;
   resourcesLayot?: boolean;
   resourceTitle?: boolean;

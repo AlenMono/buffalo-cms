@@ -54,6 +54,12 @@ export const guidanceAndComfortFields = {
     required: false,
     admin: { condition: isGuideSection },
   },
+  guideButtonText: {
+    name: 'guideButtonText',
+    type: 'text',
+    required: false,
+    admin: { condition: isGuideSection },
+  },
   promoImage: {
     name: 'promoImage',
     label: 'Promo Image',
