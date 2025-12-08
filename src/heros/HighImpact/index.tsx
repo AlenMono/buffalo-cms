@@ -40,6 +40,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
               data={richText}
               enableGutter={false}
               paragraphClassName="text-lg leading-[24px] pt-1"
+              h1ClassName="text-[56px] leading-[68px] font-faustina"
             />
           )}
 
@@ -51,7 +52,11 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
                 return (
                   <Link
                     href={url || ''}
-                    className={buttonVariants({ variant: appearance, className: 'w-full' })}
+                    className={buttonVariants({
+                      variant: appearance,
+                      size: 'lg',
+                      className: 'w-full',
+                    })}
                     key={i}
                   >
                     {label}

@@ -58,18 +58,14 @@
     --radius: 8px;
     --background: #fef5e6; /* hsla(38, 92%, 95%, 1) */
     --background-light: #fffaf1;
+    --invert-darkest: #151A15;
     --foreground: #202620;
 
     --card: #0a0a0a; /* hsl(0 0% 4%) */
-    --card-foreground: #343e36;
-
-    --popover: #05050a; /* hsl(222.2 84% 4.9%) */
-    --popover-foreground: #343e36;
 
     /* BRAND  */
     --brand: #343e36;
 
-    --brand-0: #202620;
     --brand-10: #2a322b;
     --brand-20: #343e36;
     --brand-30: #475049;
@@ -77,19 +73,18 @@
 
     --primary: #202620;
     --primary-foreground: #0c0d0f; /* hsl(222.2 47.4% 11.2%) */
-    --primary-light: #fff9ee;
-    --primary-dark: #f2ddba;
 
     --secondary: #f1dfc1;
-    --secondary-foreground: #343e36;
 
     --muted: #232a2e; /* hsl(217.2 32.6% 17.5%) */
     --muted-foreground: #a8aeb5; /* hsl(215 20.2% 65.1%) */
 
     --gold: #dab77e;
+    --primary-dark: #F2DDBA;
+    --primary-darkest: #dab77e;
+    --accent-darkest: #B47209;
 
     --accent: #232a2e; /* hsl(217.2 32.6% 17.5%) */
-    --accent-foreground: #343e36;
 
     --destructive: #b02c27; /* hsl(0 62.8% 30.6%) */
     --destructive-foreground: #343e36;
@@ -169,4 +164,12 @@ html[data-theme='light'] {
   .bg-floral-pattern-2::after {
     background-image: url('/img/floral-2.png');
   }
+
+  .shadow-custom {
+    box-shadow: 0px 8px 24px 0px #eedbbb;
+  }
+}
+
+.card-hovered:hover {
+  @apply transition-all duration-200 ease-in-out shadow-custom;
 }

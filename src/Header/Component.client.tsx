@@ -14,7 +14,7 @@ interface HeaderClientProps {
 }
 
 export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(true)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +36,10 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
         <HeaderNav navItems={data?.navItems || []} />
 
-        <Link href="/locate-a-loved-one" className={buttonVariants({ variant: 'outline' })}>
+        <Link
+          href="/locate-a-loved-one"
+          className={buttonVariants({ size: 'sm', variant: 'outline' })}
+        >
           Locate a Loved One
         </Link>
       </div>

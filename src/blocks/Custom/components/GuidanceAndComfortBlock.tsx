@@ -2,7 +2,7 @@ import React from 'react'
 import RichText from '@/components/RichText'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/utilities/ui'
-import floralBG from '/public/img/floral-3.png'
+import floralBG from '/public/img/promo-a.svg'
 import Image from 'next/image'
 
 interface GuidanceAndComfortBlockProps {
@@ -96,7 +96,7 @@ const GuidanceAndComfortBlock = ({
 
             <div className='flex justify-between flex-wrap items-end  gap-8 z-10'>
                 {guideDescription && (
-                    <p className="max-w-[640px] lg:mx-auto text-base md:text-xl">
+                    <p className="max-w-[640px] text-base md:text-xl text-brand-30">
                         {guideDescription}
                     </p>
                 )}
@@ -113,10 +113,11 @@ const GuidanceAndComfortBlock = ({
                 alt="Floral Background"
                 width={760}
                 height={548}
-                className="absolute bottom-0 right-0 z-0"
+                className="absolute top-0 right-0 z-0"
             />
         </section>
     )
 }
 
 export default GuidanceAndComfortBlock
+

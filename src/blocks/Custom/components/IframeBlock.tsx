@@ -12,7 +12,7 @@ type Iframe = {
 
 export const IframeBlock: React.FC<Iframe> = ({ iframeUrl, iframeTitle, iframeWidth, iframeHeight }) => {
     return (
-        <section className="max-w-[1320px] mx-auto py-16 flex flex-col gap-10">
+        <section className="max-w-[1320px] mx-auto flex flex-col gap-10">
             <div key={iframeTitle} className="flex flex-col gap-4">
                 {iframeTitle && (
                     <h3 className="text-2xl font-bold text-gray-900">{iframeTitle}</h3>

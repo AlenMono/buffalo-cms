@@ -9,13 +9,14 @@ import Image from 'next/image'
 
 export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
   return (
-    <div className="">
-      <div className="max-w-[1128px] mx-auto mb-8 p-4">
+    <div className="p-4">
+      <div className="max-w-[1128px] mx-auto">
         {richText && (
           <RichText
             data={richText}
             enableGutter={false}
-            paragraphClassName="font-faustina-italic text-xl xl:text-[44px] xl:leading-[52px] text-brand-30 my-4 xl:my-16"
+            paragraphClassName="text-2xl xl:text-[44px] xl:leading-[52px] text-brand-30 mt-16"
+            h1ClassName="text-[56px] leading-[68px] font-faustina"
           />
         )}
 
@@ -39,14 +40,6 @@ export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richTex
         height={855}
         className="absolute top-[160px] right-0 z-[-1] max-h-[855px] max-w-[540px] w-full object-contain"
       />
-      {/* 
-      <Image
-        src="/img/medium-impact/hero-right.svg"
-        alt="Floral"
-        width={411}
-        height={628}
-        className="-right-52  scale-75 lg:scale-100 absolute -top-16 lg:-right-20 object-contain z-[-1]"
-      /> */}
 
       <div className="container flex flex-col items-center">
         {media && typeof media === 'object' && (

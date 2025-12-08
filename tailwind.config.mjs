@@ -48,7 +48,6 @@ const config = {
       },
       colors: {
         brand: 'var(--brand)',
-        'brand-0': 'var(--brand-0)',
         'brand-10': 'var(--brand-10)',
         'brand-20': 'var(--brand-20)',
         'brand-30': 'var(--brand-30)',
@@ -56,14 +55,15 @@ const config = {
         'text-primary': 'var(--text-primary)',
         accent: {
           DEFAULT: 'var(--accent)',
-          foreground: 'var(--accent-foreground)',
         },
         background: 'var(--background)',
         'background-light': 'var(--background-light)',
+        'invert-darkest': 'var(--invert-darkest)',
+        'primary-darkest': 'var(--primary-darkest)',
+        'accent-darkest': 'var(--accent-darkest)',
         border: 'var(--border)',
         card: {
           DEFAULT: 'var(--card)',
-          foreground: 'var(--card-foreground)',
         },
         destructive: {
           DEFAULT: 'var(--destructive)',
@@ -76,20 +76,14 @@ const config = {
           DEFAULT: 'var(--muted)',
           foreground: 'var(--muted-foreground)',
         },
-        popover: {
-          DEFAULT: 'var(--popover)',
-          foreground: 'var(--popover-foreground)',
-        },
         primary: {
           DEFAULT: 'var(--primary)',
           foreground: 'var(--primary-foreground)',
-          light: 'var(--primary-light)',
           dark: 'var(--primary-dark)',
         },
         ring: 'var(--ring)',
         secondary: {
           DEFAULT: 'var(--secondary)',
-          foreground: 'var(--secondary-foreground)',
         },
         success: 'var(--success)',
         error: 'var(--error)',

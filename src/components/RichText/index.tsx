@@ -36,10 +36,15 @@ const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
 }
 
 // ✨ jsxConverters now only requires defaultConverters + paragraphClassName as extra
-const jsxConverters = (
-  defaultConverters: ReturnType<JSXConvertersFunction<NodeTypes>>,
-  paragraphClassName?: string,
-) => ({
+const jsxConverters = ({
+  defaultConverters,
+  paragraphClassName,
+  h1ClassName,
+}: {
+  defaultConverters: ReturnType<JSXConvertersFunction<NodeTypes>>
+  paragraphClassName?: string
+  h1ClassName?: string
+}) => ({
   ...defaultConverters,
   ...LinkJSXConverter({ internalDocToHref }),
   heading: ({ node, nodesToJSX }: any) => {
@@ -119,19 +124,48 @@ const jsxConverters = (
         return <React.Fragment key={index}>{nodesToJSX({ nodes: [child] })}</React.Fragment>
       })
 
-      return <h1>{children}</h1>
+      return <span className={h1ClassName}>{children}</span>
     }
 
-    return <Tag>{children}</Tag>
+    return <>{children}</>
   },
   paragraph: ({ node, nodesToJSX }: any) => {
-    const children = node.children.map((child: any, index: number) =>
-      child.type === 'lineBreak' ? (
-        <br key={index} />
-      ) : (
-        <React.Fragment key={index}>{nodesToJSX({ nodes: [child] })}</React.Fragment>
-      ),
-    )
+    const children = node.children.map((child: any, index: number) => {
+      // handle plain text with formatting (same logic as h1)
+      if (child.type === 'text') {
+        return (
+          <span
+            key={index}
+            className={cn(
+              child.format === 0 && 'font-faustina font-normal',
+              child.format === 1 && 'font-faustina font-semibold',
+              child.format === 2 && 'font-faustina-italic',
+              child.format === 3 && 'font-faustina-italic font-semibold',
+            )}
+          >
+            {child.text}
+          </span>
+        )
+      }
+
+      // handle italic/em nested tags (Slate usually calls them "em" or "italic")
+      if (child.type === 'em' || child.type === 'italic') {
+        return (
+          <span key={index} className="font-faustina-italic">
+            {nodesToJSX({ nodes: child.children })}
+          </span>
+        )
+      }
+
+      // handle line breaks
+      if (child.type === 'linebreak' || child.type === 'lineBreak') {
+        return <br key={index} />
+      }
+
+      // fallback for other elements (links, strong, etc.)
+      return <React.Fragment key={index}>{nodesToJSX({ nodes: [child] })}</React.Fragment>
+    })
+
     return <p className={cn('m-0', paragraphClassName)}>{children}</p>
   },
   blocks: {
@@ -156,17 +190,25 @@ type Props = {
   enableGutter?: boolean
   enableProse?: boolean
   paragraphClassName?: string
+  h1ClassName?: string
 } & React.HTMLAttributes<HTMLDivElement>
 
 export default function RichText(props: Props) {
-  const { className, enableProse = true, enableGutter = true, paragraphClassName, ...rest } = props
+  const {
+    className,
+    enableProse = true,
+    enableGutter = true,
+    paragraphClassName,
+    h1ClassName,
+    ...rest
+  } = props
 
   // ✅ Wrapper to inject paragraphClassName dynamically
   const convertersWrapper = ({
     defaultConverters,
   }: {
     defaultConverters: ReturnType<JSXConvertersFunction<DefaultNodeTypes>>
-  }) => jsxConverters(defaultConverters, paragraphClassName)
+  }) => jsxConverters({ defaultConverters, paragraphClassName, h1ClassName })
 
   return (
     <ConvertRichText
