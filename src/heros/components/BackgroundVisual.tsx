@@ -13,7 +13,7 @@ import HeroERightHigh from '/public/img/hero/hero-E-right.svg'
 import { cn } from '@/utilities/ui'
 
 
-const BackgroundVisual = ({ heroImpact, backgroundVisual }: { heroImpact: string, backgroundVisual?: string }) => {
+const BackgroundVisual = ({ heroImpact, backgroundVisual }: { heroImpact: string, backgroundVisual?: ('landing-a' | 'landing-b' | 'landing-c' | 'landing-d' | 'landing-e') | null }) => {
     const image = backgroundVisual?.split('landing-')[1]?.toUpperCase() || 'A';
 
     // Map hero left icons

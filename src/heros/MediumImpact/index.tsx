@@ -11,7 +11,7 @@ export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richTex
   return (
     <div className="p-4">
       <div className="max-w-[1128px] mx-auto relative">
-        <BackgroundVisual heroImpact="medium" backgroundVisual={backgroundVisual || ''} />
+        <BackgroundVisual heroImpact="medium" backgroundVisual={backgroundVisual || null} />
 
         {richText && (
           <RichText
