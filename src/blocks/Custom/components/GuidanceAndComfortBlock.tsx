@@ -80,7 +80,7 @@ const GuidanceAndComfortBlock = ({
             <div className="relative flex-1 z-10">
                 <div>
                     {badgeText && (
-                        <span className="inline-block px-3 py-1 rounded-full border border-gray-300 text-gray-700 text-xs font-medium bg-white/70">
+                        <span className="inline-block px-3 py-1 rounded-full border border-brand-30 text-brand-30 text-xs font-medium mb-4">
                             {badgeText}
                         </span>
                     )}

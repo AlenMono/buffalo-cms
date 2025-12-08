@@ -30,7 +30,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
       className={`z-20 sticky top-0 transition-all duration-300 ${isScrolled ? 'bg-background' : ''}`}
     >
       <div className="container p-6 flex justify-between items-center">
-        <Link href="/">
+        <Link href="/home">
           <Logo loading="eager" priority="high" />
         </Link>
 
