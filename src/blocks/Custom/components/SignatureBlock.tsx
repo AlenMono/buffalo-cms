@@ -24,6 +24,7 @@ const SignatureBlock = (props: SignatureBlockProps) => {
       <div className="max-w-[1128px] mx-auto space-y-16">
         <RichText
           data={heading}
+          paragraphClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
           h1ClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
         />
 

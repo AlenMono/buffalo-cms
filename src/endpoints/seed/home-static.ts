@@ -439,15 +439,15 @@ export const homeStatic: RequiredDataFromCollectionSlug<'pages'> = {
         'For more than a century, Buffalo Catholic Cemeteries has provided a place of peace, remembrance, and dignity for families across Western New York.',
       statsColumn: [
         {
-          statsValue: '150',
+          statsValue: '176',
           statsLabel: 'Years of Service',
         },
         {
           statsValue: '7',
-          statsLabel: 'Locations Across NY',
+          statsLabel: 'Locations Across WNY',
         },
         {
-          statsValue: '80k',
+          statsValue: '80k+',
           statsLabel: 'Families Served',
         },
         {
@@ -485,6 +485,54 @@ export const homeStatic: RequiredDataFromCollectionSlug<'pages'> = {
           badgeLink: 'st-adalbert-cemetery',
         },
       ],
+    },
+    {
+      blockType: 'customBlock',
+      section: 'guidance-and-comfort',
+      promoLayot: 'promo-a',
+      badgeText: 'Grief Resources',
+      guideTitle: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Guidance and Comfort',
+                  detail: 0,
+                  format: 3,
+                  style: '',
+                  version: 1,
+                },
+                {
+                  type: 'lineBreak',
+                },
+                {
+                  type: 'text',
+                  text: 'in Times of Loss',
+                  detail: 0,
+                  format: 0,
+                  style: '',
+                  version: 1,
+                },
+              ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              version: 1,
+            },
+          ],
+          direction: 'ltr',
+          format: '',
+          indent: 0,
+          version: 1,
+        },
+      },
+      guideDescription:
+        'Grieving takes time, and every journey is different. Our new Grief and Bereavement Guidebook offers reflections, practical advice, and gentle support to help you or someone you love navigate this difficult time.',
+      guideButtonText: 'Download the Guidebook',
     },
   ],
 }
