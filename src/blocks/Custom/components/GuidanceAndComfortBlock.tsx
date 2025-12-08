@@ -1,9 +1,10 @@
 import React from 'react'
 import RichText from '@/components/RichText'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/utilities/ui'
 import floralBG from '/public/img/promo-a.svg'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface GuidanceAndComfortBlockProps {
     badgeText?: string
@@ -28,7 +29,8 @@ const GuidanceAndComfortBlock = ({
     guideDescription,
     guideButtonText = 'Download the Guidebook',
     promoLayot,
-    promoImage
+    promoImage,
+    guideButtonLink
 }: GuidanceAndComfortBlockProps) => {
     if (promoLayot === 'promo-b') {
         return (
@@ -101,11 +103,12 @@ const GuidanceAndComfortBlock = ({
                     </p>
                 )}
 
-                <Button
-                    variant="default"
+                <Link
+                    href={guideButtonLink || '#'}
+                    className={cn(buttonVariants({ variant: 'default', size: 'sm' }))}
                 >
                     {guideButtonText}
-                </Button>
+                </Link>
             </div>
 
             <Image
