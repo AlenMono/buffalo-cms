@@ -87,7 +87,9 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                 </div>
             </div>
             <div className="hidden md:flex">
-                {image && <Image width={760} height={660} src={image?.url} alt="Cemetery" className='h-full object-cover' />}
+                <div className='p-3 rounded-lg relative bg-background-light border border-gold'>
+                    <Image width={760} height={660} src={image?.url || 'public/img/graveyard.png'} alt="Cemetery" className='h-full object-cover' />
+                </div>
             </div>
         </div>
     );
