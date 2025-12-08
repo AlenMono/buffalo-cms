@@ -8,9 +8,9 @@ import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
-import Image from 'next/image'
+import BackgroundVisual from '../components/BackgroundVisual'
 
-export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
+export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText, backgroundVisual }) => {
   const { setHeaderTheme } = useHeaderTheme()
 
   useEffect(() => {
@@ -19,27 +19,15 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
 
   return (
     <div className="container mt-16 relative">
-      <Image
-        src="/img/high-impact/hero-left.svg"
-        alt="Floral"
-        width={411}
-        height={628}
-        className="-left-52 scale-75 lg:scale-100 absolute -top-16 lg:-left-20 object-contain z-[-1]"
-      />
-      <Image
-        src="/img/high-impact/hero-right.svg"
-        alt="Floral"
-        width={411}
-        height={628}
-        className="-right-52  scale-75 lg:scale-100 absolute -top-16 lg:-right-20 object-contain z-[-1]"
-      />
+      <BackgroundVisual heroImpact="high" backgroundVisual={backgroundVisual || ''} />
+
       <div className="container mb-8 z-10 relative flex items-center justify-center">
         <div className="max-w-[746px] md:text-center space-y-7">
           {richText && (
             <RichText
               data={richText}
               enableGutter={false}
-              paragraphClassName="text-lg leading-[24px] pt-1"
+              paragraphClassName="text-lg font-satoshi leading-[24px] pt-1"
               h1ClassName="text-[56px] leading-[68px] font-faustina"
             />
           )}

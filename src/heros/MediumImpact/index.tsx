@@ -5,12 +5,14 @@ import type { Page } from '@/payload-types'
 import { CMSLink } from '@/components/Link'
 import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
-import Image from 'next/image'
+import BackgroundVisual from '../components/BackgroundVisual'
 
-export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
+export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richText, backgroundVisual }) => {
   return (
     <div className="p-4">
-      <div className="max-w-[1128px] mx-auto">
+      <div className="max-w-[1128px] mx-auto relative">
+        <BackgroundVisual heroImpact="medium" backgroundVisual={backgroundVisual || ''} />
+
         {richText && (
           <RichText
             data={richText}
@@ -32,14 +34,6 @@ export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richTex
           </ul>
         )}
       </div>
-
-      <Image
-        src={'/img/header-b.png'}
-        alt={'Rose'}
-        width={540}
-        height={855}
-        className="absolute top-[160px] right-0 z-[-1] max-h-[855px] max-w-[540px] w-full object-contain"
-      />
 
       <div className="container flex flex-col items-center">
         {media && typeof media === 'object' && (

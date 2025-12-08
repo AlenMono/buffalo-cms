@@ -39,12 +39,12 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
   return (
     <section className="max-w-[1125px] mx-auto">
       <div className="flex flex-wrap justify-between gap-10">
-        <div className="max-w-[457px] flex flex-col justify-between">
+        <div className="xl:max-w-[457px] flex flex-col justify-between">
           {benefitTitle && (
             <RichText data={benefitTitle} className="text-left !text-4xl font-faustina" />
           )}
 
-          {benefitDescription && <p className="text-gray-700">{benefitDescription}</p>}
+          {benefitDescription && <p className="text-gray-700 max-w-[266px]">{benefitDescription}</p>}
         </div>
 
         <div className="flex flex-col gap-10 xl:gap-12 max-w-[495px]">

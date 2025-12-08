@@ -141,13 +141,13 @@ const jsxConverters = ({
               child.format === 1 && 'font-faustina font-semibold',
               child.format === 2 && 'font-faustina-italic',
               child.format === 3 && 'font-faustina-italic font-semibold',
+              paragraphClassName,
             )}
           >
             {child.text}
           </span>
         )
       }
-
       // handle italic/em nested tags (Slate usually calls them "em" or "italic")
       if (child.type === 'em' || child.type === 'italic') {
         return (

@@ -39,6 +39,18 @@ export const hero: Field = {
       required: true,
     },
     {
+      name: 'backgroundVisual',
+      type: 'select',
+      defaultValue: 'landing-a',
+      options: [
+        { label: 'Landing A', value: 'landing-a' },
+        { label: 'Landing B', value: 'landing-b' },
+        { label: 'Landing C', value: 'landing-c' },
+        { label: 'Landing D', value: 'landing-d' },
+        { label: 'Landing E', value: 'landing-e' },
+      ],
+    },
+    {
       name: 'richText',
       type: 'richText',
       editor: lexicalEditor({
