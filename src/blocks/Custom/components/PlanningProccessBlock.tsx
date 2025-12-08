@@ -18,7 +18,7 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
   planningProcessCards = [],
 }) => {
   return (
-    <section className="max-w-[1320px] mx-auto py-20">
+    <section className="max-w-[1320px] mx-auto">
       <div className="bg-background-light border border-primary-dark px-9 py-7 rounded-lg">
         {planningProcessTitle && (
           <div className="mb-6  text-center">

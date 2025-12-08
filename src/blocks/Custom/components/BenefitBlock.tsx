@@ -22,7 +22,7 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
 }) => {
   if (benefitLayout === 'horizontal') {
     return (
-      <div className="max-w-[1128px] mx-auto grid grid-cols-[repeat(auto-fill,minmax(270px,1fr))] gap-12 flex-1 xl:px-4">
+      <div className="max-w-[1128px] mx-auto grid grid-cols-[repeat(auto-fill,minmax(270px,1fr))] gap-12 flex-1">
         {benefits.map((card, idx) => (
           <div key={idx} className="flex gap-2">
             <CheckIcon className="mt-1 min-w-5" />

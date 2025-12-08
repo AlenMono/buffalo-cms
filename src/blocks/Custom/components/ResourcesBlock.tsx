@@ -22,16 +22,16 @@ const ResourcesBlock = ({ resourceTitle, resourcesLinks, resourcesLayot }: Resou
                 <div className='bg-background-light rounded-lg border border-primary-dark px-9 py-8 relative overflow-hidden'>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 '>
                         {resourcesLinks?.map((link, index) => (
-                            <div key={index} className='flex flex-col gap-2'>
+                            <Link href={link.resourceUrl} target='_blank' key={index} className='flex flex-col gap-2 group'>
                                 <div className='flex items-center gap-4'>
-                                    <Link href={link.resourceUrl} target='_blank' className='group flex items-center gap-2 hover:text-gold transition-all duration-300'>
+                                    <div className='flex items-center gap-2 transition-all duration-300 group-hover:text-accent-darkest'>
                                         <p className='text-xl font-semibold'>{link.resourceTitle}</p>
 
                                         <ArrowUpRight />
-                                    </Link>
+                                    </div>
                                 </div>
                                 <p className='text-lg'>{link.resourceDescription}</p>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>

@@ -4,7 +4,7 @@ import { type VariantProps, cva } from 'class-variance-authority'
 import * as React from 'react'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition-all duration-200',
+  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-bold ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition-all duration-200',
   {
     defaultVariants: {
       size: 'default',
@@ -13,20 +13,21 @@ const buttonVariants = cva(
     variants: {
       size: {
         clear: '',
-        default: 'h-10 px-4 py-2',
+        sm: 'h-9 px-3 text-sm',
+        default: 'h-10 px-4',
+        md: 'h-12 px-6 text-base',
         icon: 'h-10 w-10',
         lg: 'h-11 px-8',
-        sm: 'p-2',
       },
       variant: {
-        primary: 'bg-gold text-white hover:bg-[#c4a571]',
+        primary: 'bg-gold text-white hover:bg-primary-darkest',
         'primary-outline':
-          'bg-transparent border border-gold text-gold hover:bg-gold hover:text-white',
-        default: 'bg-brand text-white hover:bg-brand-30',
+          'bg-transparent border border-gold text-gold hover:bg-gold hover:border-primary-darkest hover:text-white',
+        default: 'bg-brand text-white hover:bg-invert-darkest',
         destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
         ghost: 'hover:bg-secondary',
         link: 'text-primary items-start justify-start underline-offset-4 hover:underline',
-        outline: 'border border-border bg-transparent hover:bg-brand hover:text-white',
+        outline: 'border-2 border-secondary-foreground text-brand bg-transparent hover:bg-brand-60',
         'outline-white': 'border border-white bg-transparent hover:bg-white hover:text-primary',
         secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
       },

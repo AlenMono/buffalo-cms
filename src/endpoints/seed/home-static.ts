@@ -182,7 +182,7 @@ export const homeStatic: RequiredDataFromCollectionSlug<'pages'> = {
               children: [
                 {
                   type: 'text',
-                  text: 'On behalf of Buffalo Catholic Cemeteries, welcome. Whether you are here after a recent loss or to plan for the future, we are honored to serve you and your family.',
+                  text: 'Whether you are here after a recent loss or to plan for the future, we are honored to serve you and your family.',
                   detail: 0,
                   format: 0,
                   mode: 'normal',
@@ -253,9 +253,9 @@ export const homeStatic: RequiredDataFromCollectionSlug<'pages'> = {
                 {
                   type: 'text',
                   text: 'Planning',
+                  style: '',
                   detail: 0,
                   format: 3,
-                  style: '',
                   version: 1,
                 },
                 {
