@@ -19,7 +19,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText,
 
   return (
     <div className="container mt-16 relative">
-      <BackgroundVisual heroImpact="high" backgroundVisual={backgroundVisual || ''} />
+      <BackgroundVisual heroImpact="high" backgroundVisual={backgroundVisual || null} />
 
       <div className="container mb-8 z-10 relative flex items-center justify-center">
         <div className="max-w-[746px] md:text-center space-y-7">

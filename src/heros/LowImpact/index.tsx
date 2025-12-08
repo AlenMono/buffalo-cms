@@ -9,12 +9,12 @@ type LowImpactHeroType =
     | {
         children?: React.ReactNode
         richText?: never
-        backgroundVisual?: string
+        backgroundVisual?: "landing-a" | "landing-b" | "landing-c" | "landing-d" | "landing-e" | null | undefined
     }
     | (Omit<Page['hero'], 'richText'> & {
         children?: never
         richText?: Page['hero']['richText']
-        backgroundVisual?: string
+        backgroundVisual?: "landing-a" | "landing-b" | "landing-c" | "landing-d" | "landing-e" | null | undefined
     })
 
 export const LowImpactHero: React.FC<LowImpactHeroType> = ({
@@ -24,7 +24,7 @@ export const LowImpactHero: React.FC<LowImpactHeroType> = ({
 }) => {
     return (
         <div className="container mt-16 relative">
-            <BackgroundVisual heroImpact="high" backgroundVisual={backgroundVisual || ''} />
+            <BackgroundVisual heroImpact="high" backgroundVisual={backgroundVisual || null} />
 
             <div className="max-w-[48rem] text-center mx-auto">
                 {children ||
