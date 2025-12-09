@@ -76,6 +76,6 @@ export const CustomBlock: Block = {
     ...Object.values(imageGaleriesFields),
 
     // Video fields
-    ...Object.values(videoFields)
+    ...Object.values(videoFields),
   ],
 }

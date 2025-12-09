@@ -7,6 +7,8 @@ type VideoBlockProps = {
 }
 
 export const VideoBlock: React.FC<VideoBlockProps> = ({ videoUrl, videoTitle, videoPoster }) => {
+    if (!videoUrl) return null
+
     return (
         <section className="max-w-[1320px] mx-auto flex flex-col gap-10">
             <div className="flex flex-col gap-4">
