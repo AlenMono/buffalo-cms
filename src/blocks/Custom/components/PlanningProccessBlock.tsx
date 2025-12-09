@@ -27,7 +27,7 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
         )}
 
         {planningProcessDescription && (
-          <p className="mx-auto text-gray-700 text-center mb-12 max-w-[493px]">
+          <p className="mx-auto text-brand-30 text-center mb-12 max-w-[493px]">
             {planningProcessDescription}
           </p>
         )}

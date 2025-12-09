@@ -105,9 +105,9 @@ const GuidanceAndComfortBlock = ({
 
                 <Link
                     href={guideButtonLink || '#'}
-                    className={cn(buttonVariants({ variant: 'default', size: 'sm' }))}
+                    className={cn(buttonVariants({ variant: 'default', size: 'md' }))}
                 >
-                    {guideButtonText}
+                    {guideButtonText || 'Download the Guidebook'}
                 </Link>
             </div>
 

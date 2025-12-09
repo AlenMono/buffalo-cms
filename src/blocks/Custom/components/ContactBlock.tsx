@@ -34,7 +34,7 @@ const ContactBlock: React.FC<ContactBlockProps> = ({
                 <RichText data={contactTitle} className="!text-4xl font-faustina mb-6 lg:mb-16" />
             )}
 
-            {contactDescription && <p className="text-gray-700 text-lg mb-6">{contactDescription}</p>}
+            {contactDescription && <p className="text-brand-30 text-lg mb-6">{contactDescription}</p>}
 
             {contactLinks.length > 0 && (
                 <ul className="flex justify-center gap-3">

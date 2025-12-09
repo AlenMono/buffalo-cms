@@ -42,7 +42,7 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayou
     const items = filteredFaqs.map(faq => ({
         title: <span className="text-lg font-medium text-gray-900">{faq.faqQuestion}</span>,
         content: (
-            <div className="mt-3 text-gray-700">
+            <div className="mt-3 text-brand-30">
                 <p>{faq.faqAnswer}</p>
             </div>
         ),
