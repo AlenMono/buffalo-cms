@@ -28,7 +28,7 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
             <CheckIcon className="mt-1 min-w-5" />
             <div className="flex flex-col gap-4">
               <h3 className="text-xl font-semibold">{card.heading}</h3>
-              <p className="text-gray-700">{card.subheading}</p>
+              <p className="text-brand-30">{card.subheading}</p>
             </div>
           </div>
         ))}
@@ -39,12 +39,16 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
   return (
     <section className="max-w-[1125px] mx-auto">
       <div className="flex flex-wrap justify-between gap-10">
-        <div className="xl:max-w-[457px] flex flex-col justify-between">
+        <div className="xl:max-w-[457px] flex flex-col justify-between gap-10">
           {benefitTitle && (
-            <RichText data={benefitTitle} className="text-left !text-4xl font-faustina" />
+            <RichText
+              data={benefitTitle}
+              paragraphClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
+              h1ClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
+            />
           )}
 
-          {benefitDescription && <p className="text-gray-700 max-w-[266px]">{benefitDescription}</p>}
+          {benefitDescription && <p className="text-brand-30 xl:max-w-[266px]">{benefitDescription}</p>}
         </div>
 
         <div className="flex flex-col gap-10 xl:gap-12 max-w-[495px]">
@@ -54,7 +58,7 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
 
               <div className="flex flex-col gap-4">
                 <h3 className="text-xl font-semibold">{card.heading}</h3>
-                <p className="text-gray-700">{card.subheading}</p>
+                <p className="text-brand-30">{card.subheading}</p>
               </div>
             </div>
           ))}
