@@ -17,6 +17,7 @@ export const blockOptions = [
   { label: 'Iframe', value: 'iframe' },
   { label: 'Cemetery Locations', value: 'cemetery-locations' },
   { label: 'Image Galleries', value: 'image-galleries' },
+  { label: 'Video', value: 'video' },
 ] as const
 
 // Literal type for section values
@@ -49,4 +50,11 @@ export interface PlanningBlockProps extends BaseBlockProps {
   section: 'planning'
   title: string
   description: string
+}
+
+export interface VideoBlockProps extends BaseBlockProps {
+  section: 'video'
+  videoTitle?: string
+  videoUrl: string
+  videoPoster?: string
 }

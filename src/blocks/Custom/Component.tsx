@@ -18,6 +18,7 @@ import BurialOptionListBlock from './components/BurialOptionListBlock';
 import IframeBlock from './components/IframeBlock';
 import CemeteryLocationsBlock from './components/CemeteryLocationsBlock '
 import ImageGalleryBlock from './components/ImageGalleryBlock'
+import VideoBlock from './components/VideoBlock'
 
 
 const blockComponentMap: Record<BlockSection, React.ComponentType<any>> = {
@@ -38,6 +39,7 @@ const blockComponentMap: Record<BlockSection, React.ComponentType<any>> = {
     iframe: IframeBlock,
     'cemetery-locations': CemeteryLocationsBlock,
     'image-galleries': ImageGalleryBlock,
+    video: VideoBlock,
 };
 
 export const CustomBlock = (props: BaseBlockProps) => {
