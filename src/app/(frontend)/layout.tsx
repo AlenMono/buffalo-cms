@@ -23,11 +23,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
       <head>
         <InitTheme />
-        <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
-        <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
-        <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
+        <link rel="manifest" href="/manifest.json" />
+        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <link href="/favicon.ico" rel="shortcut icon" />
+        <link rel="apple-touch-icon" href="/web-app-manifest-192x192.png" />
+        <meta name="theme-color" content="#ffffff" />
       </head>
       <body>
         <Providers>
