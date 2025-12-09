@@ -488,6 +488,7 @@ export interface CustomBlock {
     | 'resources'
     | 'stats'
     | 'testimonial'
+    | 'video'
     | 'signature';
   columns?:
     | {
@@ -850,6 +851,15 @@ export interface CustomBlock {
         id?: string | null;
       }[]
     | null;
+  videoTitle?: string | null;
+  /**
+   * Paste the URL to your video file (e.g., .mp4, .webm, etc.)
+   */
+  videoUrl?: string | null;
+  /**
+   * Optional: URL to an image to display before the video plays
+   */
+  videoPoster?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'customBlock';
@@ -1590,6 +1600,9 @@ export interface CustomBlockSelect {
         image?: boolean;
         id?: boolean;
       };
+  videoTitle?: boolean;
+  videoUrl?: boolean;
+  videoPoster?: boolean;
   id?: boolean;
   blockName?: boolean;
 }

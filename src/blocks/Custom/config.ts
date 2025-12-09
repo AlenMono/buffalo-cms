@@ -17,6 +17,7 @@ import { burialOptionsListFields } from './models/burialOptionsFields'
 import { iframeFields } from './models/iframeFields'
 import { imageGaleriesFields } from './models/imageGaleriesFields'
 import { cemeteryLocationsFields } from './models/cementeryLocationsFields'
+import { videoFields } from './models/videoFields'
 
 export const CustomBlock: Block = {
   slug: 'customBlock',
@@ -73,5 +74,8 @@ export const CustomBlock: Block = {
 
     // image gallery
     ...Object.values(imageGaleriesFields),
+
+    // Video fields
+    ...Object.values(videoFields)
   ],
 }

@@ -78,6 +78,10 @@ export const sectionFields: Field = {
       value: 'testimonial',
     },
     {
+      label: 'Video',
+      value: 'video',
+    },
+    {
       label: 'With Signature',
       value: 'signature',
     },
