@@ -15,6 +15,16 @@ export const Cemeteries: CollectionConfig = {
       required: true,
     },
     {
+      name: 'subtitle',
+      type: 'text',
+      required: false,
+    },
+    {
+      name: 'order',
+      type: 'number',
+      required: false,
+    },
+    {
       name: 'detailsLink',
       type: 'text',
       required: true,

@@ -896,6 +896,8 @@ export interface User {
 export interface Cemetery {
   id: number;
   name: string;
+  subtitle?: string | null;
+  order?: number | null;
   detailsLink: string;
   address: string;
   workingHours?: {
@@ -1780,6 +1782,8 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface CemeteriesSelect<T extends boolean = true> {
   name?: T;
+  subtitle?: T;
+  order?: T;
   detailsLink?: T;
   address?: T;
   workingHours?:

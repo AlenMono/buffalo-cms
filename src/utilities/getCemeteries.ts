@@ -30,6 +30,8 @@ export async function getCemeteries() {
       name: cAny.name,
       address: cAny.address ?? undefined,
       phone: cAny.phone ?? undefined,
+      order: cAny.order ?? 0,
+      subtitle: cAny.subtitle ?? undefined,
       workingHours: cAny.workingHours
         ? {
             weekday: cAny.workingHours.weekday ?? undefined,
