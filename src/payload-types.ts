@@ -475,6 +475,7 @@ export interface CustomBlock {
     | 'burial-options-list'
     | 'cemetery-locations'
     | 'contact'
+    | 'contact-form'
     | 'custom'
     | 'default'
     | 'faq'
@@ -860,35 +861,17 @@ export interface CustomBlock {
    * Optional: URL to an image to display before the video plays
    */
   videoPoster?: string | null;
+  contactForm?: (number | null) | Form;
+  contactBenefits?:
+    | {
+        heading: string;
+        subheading: string;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'customBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FormBlock".
- */
-export interface FormBlock {
-  form: number | Form;
-  enableIntro?: boolean | null;
-  introContent?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'formBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1063,6 +1046,32 @@ export interface Form {
     | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FormBlock".
+ */
+export interface FormBlock {
+  form: number | Form;
+  enableIntro?: boolean | null;
+  introContent?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'formBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1418,7 +1427,6 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         content?: T | ContentBlockSelect<T>;
-        customBlock?: T | CustomBlockSelect;
         formBlock?: T | FormBlockSelect<T>;
       };
   meta?:
@@ -1632,6 +1640,14 @@ export interface CustomBlockSelect {
   videoTitle?: boolean;
   videoUrl?: boolean;
   videoPoster?: boolean;
+  contactForm?: boolean;
+  contactBenefits?:
+    | boolean
+    | {
+        heading?: boolean;
+        subheading?: boolean;
+        id?: boolean;
+      };
   id?: boolean;
   blockName?: boolean;
 }

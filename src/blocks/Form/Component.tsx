@@ -115,11 +115,11 @@ export const FormBlock: React.FC<
     )
 
     return (
-        <div className="container lg:max-w-[48rem]">
+        <div>
             {enableIntro && introContent && !hasSubmitted && (
                 <RichText className="mb-8 lg:mb-12" data={introContent} enableGutter={false} />
             )}
-            <div className="p-4 lg:p-6">
+            <div>
                 <FormProvider {...formMethods}>
                     {!isLoading && hasSubmitted && confirmationType === 'message' && (
                         <RichText data={confirmationMessage} paragraphClassName='font-satoshi text-center' />

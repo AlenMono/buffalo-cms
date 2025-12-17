@@ -1,3 +1,4 @@
+import { buttonVariants } from '@/components/ui/button'
 import { getNews } from '@/utilities/getNews'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,8 +10,8 @@ export default async function NewsBlock() {
         <section className="bg-cream">
             <div className="max-w-[1128px] mx-auto px-6">
                 <div className="flex justify-between items-center mb-8">
-                    <h2 className="text-3xl font-serif italic">News & Announcements</h2>
-                    <Link href="/posts" className="border px-4 py-2 rounded">
+                    <h2 className="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px] font-faustina font-regular"><span className='italic font-semibold'>News</span> & Announcements</h2>
+                    <Link href="/posts" className={buttonVariants({ variant: 'outline', size: 'md' })}>
                         Read All News
                     </Link>
                 </div>
@@ -21,7 +22,7 @@ export default async function NewsBlock() {
                             <Link
                                 href={`/posts/${item.slug}`}
                                 key={item.id}
-                                className="flex flex-col border border-primary-dark bg-background-light rounded-lg overflow-hidden p-4 min-h-[360px]"
+                                className="flex flex-col border border-primary-dark bg-background-light rounded-lg overflow-hidden p-4 min-h-[360px] card-hovered"
                             >
                                 {item.heroImage.url && (
                                     <Image
