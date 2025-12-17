@@ -28,6 +28,7 @@ export const Number: React.FC<
         defaultValue={defaultValue}
         id={name}
         type="number"
+        placeholder={label}
         {...register(name, { required })}
       />
       {errors[name] && <Error name={name} />}

@@ -2,9 +2,11 @@ import React, { Fragment } from 'react'
 
 import type { Page } from '@/payload-types'
 import { CustomBlock } from '@/blocks/Custom/Component'
+import { FormBlock } from '@/blocks/Form/Component'
 
 const blockComponents: Partial<Record<Page['layout'][number]['blockType'], React.FC<any>>> = {
   customBlock: CustomBlock,
+  formBlock: FormBlock,
 }
 
 export const RenderBlocks: React.FC<{
