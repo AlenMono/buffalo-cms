@@ -25,6 +25,10 @@ export const sectionFields: Field = {
       value: 'contact',
     },
     {
+      label: 'Contact Form',
+      value: 'contact-form',
+    },
+    {
       label: 'Custom',
       value: 'custom',
     },

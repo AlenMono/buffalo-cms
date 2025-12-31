@@ -17,6 +17,7 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { CustomBlock } from '@/blocks/Custom/config'
+import { FormBlock } from '@/blocks/Form/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -69,7 +70,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [Content, CustomBlock],
+              blocks: [Content, CustomBlock, FormBlock],
               required: true,
               admin: {
                 initCollapsed: true,

@@ -18,7 +18,7 @@ const faqField = {
   faqAnswer: {
     name: 'faqAnswer',
     label: 'Answer',
-    type: 'text',
+    type: 'textarea',
     required: false,
   },
   faqType: {

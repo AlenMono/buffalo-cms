@@ -19,6 +19,7 @@ import IframeBlock from './components/IframeBlock';
 import CemeteryLocationsBlock from './components/CemeteryLocationsBlock '
 import ImageGalleryBlock from './components/ImageGalleryBlock'
 import VideoBlock from './components/VideoBlock'
+import { ContactFormBlock } from './components/ContactFormBlock';
 
 
 const blockComponentMap: Record<BlockSection, React.ComponentType<any>> = {
@@ -40,6 +41,7 @@ const blockComponentMap: Record<BlockSection, React.ComponentType<any>> = {
     'cemetery-locations': CemeteryLocationsBlock,
     'image-galleries': ImageGalleryBlock,
     video: VideoBlock,
+    'contact-form': ContactFormBlock,
 };
 
 export const CustomBlock = (props: BaseBlockProps) => {
