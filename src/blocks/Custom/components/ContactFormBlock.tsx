@@ -1,6 +1,8 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { FormBlock, FormBlockType } from '@/blocks/Form/Component'
+import HeroRightImg from '/public/img/contact/hero-right.svg'
+import Image from 'next/image'
 
 type BenefitCard = {
     heading: string
@@ -32,7 +34,15 @@ export const ContactFormBlock: React.FC<ContactFormBlockProps> = ({ contactBenef
     }, [])
 
     return (
-        <div>
+        <div className="max-w-[1128px] mx-auto relative">
+            <Image
+                src={HeroRightImg}
+                alt="Floral"
+                width={772}
+                height={850}
+                className="scale-75 lg:scale-100 absolute -top-16 object-contain z-[-1] -right-96"
+            />
+
             <h1 className="text-5xl xl:text-[56px] xl:leading-[64px] font-semibold font-faustina italic mb-16">
                 Contact Us
             </h1>
@@ -41,10 +51,35 @@ export const ContactFormBlock: React.FC<ContactFormBlockProps> = ({ contactBenef
                 {formData ? (
                     <FormBlock {...formData} id="1" />
                 ) : (
-                    <p>Loading form...</p>
+                    <div className="max-w-2xl animate-pulse space-y-6">
+                        <div className="h-10 w-64 rounded-md bg-primary-dark"></div>
+
+                        <div className="space-y-2">
+                            <div className="h-4 w-24 rounded bg-primary-dark"></div>
+                            <div className="h-11 w-full rounded-md bg-primary-dark"></div>
+                        </div>
+
+                        <div className="space-y-2">
+                            <div className="h-4 w-16 rounded bg-primary-dark"></div>
+                            <div className="h-11 w-80 rounded-md bg-primary-dark"></div>
+                        </div>
+
+                        <div className="space-y-2">
+                            <div className="h-4 w-28 rounded bg-primary-dark"></div>
+                            <div className="h-11 w-80 rounded-md bg-primary-dark"></div>
+                        </div>
+
+                        <div className="space-y-2">
+                            <div className="h-4 w-20 rounded bg-primary-dark"></div>
+                            <div className="h-40 w-full rounded-md bg-primary-dark"></div>
+                        </div>
+
+                        <div className="h-11 w-36 rounded-md bg-brand"></div>
+                    </div>
+
                 )}
 
-                <div>
+                <div className='max-w-[460px]'>
                     {contactBenefits.map((card, idx) => (
                         <div key={idx} className="flex gap-2 mb-6">
                             <CheckIcon className="mt-1 min-w-5" />

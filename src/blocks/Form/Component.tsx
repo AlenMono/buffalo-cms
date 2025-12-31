@@ -115,7 +115,7 @@ export const FormBlock: React.FC<
     )
 
     return (
-        <div>
+        <div className='max-w-[550px]'>
             {enableIntro && introContent && !hasSubmitted && (
                 <RichText className="mb-8 lg:mb-12" data={introContent} enableGutter={false} />
             )}
@@ -127,35 +127,37 @@ export const FormBlock: React.FC<
                     {isLoading && !hasSubmitted && <p className='text-center font-satoshi animate-pulse mb-4'>Loading, please wait...</p>}
                     {error && <div>{`${error.status || '500'}: ${error.message || ''}`}</div>}
                     {!hasSubmitted && (
-                        <form id={formID} onSubmit={handleSubmit(onSubmit)}>
-                            <div className="mb-4 last:mb-0">
-                                {formFromProps &&
-                                    formFromProps.fields &&
-                                    formFromProps.fields?.map((field: any, index) => {
-                                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                                        const Field: React.FC<any> = fields?.[field.blockType as keyof typeof fields]
-                                        if (Field) {
-                                            return (
-                                                <div className="mb-4 last:mb-0" key={index}>
-                                                    <Field
-                                                        form={formFromProps}
-                                                        {...field}
-                                                        {...formMethods}
-                                                        control={control}
-                                                        errors={errors}
-                                                        register={register}
-                                                        label={field.label}
-                                                    />
-                                                </div>
-                                            )
-                                        }
-                                        return null
-                                    })}
-                            </div>
+                        <form id={formID} onSubmit={handleSubmit(onSubmit)} className='flex flex-wrap gap-2'>
+                            {formFromProps &&
+                                formFromProps.fields &&
+                                formFromProps.fields?.map((field: any, index) => {
+                                    field.width = 100;
+                                    const isHalf = field.name === "email" || field.name === "phone";
+                                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                    const Field: React.FC<any> = fields?.[field.blockType as keyof typeof fields]
+                                    if (Field) {
+                                        return (
+                                            <div style={{ width: isHalf ? '49%' : '100%' }} key={index}>
+                                                <Field
+                                                    form={formFromProps}
+                                                    {...field}
+                                                    {...formMethods}
+                                                    control={control}
+                                                    errors={errors}
+                                                    register={register}
+                                                    label={field.label}
+                                                />
+                                            </div>
+                                        )
+                                    }
+                                    return null
+                                })}
 
-                            <Button form={formID} type="submit" size="md" variant="default">
-                                {submitButtonLabel}
-                            </Button>
+                            <div className='pt-2'>
+                                <Button form={formID} type="submit" size="md" variant="default">
+                                    {submitButtonLabel}
+                                </Button>
+                            </div>
                         </form>
                     )}
                 </FormProvider>
