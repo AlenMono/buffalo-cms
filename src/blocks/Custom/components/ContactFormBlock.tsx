@@ -52,21 +52,21 @@ export const ContactFormBlock: React.FC<ContactFormBlockProps> = ({ contactBenef
                     <FormBlock {...formData} id="1" />
                 ) : (
                     <div className="max-w-2xl animate-pulse space-y-6">
-                        <div className="h-10 w-64 rounded-md bg-primary-dark"></div>
-
                         <div className="space-y-2">
                             <div className="h-4 w-24 rounded bg-primary-dark"></div>
                             <div className="h-11 w-full rounded-md bg-primary-dark"></div>
                         </div>
 
-                        <div className="space-y-2">
-                            <div className="h-4 w-16 rounded bg-primary-dark"></div>
-                            <div className="h-11 w-80 rounded-md bg-primary-dark"></div>
-                        </div>
+                        <div className="flex gap-2">
+                            <div className='flex-1 space-y-2'>
+                                <div className="h-4 w-16 rounded bg-primary-dark"></div>
+                                <div className="h-11 w-full rounded-md bg-primary-dark"></div>
+                            </div>
 
-                        <div className="space-y-2">
-                            <div className="h-4 w-28 rounded bg-primary-dark"></div>
-                            <div className="h-11 w-80 rounded-md bg-primary-dark"></div>
+                            <div className='flex-1 space-y-2'>
+                                <div className="h-4 w-28 rounded bg-primary-dark"></div>
+                                <div className="h-11 w-full rounded-md bg-primary-dark"></div>
+                            </div>
                         </div>
 
                         <div className="space-y-2">
