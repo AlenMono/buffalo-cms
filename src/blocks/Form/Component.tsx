@@ -10,6 +10,7 @@ import type { DefaultTypedEditorState } from '@payloadcms/richtext-lexical'
 
 import { fields } from './fields'
 import { getClientSideURL } from '@/utilities/getURL'
+import { AlertCircle, CheckCircle } from 'lucide-react'
 
 export type FormBlockType = {
     blockName?: string
@@ -109,56 +110,99 @@ export const FormBlock: React.FC<
                 }
             }
 
+            if (confirmationType === 'message') {
+                setTimeout(() => {
+                    setHasSubmitted(false)
+                }, 8000)
+            }
+
             void submitForm()
         },
         [router, formID, redirect, confirmationType],
     )
 
     return (
-        <div className='max-w-[550px]'>
+        <div className='xl:max-w-[550px]'>
             {enableIntro && introContent && !hasSubmitted && (
                 <RichText className="mb-8 lg:mb-12" data={introContent} enableGutter={false} />
             )}
             <div>
                 <FormProvider {...formMethods}>
-                    {!isLoading && hasSubmitted && confirmationType === 'message' && (
-                        <RichText data={confirmationMessage} paragraphClassName='font-satoshi text-center' />
-                    )}
-                    {isLoading && !hasSubmitted && <p className='text-center font-satoshi animate-pulse mb-4'>Loading, please wait...</p>}
-                    {error && <div>{`${error.status || '500'}: ${error.message || ''}`}</div>}
-                    {!hasSubmitted && (
-                        <form id={formID} onSubmit={handleSubmit(onSubmit)} className='flex flex-wrap gap-2'>
-                            {formFromProps &&
-                                formFromProps.fields &&
-                                formFromProps.fields?.map((field: any, index) => {
-                                    field.width = 100;
-                                    const isHalf = field.name === "email" || field.name === "phone";
-                                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                                    const Field: React.FC<any> = fields?.[field.blockType as keyof typeof fields]
-                                    if (Field) {
-                                        return (
-                                            <div style={{ width: isHalf ? '49%' : '100%' }} key={index}>
-                                                <Field
-                                                    form={formFromProps}
-                                                    {...field}
-                                                    {...formMethods}
-                                                    control={control}
-                                                    errors={errors}
-                                                    register={register}
-                                                    label={field.label}
-                                                />
-                                            </div>
-                                        )
-                                    }
-                                    return null
-                                })}
-
-                            <div className='pt-2'>
-                                <Button form={formID} type="submit" size="md" variant="default">
-                                    {submitButtonLabel}
-                                </Button>
+                    {isLoading && !hasSubmitted ?
+                        <div className="max-w-2xl animate-pulse space-y-6">
+                            <div className="space-y-2">
+                                <div className="h-4 w-24 rounded bg-primary-dark"></div>
+                                <div className="h-11 w-full rounded-md bg-primary-dark"></div>
                             </div>
-                        </form>
+
+                            <div className="flex gap-2">
+                                <div className='flex-1 space-y-2'>
+                                    <div className="h-4 w-16 rounded bg-primary-dark"></div>
+                                    <div className="h-11 w-full rounded-md bg-primary-dark"></div>
+                                </div>
+
+                                <div className='flex-1 space-y-2'>
+                                    <div className="h-4 w-28 rounded bg-primary-dark"></div>
+                                    <div className="h-11 w-full rounded-md bg-primary-dark"></div>
+                                </div>
+                            </div>
+
+                            <div className="space-y-2">
+                                <div className="h-4 w-20 rounded bg-primary-dark"></div>
+                                <div className="h-40 w-full rounded-md bg-primary-dark"></div>
+                            </div>
+
+                            <div className="h-11 w-36 rounded-md bg-brand"></div>
+                        </div> :
+                        <>
+                            <form id={formID} onSubmit={handleSubmit(onSubmit)} className='flex flex-wrap gap-2'>
+                                {formFromProps &&
+                                    formFromProps.fields &&
+                                    formFromProps.fields?.map((field: any, index) => {
+                                        field.width = 100;
+                                        const isHalf = field.name === "email" || field.name === "phone";
+                                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                        const Field: React.FC<any> = fields?.[field.blockType as keyof typeof fields]
+                                        if (Field) {
+                                            return (
+                                                <div style={{ width: isHalf ? '49%' : '100%' }} key={index}>
+                                                    <Field
+                                                        form={formFromProps}
+                                                        {...field}
+                                                        {...formMethods}
+                                                        control={control}
+                                                        errors={errors}
+                                                        register={register}
+                                                        label={field.label}
+                                                    />
+                                                </div>
+                                            )
+                                        }
+                                        return null
+                                    })}
+
+                                <div className='pt-2'>
+                                    <Button form={formID} type="submit" size="md" variant="default">
+                                        {submitButtonLabel}
+                                    </Button>
+                                </div>
+                            </form>
+                        </>
+                    }
+
+                    {error &&
+                        <div className='bg-red-200 rounded-lg p-4 mt-4 flex items-center gap-2'>
+                            <AlertCircle width="18" className='min-w-[18px]' />
+                            {`${error.status || '500'}: ${error.message || ''}`}
+                        </div>
+                    }
+
+
+                    {!isLoading && hasSubmitted && confirmationType === 'message' && (
+                        <div className='bg-green-300 rounded-lg p-4 mt-4 flex items-center gap-2'>
+                            <CheckCircle width="18" />
+                            <RichText data={confirmationMessage} paragraphClassName='font-satoshi text-sm' />
+                        </div>
                     )}
                 </FormProvider>
             </div>
