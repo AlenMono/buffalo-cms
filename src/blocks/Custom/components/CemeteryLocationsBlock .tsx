@@ -4,6 +4,7 @@ import ClockIcon from '@/components/ui/icons/ClockIcon'
 import LocationIcon from '@/components/ui/icons/LocationIcon'
 import { getCemeteries } from '@/utilities/getCemeteries'
 import Link from 'next/link'
+import HeroRight from '/public/img/hero/hero-D-right.svg'
 
 interface CemeteryItem {
     id?: string | number
@@ -101,11 +102,11 @@ const CemeteryLocationsBlock = async ({
                 </div>
 
                 <Image
-                    src="/img/low-impact/hero-right.svg"
+                    src={HeroRight}
                     alt="Floral"
-                    width={411}
-                    height={628}
-                    className="-right-52  scale-75 lg:scale-100 absolute -top-16 lg:-right-20 object-contain z-[-1]"
+                    width={772}
+                    height={850}
+                    className="scale-75 lg:scale-100 absolute -top-16 object-contain z-[-1] -right-96"
                 />
             </div>
         )

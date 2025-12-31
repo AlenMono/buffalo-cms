@@ -5,7 +5,7 @@ export const aboutUsList = [
 ]
 
 export const planningList = [
-  { href: '/planning-for-today-and-tomorrow', label: 'Planning for Today & Tomorrow' },
+  { href: '/planning', label: 'Planning for Today & Tomorrow' },
   { href: '/in-ground-burial', label: 'In Ground Burial' },
   { href: '/above-ground-crypt', label: 'Above Ground - Crypt' },
   { href: '/above-ground-columbarium', label: 'Above Ground - Columbarium' },
@@ -14,10 +14,10 @@ export const planningList = [
 
 export const remembranceList = [
   { href: '/support-gatherings', label: 'Support Gatherings' },
-  { href: '/grief-resources', label: 'Grief Resources' },
+  { href: '/resources', label: 'Grief Resources' },
 ]
 
 export const paymentsList = [
-  { href: '/make-a-payment', label: 'Make a Payment' },
-  { href: '/make-a-donation', label: 'Make a Donation' },
+  { href: '/payment', label: 'Make a Payment' },
+  { href: '/donation', label: 'Make a Donation' },
 ]
