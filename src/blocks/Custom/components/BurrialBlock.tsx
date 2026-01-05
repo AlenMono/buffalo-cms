@@ -59,7 +59,7 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                                             height={180}
                                             src={option?.burialImage?.url}
                                             alt="Cemetery"
-                                            className='object-cover w-full rounded-lg'
+                                            className='object-cover w-full rounded-lg h-[180px]'
                                         />
                                         <div className='flex flex-col items-start gap-3'>
                                             <h4 className="text-lg md:text-2xl font-semibold">{option.title}</h4>

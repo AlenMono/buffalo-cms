@@ -105,8 +105,8 @@ const CemeteryLocationsBlock = async ({
                     src={HeroRight}
                     alt="Floral"
                     width={772}
-                    height={850}
-                    className="scale-75 lg:scale-100 absolute -top-16 object-contain z-[-1] -right-96"
+                    height={837}
+                    className="scale-75 lg:scale-100 absolute -top-16 object-contain z-[-1] max-h-[837px] -right-96"
                 />
             </div>
         )

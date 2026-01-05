@@ -43,7 +43,11 @@ export const PlanningBlock: React.FC<PlanningBlockProps> = ({
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-10 gap-5">
                     {planningTitle && (
-                        <RichText data={planningTitle} paragraphClassName="text-left !text-4xl" />
+                        <RichText
+                            data={planningTitle}
+                            paragraphClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
+                            h1ClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
+                        />
                     )}
                     {description && (
                         <div className="flex md:justify-end">

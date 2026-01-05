@@ -58,8 +58,8 @@ const BackgroundVisual = ({ heroImpact, backgroundVisual }: { heroImpact: string
                 src={getRightIcon()}
                 alt="Floral"
                 width={heroImpact !== 'medium' ? 567 : 772}
-                height={heroImpact !== 'medium' ? 628 : 850}
-                className={cn("scale-75 lg:scale-100 absolute -top-16 object-contain z-[-1]", heroImpact === 'medium' ? '-right-96' : '-right-56')}
+                height={heroImpact !== 'medium' ? 628 : 837}
+                className={cn("scale-75 lg:scale-100 absolute -top-16 object-contain max-h-[837px] z-[-1]", heroImpact === 'medium' ? '-right-96' : '-right-56')}
             />
         </>
     )
