@@ -20,20 +20,20 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
 }) => {
     return (
         <section className="max-w-[1320px] mx-auto">
-            <div className="bg-background-light border border-primary-dark px-9 py-7 rounded-lg relative overflow-hidden">
+            <div className="bg-background-light border border-primary-dark p-5 lg:px-9 lg:py-7 rounded-lg relative overflow-hidden">
                 <Image
                     src="/img/wreath-full.svg"
                     width={999}
                     height={958}
                     alt="Wreath"
-                    className="absolute -top-20 h-[290px] md:h-auto md:top-1/2 -left-[55%] md:-left-1/2 md:transform md:translate-y-[-50%]"
+                    className="absolute -top-20 h-[290px] md:h-auto md:top-1/2 -left-[55%] md:transform md:translate-y-[-50%]"
                 />
                 <Image
                     src="/img/wreath-full.svg"
                     width={999}
                     height={958}
                     alt="Wreath"
-                    className="absolute -top-20 h-[290px] md:h-auto md:top-1/2 -right-[55%] md:-right-1/2 transform md:translate-y-[-50%] scale-x-[-1] "
+                    className="absolute -top-20 h-[290px] md:h-auto md:top-1/2 -right-[55%] transform md:translate-y-[-50%] scale-x-[-1] "
                 />
 
                 <div className='z-10 relative'>
@@ -50,7 +50,7 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
                     )}
 
                     {planningProcessCards.length > 0 && (
-                        <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4 flex-1">
+                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 flex-1">
                             {planningProcessCards.map((card, idx) => (
                                 <div
                                     key={idx}
