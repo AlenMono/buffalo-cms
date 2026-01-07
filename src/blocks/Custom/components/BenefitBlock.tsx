@@ -13,6 +13,7 @@ type PlanningBlockProps = {
   benefits: BenefitCard[]
   benefitLayout?: 'vertical' | 'horizontal'
   benefitDescription?: string
+  benefitNote?: any
 }
 
 export const BenefitBlock: React.FC<PlanningBlockProps> = ({
@@ -20,12 +21,13 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
   benefits,
   benefitLayout,
   benefitDescription,
+  benefitNote,
 }) => {
   if (benefitLayout === 'horizontal') {
     return (
       <div>
         {benefitTitle && (
-          <div className='mb-7 md:mb-15'>
+          <div className='mb-15 md:mb-16'>
             <RichText
               data={benefitTitle}
               paragraphClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
@@ -46,7 +48,7 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
           ))}
         </div>
 
-        {benefitDescription && <p className="text-brand-30 xl:max-w-[266px]">{benefitDescription}</p>}
+        {benefitNote && <div className='mt-10 md:mt-16'><RichText data={benefitNote} paragraphClassName='font-satoshi text-lg' /></div>}
       </div>
     )
   }

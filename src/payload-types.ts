@@ -788,6 +788,21 @@ export interface CustomBlock {
         id?: string | null;
       }[]
     | null;
+  benefitNote?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   testimonialText?: string | null;
   testimonialAuthor?: string | null;
   testimonialPlace?: string | null;
@@ -1606,6 +1621,7 @@ export interface CustomBlockSelect {
         subheading?: boolean;
         id?: boolean;
       };
+  benefitNote?: boolean;
   testimonialText?: boolean;
   testimonialAuthor?: boolean;
   testimonialPlace?: boolean;
