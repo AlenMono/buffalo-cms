@@ -811,6 +811,8 @@ export interface CustomBlock {
     | {
         heading: string;
         description: string;
+        link?: string | null;
+        linkLabel?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -1614,6 +1616,8 @@ export interface CustomBlockSelect {
     | {
         heading?: boolean;
         description?: boolean;
+        link?: boolean;
+        linkLabel?: boolean;
         id?: boolean;
       };
   faqRichTitle?: boolean;
