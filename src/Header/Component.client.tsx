@@ -35,13 +35,6 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
         </Link>
 
         <HeaderNav navItems={data?.navItems || []} />
-
-        <Link
-          href="/locate-a-loved-one"
-          className={buttonVariants({ size: 'sm', variant: 'outline' })}
-        >
-          Locate a Loved One
-        </Link>
       </div>
     </header>
   )
