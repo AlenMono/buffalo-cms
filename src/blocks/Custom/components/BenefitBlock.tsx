@@ -23,9 +23,21 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
   benefitDescription,
   benefitNote,
 }) => {
+  const getGridCols = (length: number) => {
+    switch (length) {
+      case 1: return 'md:grid-cols-1'
+      case 2: return 'md:grid-cols-2'
+      case 3: return 'md:grid-cols-3'
+      case 4: return 'md:grid-cols-4'
+      case 5: return 'md:grid-cols-5'
+      case 6: return 'md:grid-cols-6'
+      default: return 'md:grid-cols-1'
+    }
+  }
+
   if (benefitLayout === 'horizontal') {
     return (
-      <div>
+      <div className='max-w-[1128px] mx-auto'>
         {benefitTitle && (
           <div className='mb-15 md:mb-16'>
             <RichText
@@ -36,7 +48,7 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
           </div>
         )}
 
-        <div className={cn(`max-w-[1128px] mx-auto grid grid-cols-1 md:grid-cols-${benefits.length} gap-12 flex-1`)}>
+        <div className={cn('grid grid-cols-1', getGridCols(benefits.length), 'gap-12 flex-1')}>
           {benefits.map((card, idx) => (
             <div key={idx} className="flex gap-2">
               <CheckIcon className="mt-1 min-w-5" />
