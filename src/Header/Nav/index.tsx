@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import { buttonVariants } from '@/components/ui/button'
 
 // ---------------- Types (compatible with Payload CMS) ----------------
 export type NavItem = {
@@ -89,16 +90,25 @@ const Dropdown = ({ item, isOpen, toggle, closeDropdown }: DropdownProps) => {
 
 export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
     const [openIndex, setOpenIndex] = useState<number | null>(null)
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const dropdownRef = useRef<HTMLDivElement>(null)
+    const mobileMenuRef = useRef<HTMLDivElement>(null)
 
     const toggleDropdown = (index: number) => setOpenIndex(openIndex === index ? null : index)
 
     const closeDropdown = () => setOpenIndex(null)
 
+    const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen)
+
+    const closeMobileMenu = () => setIsMobileMenuOpen(false)
+
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
                 closeDropdown()
+            }
+            if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+                closeMobileMenu()
             }
         }
 
@@ -106,20 +116,121 @@ export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
         return () => document.removeEventListener('mousedown', handleClickOutside)
     }, [])
 
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+
+        return () => {
+            document.body.style.overflow = ''
+        }
+    }, [isMobileMenuOpen])
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 1024 && isMobileMenuOpen) {
+                closeMobileMenu()
+            }
+        }
+
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [isMobileMenuOpen])
+
     return (
-        <nav
-            ref={dropdownRef}
-            className="gap-6 items-center text-gray-800 text-[16px] font-medium relative hidden lg:flex"
-        >
-            {navItems?.map((item, i) => (
-                <Dropdown
-                    key={i}
-                    item={item}
-                    isOpen={openIndex === i}
-                    toggle={() => toggleDropdown(i)}
-                    closeDropdown={closeDropdown}
-                />
-            ))}
-        </nav>
+        <>
+            {/* Hamburger Menu Button for Mobile */}
+            <button
+                onClick={toggleMobileMenu}
+                className="lg:hidden flex flex-col justify-center items-center w-8 h-8 focus:outline-none"
+                aria-label="Toggle mobile menu"
+            >
+                <span className={`block w-5 h-0.5 bg-current transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-1'}`}></span>
+                <span className={`block w-5 h-0.5 bg-current transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+                <span className={`block w-5 h-0.5 bg-current transition-transform duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-1'}`}></span>
+            </button>
+
+            {/* Desktop Nav */}
+            <nav
+                ref={dropdownRef}
+                className="gap-6 items-center text-gray-800 text-[16px] font-medium relative hidden lg:flex"
+            >
+                {navItems?.map((item, i) => (
+                    <Dropdown
+                        key={i}
+                        item={item}
+                        isOpen={openIndex === i}
+                        toggle={() => toggleDropdown(i)}
+                        closeDropdown={closeDropdown}
+                    />
+                ))}
+            </nav>
+
+            {/* Locate a Loved One Button - Desktop */}
+            <Link
+                href="/locate-a-loved-one"
+                className={`${buttonVariants({ size: 'sm', variant: 'outline' })} hidden lg:inline-flex`}
+            >
+                Locate a Loved One
+            </Link>
+
+            {/* Mobile Menu Overlay */}
+            {isMobileMenuOpen && (
+                <div
+                    ref={mobileMenuRef}
+                    className="fixed inset-0 bg-background z-50 lg:hidden flex flex-col"
+                >
+                    <div className="flex justify-between items-center p-4 border-b">
+                        <span className="text-lg font-semibold">Menu</span>
+                        <button
+                            onClick={closeMobileMenu}
+                            className="w-8 h-8 flex items-center justify-center focus:outline-none"
+                            aria-label="Close mobile menu"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div className="flex-1 overflow-y-auto p-4">
+                        <nav className="flex flex-col gap-4">
+                            {navItems?.map((item, i) => (
+                                <div key={i}>
+                                    {!item.hasDropdown || !item.dropdownItems || item.dropdownItems.length === 0 ? (
+                                        <NavLink href={item.url || '#'} onClick={closeMobileMenu}>
+                                            {item.label}
+                                        </NavLink>
+                                    ) : (
+                                        <div>
+                                            <div className="text-lg font-medium mb-2">{item.label}</div>
+                                            <ul className="ml-4 space-y-2">
+                                                {item.dropdownItems.map((child, idx) => (
+                                                    <li key={idx}>
+                                                        <NavLink href={child.url ?? '#'} onClick={closeMobileMenu} isDropdown>
+                                                            {child.label}
+                                                        </NavLink>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </nav>
+                        <div className="mt-6">
+                            <Link
+                                href="/locate-a-loved-one"
+                                className={buttonVariants({ size: 'sm', variant: 'outline' })}
+                                onClick={closeMobileMenu}
+                            >
+                                Locate a Loved One
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
     )
 }

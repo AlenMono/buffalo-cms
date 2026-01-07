@@ -39,7 +39,7 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
     return (
       <div className='max-w-[1128px] mx-auto'>
         {benefitTitle && (
-          <div className='mb-15 md:mb-16'>
+          <div className='mb-10 md:mb-16'>
             <RichText
               data={benefitTitle}
               paragraphClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
