@@ -66,4 +66,25 @@ export const benefitFields = {
     fields: Object.values(benefitCardFields),
     admin: { condition: isBenefitSection },
   },
+  benefitNote: {
+    name: 'benefitNote',
+    type: 'richText',
+    editor: lexicalEditor({
+      features: ({ rootFeatures }) => [
+        ...rootFeatures,
+        HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+        FixedToolbarFeature(),
+        InlineToolbarFeature(),
+      ],
+    }),
+    required: false,
+    admin: {
+      condition: (_data: any, _siblingData: any, parentData: any) => {
+        return (
+          parentData?.blockData.section === 'benefit' &&
+          parentData?.blockData.benefitLayout === 'horizontal'
+        )
+      },
+    },
+  },
 }
