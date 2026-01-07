@@ -39,8 +39,8 @@ export const ContactFormBlock: React.FC<ContactFormBlockProps> = ({ contactBenef
                 src={HeroRightImg}
                 alt="Floral"
                 width={772}
-                height={850}
-                className="scale-75 lg:scale-100 absolute -top-16 object-contain z-[-1] -right-96"
+                height={837}
+                className="scale-75 lg:scale-100 absolute -top-16 object-contain z-[-1] -right-56 lg:-right-96 max-h-[837px]"
             />
 
             <h1 className="text-5xl xl:text-[56px] xl:leading-[64px] font-semibold font-faustina italic mb-16">

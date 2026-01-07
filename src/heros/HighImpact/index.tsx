@@ -28,7 +28,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText,
               data={richText}
               enableGutter={false}
               paragraphClassName="text-lg font-satoshi leading-[24px] pt-1 text-brand-30"
-              h1ClassName="text-[56px] leading-[68px] font-faustina"
+              h1ClassName="text-[56px] leading-[64px] font-faustina"
             />
           )}
 
@@ -58,7 +58,9 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText,
 
       {media && typeof media === 'object' && (
         <div className="max-h-[660px] max-w-[1320px] select-none mt-10 p-10">
-          <Media fill imgClassName="" priority resource={media} />
+          <div className='border border-primary-dark bg-background-light p-3 rounded-lg'>
+            <Media fill imgClassName="h-full" priority resource={media} />
+          </div>
         </div>
       )}
     </div>
