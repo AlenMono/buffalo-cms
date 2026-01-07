@@ -1,4 +1,5 @@
 import RichText from '@/components/RichText'
+import { cn } from '@/utilities/ui'
 import React from 'react'
 
 type BenefitCard = {
@@ -22,16 +23,30 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
 }) => {
   if (benefitLayout === 'horizontal') {
     return (
-      <div className="max-w-[1128px] mx-auto grid grid-cols-[repeat(auto-fill,minmax(270px,1fr))] gap-12 flex-1">
-        {benefits.map((card, idx) => (
-          <div key={idx} className="flex gap-2">
-            <CheckIcon className="mt-1 min-w-5" />
-            <div className="flex flex-col gap-4">
-              <h3 className="text-xl font-semibold">{card.heading}</h3>
-              <p className="text-brand-30">{card.subheading}</p>
-            </div>
+      <div>
+        {benefitTitle && (
+          <div className='mb-7 md:mb-15'>
+            <RichText
+              data={benefitTitle}
+              paragraphClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
+              h1ClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
+            />
           </div>
-        ))}
+        )}
+
+        <div className={cn(`max-w-[1128px] mx-auto grid grid-cols-1 md:grid-cols-${benefits.length} gap-12 flex-1`)}>
+          {benefits.map((card, idx) => (
+            <div key={idx} className="flex gap-2">
+              <CheckIcon className="mt-1 min-w-5" />
+              <div className="flex flex-col gap-4">
+                <h3 className="text-xl font-semibold">{card.heading}</h3>
+                <p className="text-brand-30">{card.subheading}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {benefitDescription && <p className="text-brand-30 xl:max-w-[266px]">{benefitDescription}</p>}
       </div>
     )
   }

@@ -41,7 +41,7 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
             <div className="p-3 pl-5 bg-secondary border border-primary-darkest rounded-lg">
                 <div className='flex flex-col justify-between gap-5'>
                     <div className="flex flex-col md:flex-row justify-between md:items-end gap-4 flex-1 mb-4 md:mb-28">
-                        {sectionTitle && <RichText data={sectionTitle} paragraphClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
+                        {sectionTitle && <RichText data={sectionTitle} paragraphClassName="!text-2xl md:!text-4xl leading-[32px] md:!leading-[44px] lg:!text-[44px] lg:leading-[52px]"
                             h1ClassName="!text-3xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]" />}
 
                         <div className='max-w-[490px] text-xs md:text-base'>

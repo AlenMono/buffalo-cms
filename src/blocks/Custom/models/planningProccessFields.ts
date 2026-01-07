@@ -19,6 +19,16 @@ const planningCardsFields = {
     type: 'textarea',
     required: true,
   },
+  link: {
+    name: 'link',
+    type: 'text',
+    required: false,
+  },
+  linkLabel: {
+    name: 'linkLabel',
+    type: 'text',
+    required: false,
+  },
 }
 
 export const planningProcessFields = {
