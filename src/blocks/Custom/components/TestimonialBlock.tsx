@@ -11,7 +11,7 @@ const TestimonialBlock = ({ testimonialText, testimonialAuthor, testimonialPlace
         <div className='flex flex-col items-center gap-10 lg:gap-20 text-center'>
             <QuoteSvg />
 
-            <p className='font-faustina-italic text-[44px] leading-[52px]'>{testimonialText}</p>
+            <p className='font-faustina-italic text-3xl lg:text-[44px] lg:leading-[52px]'>{testimonialText}</p>
 
             <div>
                 <p className='font-faustina-italic text-2xl font-semibold'>{testimonialAuthor}</p>

@@ -86,7 +86,7 @@ const jsxConverters = ({
     })
 
     if (node.tag === 'h4') {
-      return <Tag className="text-lg font-normal">{children}</Tag>
+      return <Tag className="text-sm lg:text-lg font-normal">{children}</Tag>
     }
 
     if (node.tag === 'h2') {

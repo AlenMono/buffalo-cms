@@ -24,7 +24,7 @@ const BurialOptionListBlock: React.FC<BurialOptionListBlockProps> = ({ burialOpt
     if (!burialOptionsList?.length) return null
 
     return (
-        <section className="py-16 bg-cream-50">
+        <section>
             <div className="container mx-auto px-4">
                 <div className="grid gap-6 lg:gap-12">
                     {burialOptionsList.map((option, index) => {

@@ -128,10 +128,10 @@ const CemeteryLocationsBlock = async ({
                                 <Link
                                     href={cemetery.detailsLink}
                                     key={cemetery.id}
-                                    className="flex rounded-lg p-5 bg-background-light border border-primary-dark card-hovered cursor-pointer"
+                                    className="flex flex-col lg:flex-row rounded-lg p-5 bg-background-light border border-primary-dark card-hovered cursor-pointer gap-4"
                                 >
                                     {cemetery.image?.url && (
-                                        <div className="relative w-40 h-full shrink-0 mr-4">
+                                        <div className="relative lg:w-40 h-[188px] lg:h-auto">
                                             <Image
                                                 src={cemetery.image.url}
                                                 alt={cemetery.image.alt || cemetery.name}
