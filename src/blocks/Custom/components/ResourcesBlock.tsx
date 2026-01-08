@@ -39,7 +39,7 @@ const ResourcesBlock = ({ resourceTitle, resourcesLinks, resourcesLayot }: Resou
         )
     }
     return (
-        <div className='flex flex-col gap-8 xl:gap-16 bg-background py-10 lg:py-16 px-12 xl:px-[156px]'>
+        <div className='flex flex-col gap-8 max-w-[1128px] mx-auto'>
             <RichText data={resourceTitle} className='text-left !text-4xl font-faustina' />
 
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>

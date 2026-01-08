@@ -50,11 +50,11 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
 
         <div className={cn('grid grid-cols-1', getGridCols(benefits.length), 'gap-12 flex-1')}>
           {benefits.map((card, idx) => (
-            <div key={idx} className="flex gap-2">
+            <div key={idx} className="flex gap-3 lg:gap-4">
               <CheckIcon className="mt-1 min-w-5" />
-              <div className="flex flex-col gap-4">
-                <h3 className="text-xl font-semibold">{card.heading}</h3>
-                <p className="text-brand-30">{card.subheading}</p>
+              <div className="flex flex-col gap-2 lg:gap-5">
+                <h3 className="text-base lg:text-xl font-semibold">{card.heading}</h3>
+                <p className="text-brand-30 text-sm lg:text-lg">{card.subheading}</p>
               </div>
             </div>
           ))}

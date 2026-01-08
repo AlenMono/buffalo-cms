@@ -81,7 +81,7 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayou
 
     return (
         <section className="max-w-[1320px] mx-auto">
-            <div className="flex flex-col lg:flex-row justify-between gap-10 bg-background-light rounded-lg border border-primary-dark px-9 py-7 relative overflow-hidden">
+            <div className="flex flex-col lg:flex-row justify-between gap-10 bg-background-light rounded-lg border border-primary-dark p-5 lg:px-9 lg:py-7 relative overflow-hidden">
                 <div className="flex flex-col justify-between gap-10 z-[1]">
                     {faqRichTitle && (
                         <RichText data={faqRichTitle} className="text-left !text-4xl font-faustina" />

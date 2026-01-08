@@ -7,8 +7,8 @@ export default async function NewsBlock() {
     const news = await getNews()
 
     return (
-        <section className="bg-cream">
-            <div className="max-w-[1128px] mx-auto px-6">
+        <section>
+            <div className="max-w-[1128px] mx-auto">
                 <div className="flex justify-between items-center mb-8">
                     <h2 className="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px] font-faustina font-regular"><span className='italic font-semibold'>News</span> & Announcements</h2>
                     <Link href="/posts" className={buttonVariants({ variant: 'outline', size: 'md' })}>

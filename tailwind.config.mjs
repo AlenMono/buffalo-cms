@@ -42,7 +42,7 @@ const config = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '1rem',
+        DEFAULT: '1.25rem',
       },
       screens: {
         DEFAULT: '1320px',

@@ -9,7 +9,7 @@ import BackgroundVisual from '../components/BackgroundVisual'
 
 export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richText, backgroundVisual }) => {
   return (
-    <div className="p-4">
+    <div className="p-5">
       <div className="max-w-[1128px] mx-auto relative">
         <BackgroundVisual heroImpact="medium" backgroundVisual={backgroundVisual || null} />
 
