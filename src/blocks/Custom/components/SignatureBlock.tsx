@@ -21,7 +21,7 @@ const SignatureBlock = (props: SignatureBlockProps) => {
 
   return (
     <section className="container py-12">
-      <div className="max-w-[1128px] mx-auto space-y-16">
+      <div className="max-w-[1128px] mx-auto space-y-8 lg:space-y-16">
         <RichText
           data={heading}
           paragraphClassName="!text-2xl md:!text-4xl leading-[32px] md:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
@@ -34,7 +34,7 @@ const SignatureBlock = (props: SignatureBlockProps) => {
               <RichText
                 data={body}
                 className="text-left"
-                paragraphClassName="text-2xl font-satoshi text-brand-30"
+                paragraphClassName="text-base lg:text-2xl font-satoshi text-brand-30"
               />
             </div>
 

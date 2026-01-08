@@ -18,7 +18,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText,
   })
 
   return (
-    <div className="container mt-16 relative">
+    <div className="container mt-8 lg:mt-16 relative">
       <BackgroundVisual heroImpact="high" backgroundVisual={backgroundVisual || null} />
 
       <div className="container mb-8 z-10 relative flex items-center justify-center">
@@ -28,7 +28,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText,
               data={richText}
               enableGutter={false}
               paragraphClassName="text-lg font-satoshi leading-[24px] pt-1 text-brand-30"
-              h1ClassName="text-[56px] leading-[64px] font-faustina"
+              h1ClassName="text-4xl lg:text-[56px] lg:leading-[64px] font-faustina"
             />
           )}
 
