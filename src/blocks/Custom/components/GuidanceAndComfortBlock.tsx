@@ -97,7 +97,7 @@ const GuidanceAndComfortBlock = ({
                     {guideTitle && (
                         <RichText
                             data={guideTitle}
-                            className="font-faustina text-3xl md:text-[36px] font-semibold text-[#1d2420]"
+                            className="section-title text-brand-30"
                         />
                     )}
                 </div>

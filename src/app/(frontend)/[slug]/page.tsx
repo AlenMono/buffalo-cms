@@ -66,7 +66,7 @@ export default async function Page({ params: paramsPromise }: Args) {
   const { hero, layout } = page
 
   return (
-    <article className="pt-16 pb-24 relative w-full max-w-[1920px] mx-auto overflow-hidden">
+    <article className="lg:pt-16 pb-24 relative w-full max-w-[1920px] mx-auto overflow-hidden">
       <PageClient />
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />

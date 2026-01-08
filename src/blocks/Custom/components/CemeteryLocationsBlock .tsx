@@ -143,7 +143,7 @@ const CemeteryLocationsBlock = async ({
 
                                     <div className="flex flex-col justify-between gap-4 flex-1">
                                         <div>
-                                            <h3 className="text-xl font-semibold font-faustina">{cemetery.name}</h3>
+                                            <h3 className="text-lg md:text-xl font-semibold font-faustina">{cemetery.name}</h3>
                                             <p className='text-xs font-satoshi italic text-brand-30'>
                                                 {cemetery.subtitle}
                                             </p>

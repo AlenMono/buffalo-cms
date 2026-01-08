@@ -18,7 +18,7 @@ interface BurialOptionAccordionProps {
 
 export const BurialOptionAccordion: React.FC<BurialOptionAccordionProps> = ({ options }) => {
   const items = options.map((option) => ({
-    title: <p className="text-xl text-brand">{option.title}</p>,
+    title: <p className="text-base md:text-xl text-brand-30">{option.title}</p>,
     content: (
       <>
         {option.description && <p className="text-base text-brand mb-5">{option.description}</p>}

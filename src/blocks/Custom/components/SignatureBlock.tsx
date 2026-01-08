@@ -20,12 +20,12 @@ const SignatureBlock = (props: SignatureBlockProps) => {
   const { heading, body, signatureImage, signatureTitle, signatureName } = props
 
   return (
-    <section className="container py-12">
+    <section>
       <div className="max-w-[1128px] mx-auto space-y-8 lg:space-y-16">
         <RichText
           data={heading}
-          paragraphClassName="!text-2xl md:!text-4xl leading-[32px] md:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
-          h1ClassName="!text-2xl md:!text-4xl leading-[32px] md:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
+          paragraphClassName="section-title"
+          h1ClassName="section-title"
         />
 
         {body && (

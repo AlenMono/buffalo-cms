@@ -40,9 +40,9 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayou
 
     // Convert your FAQ data to Accordion-compatible items
     const items = filteredFaqs.map(faq => ({
-        title: <span className="text-lg font-medium text-gray-900">{faq.faqQuestion}</span>,
+        title: <span className="text-base md:text-lg font-medium text-gray-900">{faq.faqQuestion}</span>,
         content: (
-            <div className="mt-3 text-brand-30">
+            <div className="mt-3 text-sm md:text-base text-brand-30">
                 <p>{faq.faqAnswer}</p>
             </div>
         ),
@@ -84,7 +84,7 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayou
             <div className="flex flex-col lg:flex-row justify-between gap-10 bg-background-light rounded-lg border border-primary-dark p-5 lg:px-9 lg:py-7 relative overflow-hidden">
                 <div className="flex flex-col justify-between gap-10 z-[1]">
                     {faqRichTitle && (
-                        <RichText data={faqRichTitle} className="text-left !text-4xl font-faustina" />
+                        <RichText data={faqRichTitle} className="text-left section-title" />
                     )}
 
                     <div className="text-base">

@@ -58,7 +58,7 @@
     --radius: 8px;
     --background: #fef5e6; /* hsla(38, 92%, 95%, 1) */
     --background-light: #fffaf1;
-    --invert-darkest: #151A15;
+    --invert-darkest: #151a15;
     --foreground: #202620;
 
     --card: #0a0a0a; /* hsl(0 0% 4%) */
@@ -80,9 +80,9 @@
     --muted-foreground: #a8aeb5; /* hsl(215 20.2% 65.1%) */
 
     --gold: #dab77e;
-    --primary-dark: #F2DDBA;
+    --primary-dark: #f2ddba;
     --primary-darkest: #dab77e;
-    --accent-darkest: #B47209;
+    --accent-darkest: #b47209;
 
     --accent: #232a2e; /* hsl(217.2 32.6% 17.5%) */
 
@@ -125,6 +125,10 @@
   @apply !w-11 transition-all duration-200;
 }
 
+.swiper-pagination-bullets-dynamic {
+  @apply !translate-x-0;
+}
+
 html {
   opacity: 0;
   @apply font-satoshi font-normal;
@@ -135,36 +139,7 @@ html[data-theme='light'] {
   opacity: initial;
 }
 
-.swiper-pagination-bullets-dynamic {
-  @apply !translate-x-0;
-}
-
 @layer utilities {
-  .bg-floral-pattern,
-  .bg-floral-pattern-2 {
-    background-color: var(--background-light);
-    position: relative;
-  }
-
-  .bg-floral-pattern::after,
-  .bg-floral-pattern-2::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 62%;
-    height: 100%;
-    background-image: url('/img/floral.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .bg-floral-pattern-2::after {
-    background-image: url('/img/floral-2.png');
-  }
-
   .shadow-custom {
     box-shadow: 0px 8px 24px 0px #eedbbb;
   }
@@ -172,4 +147,16 @@ html[data-theme='light'] {
 
 .card-hovered:hover {
   @apply transition-all duration-200 ease-in-out shadow-custom;
+}
+
+.hero-title {
+  @apply block text-4xl md:text-[56px] md:leading-[64px] font-faustina mb-7;
+}
+
+.hero-paragraph {
+  @apply text-sm md:text-lg font-satoshi md:leading-[24px] pt-1;
+}
+
+.section-title {
+  @apply text-[28px] leading-[36px] md:!text-[44px] md:leading-[52px];
 }

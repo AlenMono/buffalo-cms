@@ -22,13 +22,13 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText,
       <BackgroundVisual heroImpact="high" backgroundVisual={backgroundVisual || null} />
 
       <div className="container mb-8 z-10 relative flex items-center justify-center">
-        <div className="max-w-[746px] md:text-center space-y-7">
+        <div className="max-w-[746px] text-center space-y-7">
           {richText && (
             <RichText
               data={richText}
               enableGutter={false}
-              paragraphClassName="text-sm lg:text-lg font-satoshi leading-[24px] pt-1 text-brand-30"
-              h1ClassName="text-4xl lg:text-[56px] lg:leading-[64px] font-faustina"
+              paragraphClassName="hero-paragraph"
+              h1ClassName="hero-title"
             />
           )}
 
@@ -43,7 +43,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText,
                     className={buttonVariants({
                       variant: appearance,
                       size: 'lg',
-                      className: links.length > 1 ? 'w-full' : '',
+                      className: links.length > 1 ? 'md:w-full' : '',
                     })}
                     key={i}
                   >

@@ -10,7 +10,7 @@ export default async function NewsBlock() {
         <section>
             <div className="max-w-[1128px] mx-auto">
                 <div className="flex justify-between items-center mb-8">
-                    <h2 className="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px] font-faustina font-regular"><span className='italic font-semibold'>News</span> & Announcements</h2>
+                    <h2 className="section-title"><span className='italic font-semibold'>News</span> & Announcements</h2>
                     <Link href="/posts" className={buttonVariants({ variant: 'outline', size: 'md' })}>
                         Read All News
                     </Link>
@@ -35,7 +35,7 @@ export default async function NewsBlock() {
                                 )}
                                 <div className="flex flex-col flex-1 pt-4">
                                     <p className="text-sm text-brand font-bold">{item.publisher}</p>
-                                    <h3 className="text-xl font-semibold mt-1 font-faustina">{item.title}</h3>
+                                    <h3 className="text-lg md:text-xl font-semibold mt-1 font-faustina">{item.title}</h3>
                                     <p className="flex items-end text-sm text-brand mt-4 flex-1">
                                         {new Date(item.publishedAt).toLocaleDateString()}
                                     </p>

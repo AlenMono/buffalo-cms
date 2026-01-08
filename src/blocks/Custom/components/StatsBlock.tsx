@@ -25,12 +25,12 @@ const StatsBlock = ({ statsColumn, statsTitle, statsDescription, badges }: Stats
     return (
         <div className="max-w-[1128px] mx-auto space-y-8">
             <div className={cn('flex flex-col gap-4 lg:flex-row md:gap-10', statsDescription ? 'justify-between' : 'justify-center')}>
-                {statsTitle && <RichText data={statsTitle} className={cn('!text-5xl font-faustina', statsDescription ? 'text-left' : 'text-center')} />}
-                {statsDescription && <p className='max-w-[460px]'>{statsDescription}</p>}
+                {statsTitle && <RichText data={statsTitle} className={cn('section-title', statsDescription ? 'text-left' : 'text-center')} />}
+                {statsDescription && <p className='max-w-[460px] text-sm md:text-lg'>{statsDescription}</p>}
             </div>
 
             {statsColumn && statsColumn?.length > 0 && (
-                <div className={cn('grid gap-4 grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] pt-6 pb-10')}>
+                <div className={cn('grid gap-4 grid-cols-2 md:grid-cols-4 pt-6 pb-10')}>
                     {statsColumn?.map(data => {
                         return (
                             <div key={data.statsValue} className='flex flex-col items-start'>

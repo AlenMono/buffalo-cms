@@ -91,7 +91,7 @@ const jsxConverters = ({
 
     if (node.tag === 'h2') {
       return (
-        <Tag className="!text-[36px] leading-[44px] xl:!text-[44px] xl:leading-[52px] !mb-0 font-faustina font-normal">
+        <Tag className="section-title !mb-0 font-faustina font-normal">
           {children}
         </Tag>
       )

@@ -17,8 +17,8 @@ export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richTex
           <RichText
             data={richText}
             enableGutter={false}
-            paragraphClassName="text-2xl md:text-4xl leading-[32px] md:leading-[44px] xl:text-[44px] xl:leading-[52px] text-brand-30 mt-8 lg:mt-16"
-            h1ClassName="text-4xl lg:text-[56px] lg:leading-[64px] font-faustina"
+            paragraphClassName="text-2xl md:text-4xl leading-[32px] md:leading-[44px] xl:text-[44px] xl:leading-[52px] text-brand-30 mt-8 lg:mt-16 font-faustina-italic"
+            h1ClassName="hero-title"
           />
         )}
 
