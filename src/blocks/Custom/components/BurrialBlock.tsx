@@ -38,18 +38,18 @@ interface BurialBlockProps {
 const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOptions, burialLayout, burialDescription }) => {
     if (burialLayout === 'horizontal') {
         return (
-            <div className="p-3 pl-5 bg-secondary border border-primary-darkest rounded-lg">
+            <div className="p-5 md:p-9 md:pt-7 bg-secondary border border-primary-darkest rounded-lg">
                 <div className='flex flex-col justify-between gap-5'>
-                    <div className="flex flex-col md:flex-row justify-between md:items-end gap-4 flex-1 mb-4 md:mb-28">
-                        {sectionTitle && <RichText data={sectionTitle} paragraphClassName="!text-2xl md:!text-4xl leading-[32px] md:!leading-[44px] lg:!text-[44px] lg:leading-[52px]"
-                            h1ClassName="!text-3xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]" />}
+                    <div className="flex flex-col md:flex-row justify-between md:items-end gap-4 flex-1 flex-wrap mb-4 md:mb-10 lg:mb-28">
+                        {sectionTitle && <RichText data={sectionTitle} paragraphClassName="!text-3xl md:!text-4xl leading-[32px] md:!leading-[44px] lg:!text-[44px] lg:leading-[52px]"
+                            h1ClassName="!text-3xl md:!text-4xl leading-[32px] md:!leading-[44px] lg:!text-[44px] lg:leading-[52px]" />}
 
                         <div className='max-w-[490px] text-xs md:text-base'>
                             {burialDescription}
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4 flex-1">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 flex-1">
                         {
                             burialOptions?.map((option, index) => {
                                 return <div key={index} className='bg-[#FFF9EE] border border-primary-darkest rounded-lg p-4 md:p-5'>

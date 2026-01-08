@@ -25,7 +25,7 @@ export const RenderBlocks: React.FC<{
         if (!Block) return null
 
         return (
-          <div className="container my-8 xl:my-16 py-8" key={index}>
+          <div className="container my-8 py-4 xl:my-16 md:py-8" key={index}>
             <Block {...block} pageSlug={pageSlug} disableInnerContainer />
           </div>
         )

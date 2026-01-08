@@ -63,15 +63,14 @@ export const Accordion: React.FC<AccordionProps> = ({
                                 ? 'p-4 bg-background-light border border-primary-dark rounded-lg hover:bg-background'
                                 : 'py-4 border-b border-b-brand-30',
                             isOpen && variant === 'outline' ? 'bg-background opacity-100' : 'opacity-100',
-                            items.length - 1 === index && 'border-b-0',
                             !isOpen && 'opacity-70',
                         )}
                     >
-                        <div className="flex justify-between items-center transition-all duration-200">
+                        <div className="flex justify-between items-center transition-all duration-200 gap-4">
                             <div className={cn("text-xl font-bold text-brand")}>{item.title}</div>
                             <X
                                 className={cn(
-                                    'transition-transform duration-300',
+                                    'transition-transform duration-300 min-w-5',
                                     isOpen ? 'rotate-90 text-brand' : 'rotate-45 text-brand-30',
                                 )}
                                 size={20}

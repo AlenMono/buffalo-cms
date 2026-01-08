@@ -57,7 +57,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText,
       </div>
 
       {media && typeof media === 'object' && (
-        <div className="max-h-[660px] max-w-[1320px] select-none mt-10 p-10">
+        <div className="max-h-[660px] max-w-[1320px] select-none mt-10 md:p-10">
           <div className='border border-primary-dark bg-background-light p-3 rounded-lg'>
             <Media fill imgClassName="h-full" priority resource={media} />
           </div>

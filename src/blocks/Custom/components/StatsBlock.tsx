@@ -24,9 +24,9 @@ interface StatsBlockProps {
 const StatsBlock = ({ statsColumn, statsTitle, statsDescription, badges }: StatsBlockProps) => {
     return (
         <div className="max-w-[1128px] mx-auto space-y-8">
-            <div className={cn('flex flex-col lg:flex-row', statsDescription ? 'justify-between items-end' : 'justify-center')}>
-                {statsTitle && <RichText data={statsTitle} className='text-left !text-5xl font-faustina mb-14 md:mb-0' />}
-                <p className='max-w-[460px]'>{statsDescription}</p>
+            <div className={cn('flex flex-col gap-4 lg:flex-row md:gap-10', statsDescription ? 'justify-between' : 'justify-center')}>
+                {statsTitle && <RichText data={statsTitle} className={cn('!text-5xl font-faustina', statsDescription ? 'text-left' : 'text-center')} />}
+                {statsDescription && <p className='max-w-[460px]'>{statsDescription}</p>}
             </div>
 
             {statsColumn && statsColumn?.length > 0 && (
@@ -48,9 +48,9 @@ const StatsBlock = ({ statsColumn, statsTitle, statsDescription, badges }: Stats
                         if (!badge.badgeLink && !badge.badgeLabel) return null;
 
                         return (
-                            <Link href={badge.badgeLink || ''} key={`${index}_badge`} className='flex items-center gap-2 text-nowrap rounded-full border border-foreground text-sm xl:text-lg xl:leading-[24px] font-bold py-2 px-4 hover:bg-foreground hover:text-white transition-all duration-200'>
+                            <Link href={badge.badgeLink || ''} key={`${index}_badge`} className='flex items-center gap-1 text-nowrap rounded-full border border-foreground text-sm xl:text-lg xl:leading-[24px] font-bold py-1.5 px-3 hover:bg-foreground hover:text-white transition-all duration-200'>
                                 {badge.badgeLabel}
-                                <ArrowUpRight />
+                                <ArrowUpRight size={20} />
                             </Link>
                         )
                     })}
