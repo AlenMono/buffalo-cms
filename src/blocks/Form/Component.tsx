@@ -165,7 +165,7 @@ export const FormBlock: React.FC<
                                         const Field: React.FC<any> = fields?.[field.blockType as keyof typeof fields]
                                         if (Field) {
                                             return (
-                                                <div style={{ width: isHalf ? '49%' : '100%' }} key={index}>
+                                                <div style={{ width: window.innerWidth > 768 && isHalf ? '49%' : '100%' }} key={index}>
                                                     <Field
                                                         form={formFromProps}
                                                         {...field}

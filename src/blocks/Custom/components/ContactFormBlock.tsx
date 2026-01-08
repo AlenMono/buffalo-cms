@@ -43,11 +43,11 @@ export const ContactFormBlock: React.FC<ContactFormBlockProps> = ({ contactBenef
                 className="scale-75 lg:scale-100 absolute -top-16 object-contain z-[-1] -right-56 lg:-right-96 max-h-[837px]"
             />
 
-            <h1 className="text-5xl xl:text-[56px] xl:leading-[64px] font-semibold font-faustina italic mb-16">
+            <h1 className="hero-title mb-8 lg:mb-16">
                 Contact Us
             </h1>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {formData ? (
                     <FormBlock {...formData} id="1" />
                 ) : (
@@ -84,7 +84,7 @@ export const ContactFormBlock: React.FC<ContactFormBlockProps> = ({ contactBenef
                         <div key={idx} className="flex gap-2 mb-6">
                             <CheckIcon className="mt-1 min-w-5" />
                             <div className="flex flex-col gap-2">
-                                <h3 className="text-xl font-semibold">{card.heading}</h3>
+                                <h3 className="text-lg md:text-xl font-semibold">{card.heading}</h3>
                                 <p className="text-brand-30">{card.subheading}</p>
                             </div>
                         </div>

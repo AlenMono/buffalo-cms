@@ -63,7 +63,7 @@ export const Accordion: React.FC<AccordionProps> = ({
                                 ? 'p-4 bg-background-light border border-primary-dark rounded-lg hover:bg-background'
                                 : 'py-4 border-b border-b-brand-30',
                             isOpen && variant === 'outline' ? 'bg-background opacity-100' : 'opacity-100',
-                            !isOpen && 'opacity-70',
+                            !isOpen && 'opacity-60',
                         )}
                     >
                         <div className="flex justify-between items-center transition-all duration-200 gap-4">

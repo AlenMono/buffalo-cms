@@ -41,10 +41,9 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
             <div className="p-5 md:p-9 md:pt-7 bg-secondary border border-primary-darkest rounded-lg">
                 <div className='flex flex-col justify-between gap-5'>
                     <div className="flex flex-col md:flex-row justify-between md:items-end gap-4 flex-1 flex-wrap mb-4 md:mb-10 lg:mb-28">
-                        {sectionTitle && <RichText data={sectionTitle} paragraphClassName="!text-3xl md:!text-4xl leading-[32px] md:!leading-[44px] lg:!text-[44px] lg:leading-[52px]"
-                            h1ClassName="!text-3xl md:!text-4xl leading-[32px] md:!leading-[44px] lg:!text-[44px] lg:leading-[52px]" />}
+                        {sectionTitle && <RichText data={sectionTitle} paragraphClassName="section-title" h1ClassName="section-title" />}
 
-                        <div className='max-w-[490px] text-xs md:text-base'>
+                        <div className='max-w-[490px] text-sm md:text-base'>
                             {burialDescription}
                         </div>
                     </div>
@@ -77,10 +76,14 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
 
 
     return (
-        <div className="flex justify-between gap-5 p-3 pl-5 bg-secondary border border-primary-dark rounded-lg md:h-[660px] my-10">
+        <div className="flex justify-between gap-5 p-3 pl-5 bg-secondary border border-primary-darkest rounded-lg">
             <div className="flex flex-col justify-between md:min-w-[360px] md:max-w-[360px] lg:min-w-[415px] lg:max-w-[415px]">
-                {sectionTitle && <RichText data={sectionTitle} className='text-left !text-5xl font-faustina mb-14 md:mb-0' />}
-
+                {sectionTitle && <RichText data={sectionTitle} className='section-title text-center md:text-left mb-10' />}
+                <div className="flex mb-6 md:hidden">
+                    <div className='p-3 rounded-lg relative bg-background-light border border-primary-darkest'>
+                        <Image width={760} height={214} src={image?.url || 'public/img/graveyard.png'} alt="Cemetery" className='h-full object-cover min-h-[215px]' />
+                    </div>
+                </div>
                 <div>
                     <BurialOptionAccordion
                         options={burialOptions}
@@ -89,7 +92,7 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
             </div>
             <div className="hidden md:flex">
                 <div className='p-3 rounded-lg relative bg-background-light border border-primary-darkest'>
-                    <Image width={760} height={660} src={image?.url || 'public/img/graveyard.png'} alt="Cemetery" className='h-full object-cover' />
+                    <Image width={760} height={660} src={image?.url || 'public/img/graveyard.png'} alt="Cemetery" className='h-full object-cover min-h-[442px] lg:min-h-[596px]' />
                 </div>
             </div>
         </div>

@@ -43,12 +43,12 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
                 <div className='z-10 relative'>
                     {planningProcessTitle && (
                         <div className="mb-6  text-center">
-                            <RichText data={planningProcessTitle} className="!text-4xl font-faustina" />
+                            <RichText data={planningProcessTitle} className="section-title" />
                         </div>
                     )}
 
                     {planningProcessDescription && (
-                        <p className="mx-auto text-brand-30 text-center mb-12 max-w-[493px]">
+                        <p className="mx-auto text-brand-30 text-center mb-12 max-w-[493px] text-sm md:text-base">
                             {planningProcessDescription}
                         </p>
                     )}
@@ -60,10 +60,10 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
                                     key={idx}
                                     className="p-5 bg-background border border-primary-dark rounded-lg flex flex-col justify-between gap-8 xl:gap-[132px]"
                                 >
-                                    <p className="font-faustina font-semibold text-2xl text-gold">0{idx + 1}</p>
+                                    <p className="font-faustina font-semibold text-lg md:text-2xl text-gold">0{idx + 1}</p>
 
                                     <div className="flex flex-col gap-3">
-                                        <h3 className="text-2xl font-bold text-brand">{card.heading}</h3>
+                                        <h3 className="text-lg md:text-2xl font-bold text-brand">{card.heading}</h3>
                                         <p className="text-brand-30 text-sm">{card.description}</p>
                                         {card.link &&
                                             <div className='flex items-center gap-2'>

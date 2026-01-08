@@ -42,8 +42,8 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
           <div className='mb-10 md:mb-16'>
             <RichText
               data={benefitTitle}
-              paragraphClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
-              h1ClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
+              paragraphClassName="section-title"
+              h1ClassName="section-title"
             />
           </div>
         )}
@@ -53,40 +53,40 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
             <div key={idx} className="flex gap-3 lg:gap-4">
               <CheckIcon className="mt-1 min-w-5" />
               <div className="flex flex-col gap-2 lg:gap-5">
-                <h3 className="text-base lg:text-xl font-semibold">{card.heading}</h3>
-                <p className="text-brand-30 text-sm lg:text-lg">{card.subheading}</p>
+                <h3 className="text-lg md:text-xl font-semibold">{card.heading}</h3>
+                <p className="text-brand-30 text-sm md:text-lg">{card.subheading}</p>
               </div>
             </div>
           ))}
         </div>
 
-        {benefitNote && <div className='mt-10 md:mt-16'><RichText data={benefitNote} paragraphClassName='font-satoshi text-lg' /></div>}
+        {benefitNote && <div className='mt-10 md:mt-16'><RichText data={benefitNote} paragraphClassName='font-satoshi text-sm md:text-base' /></div>}
       </div>
     )
   }
 
   return (
     <section className="max-w-[1125px] mx-auto">
-      <div className="flex flex-wrap justify-between gap-10">
-        <div className="xl:max-w-[457px] flex flex-col justify-between gap-10">
+      <div className="flex flex-col lg:flex-row justify-between gap-10">
+        <div className="lg:max-w-[457px] flex flex-col justify-between gap-10">
           {benefitTitle && (
             <RichText
               data={benefitTitle}
-              paragraphClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
-              h1ClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
+              paragraphClassName="section-title"
+              h1ClassName="section-title"
             />
           )}
 
           {benefitDescription && <p className="text-brand-30 xl:max-w-[266px]">{benefitDescription}</p>}
         </div>
 
-        <div className="flex flex-col gap-10 xl:gap-12 max-w-[495px]">
+        <div className="flex flex-col gap-5 xl:gap-12 max-w-[495px]">
           {benefits.map((card, idx) => (
             <div key={idx} className="flex gap-3 lg:gap-4">
               <CheckIcon className="mt-1 min-w-5" />
               <div className="flex flex-col gap-2 lg:gap-5">
-                <h3 className="text-base lg:text-xl font-semibold">{card.heading}</h3>
-                <p className="text-brand-30 text-sm lg:text-lg">{card.subheading}</p>
+                <h3 className="text-lg md:text-xl font-semibold">{card.heading}</h3>
+                <p className="text-brand-30 text-sm md:text-lg">{card.subheading}</p>
               </div>
             </div>
           ))}

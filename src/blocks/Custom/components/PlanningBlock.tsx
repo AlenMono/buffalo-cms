@@ -45,13 +45,13 @@ export const PlanningBlock: React.FC<PlanningBlockProps> = ({
                     {planningTitle && (
                         <RichText
                             data={planningTitle}
-                            paragraphClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
-                            h1ClassName="!text-2xl lg:!text-4xl leading-[32px] lg:!leading-[44px] xl:!text-[44px] xl:leading-[52px]"
+                            paragraphClassName="section-title"
+                            h1ClassName="section-title"
                         />
                     )}
                     {description && (
                         <div className="flex md:justify-end">
-                            <p className="max-w-[460px] text-lg text-brand-30">{description}</p>
+                            <p className="max-w-[460px] text-sm md:text-lg text-brand-30">{description}</p>
                         </div>
                     )}
                 </div>
@@ -82,7 +82,7 @@ export const PlanningBlock: React.FC<PlanningBlockProps> = ({
                             >
                                 <div className="flex flex-col z-10">
                                     <div className="flex-1">
-                                        <h3 className={cn("font-semibold mb-1 font-faustina italic", isCardWithBadges ? "text-[24px] leading-[32px] lg:text-4xl" : "text-xl font-semibold mb-1")}>
+                                        <h3 className={cn("font-semibold mb-1 font-faustina italic", isCardWithBadges ? "text-[24px] leading-[32px] lg:text-4xl" : "text-xl md:text-[28px] leading-[36px] font-semibold mb-1")}>
                                             {card.heading}
                                         </h3>
                                         <p className={cn("text-brand-30 mb-4", isCardWithBadges ? 'text-xs lg:text-base' : 'text-xs md:text-sm')}>{card.subheading}</p>
@@ -92,7 +92,7 @@ export const PlanningBlock: React.FC<PlanningBlockProps> = ({
                                                 {card.badges?.map((b, i) => (
                                                     <span
                                                         key={i}
-                                                        className="text-sm border rounded-full px-3 py-1 text-brand-30"
+                                                        className="text-xs md:text-sm border rounded-full px-2 md:px-3 md:py-1 text-brand-30"
                                                     >
                                                         {b.badge}
                                                     </span>
@@ -105,7 +105,7 @@ export const PlanningBlock: React.FC<PlanningBlockProps> = ({
                                         <p
                                             className={cn(
                                                 'text-brand-30',
-                                                isCardWithBadges ? 'text-sm lg:text-lg' : 'text-sm lg:text-base',
+                                                isCardWithBadges ? 'text-sm md:text-lg' : 'text-sm md:text-base',
                                             )}
                                         >
                                             {card.description}

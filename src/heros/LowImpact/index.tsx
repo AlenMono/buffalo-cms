@@ -32,8 +32,8 @@ export const LowImpactHero: React.FC<LowImpactHeroType> = ({
                         <RichText
                             data={richText}
                             enableGutter={false}
-                            paragraphClassName="text-lg font-satoshi leading-[24px] pt-1 text-brand-30"
-                            h1ClassName="text-4xl lg:text-[56px] lg:leading-[64px] font-faustina"
+                            paragraphClassName="hero-paragraph"
+                            h1ClassName="hero-title"
                         />
                     ))}
             </div>
