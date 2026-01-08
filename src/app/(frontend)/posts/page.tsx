@@ -24,16 +24,19 @@ export default async function Page() {
       slug: true,
       categories: true,
       meta: true,
+      heroImage: true,
+      publisher: true,
+      publishedAt: true,
+      id: true,
     },
   })
 
   return (
     <div className="pt-24 pb-24">
       <PageClient />
-      <div className="container mb-16">
-        <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
-        </div>
+      <div className="container mb-16 text-center">
+        <h1 className='hero-title'><strong>News</strong> and Announcements</h1>
+        <p className='hero-paragraph'>Updates, reflections, and community news from Buffalo Catholic Cemeteries.</p>
       </div>
 
       <div className="container mb-8">

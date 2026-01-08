@@ -1,10 +1,12 @@
 import { cn } from '@/utilities/ui'
 import React from 'react'
 
-import { Card, CardPostData } from '@/components/Card'
+import { CardPostData } from '@/components/Card'
+import Link from 'next/link'
+import Image from 'next/image'
 
 export type Props = {
-  posts: CardPostData[]
+  posts?: CardPostData[]
 }
 
 export const CollectionArchive: React.FC<Props> = (props) => {
@@ -13,13 +15,34 @@ export const CollectionArchive: React.FC<Props> = (props) => {
   return (
     <div className={cn('container')}>
       <div>
-        <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-y-4 gap-x-4 lg:gap-y-8 lg:gap-x-8 xl:gap-x-8">
-          {posts?.map((result, index) => {
-            if (typeof result === 'object' && result !== null) {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts?.map((item) => {
+            if (typeof item === 'object' && item !== null) {
               return (
-                <div className="col-span-4" key={index}>
-                  <Card className="h-full" doc={result} relationTo="posts" showCategories />
-                </div>
+                <Link
+                  href={`/posts/${item.slug}`}
+                  key={item.id}
+                  className="flex flex-col border border-primary-dark bg-background-light rounded-lg overflow-hidden p-4 min-h-[360px] card-hovered"
+                >
+                  {item.heroImage && typeof item.heroImage === 'object' && item.heroImage.url && (
+                    <Image
+                      src={item.heroImage.url}
+                      alt={item.title}
+                      width={400}
+                      height={180}
+                      className="w-full h-48 object-cover rounded-lg"
+                    />
+                  )}
+                  <div className="flex flex-col flex-1 pt-4">
+                    <p className="text-sm text-brand font-bold">{item.publisher}</p>
+                    <h3 className="text-lg md:text-xl font-semibold mt-1 font-faustina">{item.title}</h3>
+                    {item.publishedAt && (
+                      <p className="flex items-end text-sm text-brand mt-4 flex-1">
+                        {new Date(item.publishedAt).toLocaleDateString()}
+                      </p>
+                    )}
+                  </div>
+                </Link>
               )
             }
 
