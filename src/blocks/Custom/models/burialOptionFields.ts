@@ -23,6 +23,22 @@ const showIfBurialHorizontal = (_data: any, _siblingData: any, parentData: any) 
   )
 }
 
+const showIfBurialVerticalOrC = (_data: any, _siblingData: any, parentData: any) => {
+  return (
+    parentData?.blockData.section === 'burial-options' &&
+    (parentData?.blockData.burialLayout === 'vertical' ||
+      parentData?.blockData.burialLayout === 'burial-c')
+  )
+}
+
+const showIfBurialHorizontalOrC = (_data: any, _siblingData: any, parentData: any) => {
+  return (
+    parentData?.blockData.section === 'burial-options' &&
+    (parentData?.blockData.burialLayout === 'horizontal' ||
+      parentData?.blockData.burialLayout === 'burial-c')
+  )
+}
+
 const burialOptionFields = {
   title: {
     name: 'title',
@@ -32,8 +48,8 @@ const burialOptionFields = {
   description: {
     name: 'description',
     type: 'textarea',
-    required: true,
-    admin: { condition: showIfBurialVertical },
+    required: false,
+    admin: { condition: showIfBurialVerticalOrC },
   },
   buttonText: {
     name: 'buttonText',
@@ -52,7 +68,7 @@ const burialOptionFields = {
     type: 'upload',
     relationTo: 'media',
     required: true,
-    admin: { condition: showIfBurialHorizontal },
+    admin: { condition: showIfBurialHorizontalOrC },
   },
   burialBadges: {
     name: 'burialBadges',
@@ -85,8 +101,9 @@ export const burialFields = {
     type: 'select',
     defaultValue: 'vertical',
     options: [
-      { label: 'Vertical', value: 'vertical' },
-      { label: 'Horizontal', value: 'horizontal' },
+      { label: 'Burial A', value: 'vertical' },
+      { label: 'Burial B', value: 'horizontal' },
+      { label: 'Burial C', value: 'burial-c' },
     ],
     required: false,
     admin: { condition: isBurialSection },

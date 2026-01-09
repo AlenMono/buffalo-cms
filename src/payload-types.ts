@@ -596,7 +596,7 @@ export interface CustomBlock {
     };
     [k: string]: unknown;
   } | null;
-  burialLayout?: ('vertical' | 'horizontal') | null;
+  burialLayout?: ('vertical' | 'horizontal' | 'burial-c') | null;
   burialDescription?: string | null;
   image?: (number | null) | Media;
   burialOptions?:
