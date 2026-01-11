@@ -76,7 +76,7 @@ const burialOptionFields = {
     labels: { singular: 'Badge', plural: 'Badges' },
     fields: [{ name: 'title', type: 'text', required: true }],
     required: false,
-    admin: { condition: showIfBurialHorizontal },
+    admin: { condition: showIfBurialHorizontalOrC },
   },
 }
 

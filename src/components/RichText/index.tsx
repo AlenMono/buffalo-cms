@@ -40,10 +40,14 @@ const jsxConverters = ({
   defaultConverters,
   paragraphClassName,
   h1ClassName,
+  h2ClassName,
+  h3ClassName
 }: {
   defaultConverters: ReturnType<JSXConvertersFunction<NodeTypes>>
   paragraphClassName?: string
   h1ClassName?: string
+  h2ClassName?: string
+  h3ClassName?: string
 }) => ({
   ...defaultConverters,
   ...LinkJSXConverter({ internalDocToHref }),
@@ -86,12 +90,16 @@ const jsxConverters = ({
     })
 
     if (node.tag === 'h4') {
-      return <Tag className="text-sm lg:text-lg font-normal">{children}</Tag>
+      return <Tag className="text-sm md:text-lg font-normal">{children}</Tag>
+    }
+
+    if (node.tag === 'h3') {
+      return <Tag className={cn("text-xl md:text-2xl", h3ClassName)}>{children}</Tag>
     }
 
     if (node.tag === 'h2') {
       return (
-        <Tag className="section-title !mb-0 font-faustina font-normal">
+        <Tag className={cn(h2ClassName || "section-title !mb-0 font-faustina font-normal")}>
           {children}
         </Tag>
       )
@@ -166,7 +174,7 @@ const jsxConverters = ({
       return <React.Fragment key={index}>{nodesToJSX({ nodes: [child] })}</React.Fragment>
     })
 
-    return <p className={cn('m-0', paragraphClassName)}>{children}</p>
+    return <p className={cn('mt-0', paragraphClassName)}>{children}</p>
   },
   blocks: {
     banner: ({ node }: any) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
@@ -191,6 +199,8 @@ type Props = {
   enableProse?: boolean
   paragraphClassName?: string
   h1ClassName?: string
+  h2ClassName?: string
+  h3ClassName?: string
 } & React.HTMLAttributes<HTMLDivElement>
 
 export default function RichText(props: Props) {
@@ -200,6 +210,8 @@ export default function RichText(props: Props) {
     enableGutter = true,
     paragraphClassName,
     h1ClassName,
+    h2ClassName,
+    h3ClassName,
     ...rest
   } = props
 
@@ -208,7 +220,7 @@ export default function RichText(props: Props) {
     defaultConverters,
   }: {
     defaultConverters: ReturnType<JSXConvertersFunction<DefaultNodeTypes>>
-  }) => jsxConverters({ defaultConverters, paragraphClassName, h1ClassName })
+  }) => jsxConverters({ defaultConverters, paragraphClassName, h1ClassName, h2ClassName, h3ClassName })
 
   return (
     <ConvertRichText
