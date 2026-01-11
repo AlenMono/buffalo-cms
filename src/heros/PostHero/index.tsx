@@ -2,72 +2,63 @@ import { formatDateTime } from 'src/utilities/formatDateTime'
 import React from 'react'
 
 import type { Post } from '@/payload-types'
-
 import { Media } from '@/components/Media'
-import { formatAuthors } from '@/utilities/formatAuthors'
 
 export const PostHero: React.FC<{
-  post: Post
+    post: Post
 }> = ({ post }) => {
-  const { categories, heroImage, populatedAuthors, publishedAt, title } = post
+    const { categories, heroImage, publisher, publishedAt, title } = post
 
-  const hasAuthors =
-    populatedAuthors && populatedAuthors.length > 0 && formatAuthors(populatedAuthors) !== ''
+    return (
+        <section className="pt-28 pb-20">
+            <div className="container max-w-4xl text-center">
+                {categories && categories.length > 0 && (
+                    <p className="mb-6 text-xs tracking-widest uppercase text-neutral-600">
+                        {categories.map((category, index) => {
+                            if (typeof category === 'object' && category !== null) {
+                                const isLast = index === categories.length - 1
+                                return (
+                                    <React.Fragment key={index}>
+                                        {category.title || 'Untitled'}
+                                        {!isLast && ' • '}
+                                    </React.Fragment>
+                                )
+                            }
+                            return null
+                        })}
+                    </p>
+                )}
 
-  return (
-    <div className="relative -mt-[10.4rem] flex items-end">
-      <div className="container z-10 relative lg:grid lg:grid-cols-[1fr_48rem_1fr] text-white pb-8">
-        <div className="col-start-1 col-span-1 md:col-start-2 md:col-span-2">
-          <div className="uppercase text-sm mb-6">
-            {categories?.map((category, index) => {
-              if (typeof category === 'object' && category !== null) {
-                const { title: categoryTitle } = category
+                <h1 className="font-faustina mb-6 hero-title text-brand">
+                    {title}
+                </h1>
 
-                const titleToUse = categoryTitle || 'Untitled category'
+                <div className="flex flex-wrap justify-center gap-3 text-sm md:text-base text-brand font-satoshi">
+                    {publishedAt && (
+                        <time dateTime={publishedAt}>{formatDateTime(publishedAt)}</time>
+                    )}
 
-                const isLast = index === categories.length - 1
-
-                return (
-                  <React.Fragment key={index}>
-                    {titleToUse}
-                    {!isLast && <React.Fragment>, &nbsp;</React.Fragment>}
-                  </React.Fragment>
-                )
-              }
-              return null
-            })}
-          </div>
-
-          <div className="">
-            <h1 className="mb-6 text-3xl md:text-5xl lg:text-6xl">{title}</h1>
-          </div>
-
-          <div className="flex flex-col md:flex-row gap-4 md:gap-16">
-            {hasAuthors && (
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col gap-1">
-                  <p className="text-sm">Author</p>
-
-                  <p>{formatAuthors(populatedAuthors)}</p>
+                    {publisher && (
+                        <>
+                            <span>•</span>
+                            <span className='font-bold'>{publisher}</span>
+                        </>
+                    )}
                 </div>
-              </div>
-            )}
-            {publishedAt && (
-              <div className="flex flex-col gap-1">
-                <p className="text-sm">Date Published</p>
+            </div>
 
-                <time dateTime={publishedAt}>{formatDateTime(publishedAt)}</time>
-              </div>
+            {heroImage && typeof heroImage !== 'string' && (
+                <div className="container mt-16">
+                    <div className='border border-primary-dark bg-background-light p-3 rounded-lg'>
+                        <Media
+                            fill
+                            priority
+                            imgClassName="object-cover h-full max-h-[636px] w-full"
+                            resource={heroImage}
+                        />
+                    </div>
+                </div>
             )}
-          </div>
-        </div>
-      </div>
-      <div className="min-h-[80vh] select-none">
-        {heroImage && typeof heroImage !== 'string' && (
-          <Media fill priority imgClassName="-z-10 object-cover" resource={heroImage} />
-        )}
-        <div className="absolute pointer-events-none left-0 bottom-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent" />
-      </div>
-    </div>
-  )
+        </section>
+    )
 }
