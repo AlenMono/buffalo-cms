@@ -1446,7 +1446,7 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         content?: T | ContentBlockSelect<T>;
-        customBlock?: T | CustomBlockSelect<T>;
+        customBlock?: T | CustomBlockSelect;
         formBlock?: T | FormBlockSelect<T>;
       };
   meta?:
