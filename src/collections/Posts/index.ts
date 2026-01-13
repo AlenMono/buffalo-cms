@@ -27,14 +27,22 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { slugField } from 'payload'
+import { isAdminOrHasSiteAccess } from '@/access/isAdminOrHasSiteAccess'
+import { isAdminOrHasSiteAccessOrPublished } from '@/access/isAdminOrHasSiteAccessOrPublished'
+import { isAdmin } from '@/access/isAdmin'
 
 export const Posts: CollectionConfig<'posts'> = {
   slug: 'posts',
   access: {
+    // Anyone logged in can create
     create: authenticated,
-    delete: authenticated,
-    read: authenticatedOrPublished,
-    update: authenticated,
+    // Only admins or editors with site access can update
+    update: isAdminOrHasSiteAccess(),
+    // Admins or editors with site access can read,
+    // otherwise users not logged in can only read published
+    read: isAdminOrHasSiteAccessOrPublished,
+    // Only admins can delete
+    delete: isAdmin,
   },
   // This config controls what's populated by default when a post is referenced
   // https://payloadcms.com/docs/queries/select#defaultpopulate-collection-config-property

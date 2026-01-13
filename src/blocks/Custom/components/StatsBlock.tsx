@@ -48,7 +48,7 @@ const StatsBlock = ({ statsColumn, statsTitle, statsDescription, badges }: Stats
                         if (!badge.badgeLink && !badge.badgeLabel) return null;
 
                         return (
-                            <Link href={badge.badgeLink || ''} key={`${index}_badge`} className='flex items-center gap-1 text-nowrap rounded-full border border-foreground text-sm xl:text-lg xl:leading-[24px] font-bold py-1.5 px-3 hover:bg-foreground hover:text-white transition-all duration-200'>
+                            <Link href={badge.badgeLink || badge.badgeLabel.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-')} key={`${index}_badge`} className='flex items-center gap-1 text-nowrap rounded-full border border-foreground text-sm xl:text-lg xl:leading-[24px] font-bold py-1.5 px-3 hover:bg-foreground hover:text-white transition-all duration-200'>
                                 {badge.badgeLabel}
                                 <ArrowUpRight size={20} />
                             </Link>
