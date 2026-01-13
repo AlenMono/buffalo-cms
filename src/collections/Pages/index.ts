@@ -1,7 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
 import { authenticated } from '../../access/authenticated'
-import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
 import { Content } from '../../blocks/Content/config'
 import { hero } from '@/heros/config'
 import { slugField } from 'payload'
@@ -18,14 +17,22 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 import { CustomBlock } from '@/blocks/Custom/config'
 import { FormBlock } from '@/blocks/Form/config'
+import { isAdminOrHasSiteAccess } from '@/access/isAdminOrHasSiteAccess'
+import { isAdmin } from '@/access/isAdmin'
+import { isAdminOrHasSiteAccessOrPublished } from '@/access/isAdminOrHasSiteAccessOrPublished'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
   access: {
+    // Anyone logged in can create
     create: authenticated,
-    delete: authenticated,
-    read: authenticatedOrPublished,
-    update: authenticated,
+    // Only admins or editors with site access can update
+    update: isAdminOrHasSiteAccess(),
+    // Admins or editors with site access can read,
+    // otherwise users not logged in can only read published
+    read: isAdminOrHasSiteAccessOrPublished,
+    // Only admins can delete
+    delete: isAdmin,
   },
   // This config controls what's populated by default when a page is referenced
   // https://payloadcms.com/docs/queries/select#defaultpopulate-collection-config-property

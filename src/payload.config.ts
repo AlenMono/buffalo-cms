@@ -18,6 +18,7 @@ import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
 import { Cemeteries } from './collections/Cemeteries'
+import { seed } from './seed'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -82,6 +83,12 @@ export default buildConfig({
   sharp,
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
+  },
+  onInit: async (payload) => {
+    // If the `env` var `PAYLOAD_SEED` is set, seed the db
+    if (process.env.PAYLOAD_SEED) {
+      await seed(payload)
+    }
   },
   email: resendAdapter({
     apiKey: process.env.RESEND_API_KEY || '',
