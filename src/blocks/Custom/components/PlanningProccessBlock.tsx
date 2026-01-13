@@ -2,7 +2,8 @@ import React from 'react'
 import RichText from '@/components/RichText'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRightIcon, MoveRightIcon } from 'lucide-react'
+import { MoveRightIcon } from 'lucide-react'
+import { cn } from '@/utilities/ui'
 
 type PlanningCard = {
     heading: string
@@ -15,30 +16,43 @@ type PlanningProcessBlockProps = {
     planningProcessTitle?: any
     planningProcessDescription?: string
     planningProcessCards?: PlanningCard[]
+    planningProcessLayout?: 'steps-a' | 'steps-b' | 'steps-c'
 }
 
 export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
     planningProcessTitle,
     planningProcessDescription,
     planningProcessCards = [],
+    planningProcessLayout,
 }) => {
+    let listClassName = ""
+
+    if (planningProcessLayout === "steps-a") {
+        listClassName = "grid-cols-1 md:grid-cols-2 xl:grid-cols-4"
+    }
+    if (planningProcessLayout === "steps-c") {
+        listClassName = "grid-cols-1 md:grid-cols-2"
+    }
     return (
         <section className="max-w-[1320px] mx-auto">
             <div className="bg-background-light border border-primary-dark p-5 lg:px-9 lg:py-7 rounded-lg relative overflow-hidden">
-                <Image
-                    src="/img/wreath-full.svg"
-                    width={999}
-                    height={958}
-                    alt="Wreath"
-                    className="absolute -top-20 h-[290px] md:h-auto md:top-1/2 -left-[55%] md:transform md:translate-y-[-50%]"
-                />
-                <Image
-                    src="/img/wreath-full.svg"
-                    width={999}
-                    height={958}
-                    alt="Wreath"
-                    className="absolute -top-20 h-[290px] md:h-auto md:top-1/2 -right-[55%] transform md:translate-y-[-50%] scale-x-[-1] "
-                />
+                {planningProcessLayout === 'steps-b' && (
+                    <>
+                        <Image
+                            src="/img/wreath-full.svg"
+                            width={999}
+                            height={958}
+                            alt="Wreath"
+                            className="absolute -top-20 h-[290px] md:h-auto md:top-1/2 -left-[55%] md:transform md:translate-y-[-50%]"
+                        />
+                        <Image
+                            src="/img/wreath-full.svg"
+                            width={999}
+                            height={958}
+                            alt="Wreath"
+                            className="absolute -top-20 h-[290px] md:h-auto md:top-1/2 -right-[55%] transform md:translate-y-[-50%] scale-x-[-1] "
+                        /></>
+                )}
 
                 <div className='z-10 relative'>
                     {planningProcessTitle && (
@@ -54,7 +68,7 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
                     )}
 
                     {planningProcessCards.length > 0 && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 flex-1">
+                        <div className={cn("grid gap-4 flex-1", listClassName)}>
                             {planningProcessCards.map((card, idx) => (
                                 <div
                                     key={idx}

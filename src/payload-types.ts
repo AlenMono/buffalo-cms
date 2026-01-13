@@ -484,10 +484,10 @@ export interface CustomBlock {
     | 'image-galleries'
     | 'news'
     | 'planning'
-    | 'planning-process'
     | 'guidance-and-comfort'
     | 'resources'
     | 'stats'
+    | 'planning-process'
     | 'testimonial'
     | 'video'
     | 'signature';
@@ -806,6 +806,7 @@ export interface CustomBlock {
   testimonialText?: string | null;
   testimonialAuthor?: string | null;
   testimonialPlace?: string | null;
+  planningProcessLayout?: ('steps-a' | 'steps-b' | 'steps-c') | null;
   planningProcessTitle?: {
     root: {
       type: string;
@@ -1445,6 +1446,7 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         content?: T | ContentBlockSelect<T>;
+        customBlock?: T | CustomBlockSelect;
         formBlock?: T | FormBlockSelect<T>;
       };
   meta?:
@@ -1626,6 +1628,7 @@ export interface CustomBlockSelect {
   testimonialText?: boolean;
   testimonialAuthor?: boolean;
   testimonialPlace?: boolean;
+  planningProcessLayout?: boolean;
   planningProcessTitle?: boolean;
   planningProcessDescription?: boolean;
   planningProcessCards?:
