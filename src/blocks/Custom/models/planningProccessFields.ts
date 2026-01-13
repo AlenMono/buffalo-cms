@@ -32,6 +32,18 @@ const planningCardsFields = {
 }
 
 export const planningProcessFields = {
+  planningProcessLayout: {
+    name: 'planningProcessLayout',
+    type: 'select',
+    defaultValue: 'steps-a',
+    options: [
+      { label: 'Steps A', value: 'steps-a' },
+      { label: 'Steps B', value: 'steps-b' },
+      { label: 'Steps C', value: 'steps-c' },
+    ],
+    required: false,
+    admin: { condition: isPlanningSection },
+  },
   planningProcessTitle: {
     name: 'planningProcessTitle',
     type: 'richText',

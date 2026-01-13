@@ -161,6 +161,10 @@ html[data-theme='light'] {
   @apply text-[28px] leading-[36px] md:!text-[44px] md:leading-[52px] mb-0;
 }
 
-.prose :where(ul > li):not(:where([class~="not-prose"],[class~="not-prose"] *))::marker {
+.prose :where(ul > li):not(:where([class~='not-prose'], [class~='not-prose'] *))::marker {
   @apply text-brand-30;
+}
+
+.list-bullet li {
+  @apply text-base md:text-lg;
 }

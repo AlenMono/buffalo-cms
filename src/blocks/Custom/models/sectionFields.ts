@@ -61,10 +61,6 @@ export const sectionFields: Field = {
       value: 'planning',
     },
     {
-      label: 'Planning Process',
-      value: 'planning-process',
-    },
-    {
       label: 'Promo / Guidance & Comfort',
       value: 'guidance-and-comfort',
     },
@@ -76,6 +72,10 @@ export const sectionFields: Field = {
     {
       label: 'Statistics',
       value: 'stats',
+    },
+    {
+      label: 'Steps',
+      value: 'planning-process',
     },
     {
       label: 'Testimonial',
