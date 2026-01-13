@@ -6,7 +6,7 @@ export const seed = async (payload: Payload): Promise<void> => {
   await payload.create({
     collection: 'users',
     data: {
-      email: 'admin@payloadcms.com',
+      email: 'buffalo-admin@payloadcms.com',
       password: 'buffaloAdmin.123',
       name: 'Admin User',
       roles: ['admin'],
@@ -17,7 +17,7 @@ export const seed = async (payload: Payload): Promise<void> => {
   await payload.create({
     collection: 'users',
     data: {
-      email: 'editor@payloadcms.com',
+      email: 'buffalo-editor@payloadcms.com',
       password: 'buffaloEditor.123',
       name: 'Editor User',
     },
