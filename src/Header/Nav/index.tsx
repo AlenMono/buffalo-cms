@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
+import { Logo } from '@/components/Logo/Logo'
 
 // ---------------- Types (compatible with Payload CMS) ----------------
 export type NavItem = {
@@ -30,7 +31,7 @@ const NavLink = ({
     isDropdown?: boolean
 }) => (
     <Link
-        href={href}
+        href={`/${href}`}
         className={isDropdown ? "relative text-sm text-brand-30 inline-block hover:bg-primary-dark hover:text-invert-darkest w-full px-3 py-2 rounded-md transition-colors duration-200" : "relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-300 hover:after:w-full"}
         onClick={onClick}
     >
@@ -91,6 +92,7 @@ const Dropdown = ({ item, isOpen, toggle, closeDropdown }: DropdownProps) => {
 export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
     const [openIndex, setOpenIndex] = useState<number | null>(null)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const [openAccordionItems, setOpenAccordionItems] = useState<Set<number>>(new Set())
     const dropdownRef = useRef<HTMLDivElement>(null)
     const mobileMenuRef = useRef<HTMLDivElement>(null)
 
@@ -100,7 +102,20 @@ export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
 
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen)
 
-    const closeMobileMenu = () => setIsMobileMenuOpen(false)
+    const closeMobileMenu = () => {
+        setIsMobileMenuOpen(false)
+        setOpenAccordionItems(new Set())
+    }
+
+    const toggleAccordion = (index: number) => {
+        const newOpenItems = new Set(openAccordionItems)
+        if (newOpenItems.has(index)) {
+            newOpenItems.delete(index)
+        } else {
+            newOpenItems.add(index)
+        }
+        setOpenAccordionItems(newOpenItems)
+    }
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -182,8 +197,10 @@ export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
                     ref={mobileMenuRef}
                     className="fixed inset-0 bg-background z-50 lg:hidden flex flex-col"
                 >
-                    <div className="flex justify-between items-center p-4 border-b">
-                        <span className="text-lg font-semibold">Menu</span>
+                    <div className="flex justify-between items-center p-4">
+                        <Link href="/home">
+                            <Logo loading="eager" priority="high" />
+                        </Link>
                         <button
                             onClick={closeMobileMenu}
                             className="w-8 h-8 flex items-center justify-center focus:outline-none"
@@ -195,25 +212,43 @@ export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
                         </button>
                     </div>
                     <div className="flex-1 overflow-y-auto p-4">
-                        <nav className="flex flex-col gap-4">
+                        <nav className="flex flex-col">
                             {navItems?.map((item, i) => (
                                 <div key={i}>
                                     {!item.hasDropdown || !item.dropdownItems || item.dropdownItems.length === 0 ? (
-                                        <NavLink href={item.url || '#'} onClick={closeMobileMenu}>
-                                            {item.label}
-                                        </NavLink>
+                                        <Link href={item.url || '#'} onClick={closeMobileMenu}>
+                                            <div className="py-4 px-2 text-lg font-medium">
+                                                {item.label}
+                                            </div>
+                                        </Link>
                                     ) : (
                                         <div>
-                                            <div className="text-lg font-medium mb-2">{item.label}</div>
-                                            <ul className="ml-4 space-y-2">
-                                                {item.dropdownItems.map((child, idx) => (
-                                                    <li key={idx}>
-                                                        <NavLink href={child.url ?? '#'} onClick={closeMobileMenu} isDropdown>
-                                                            {child.label}
-                                                        </NavLink>
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                            <button
+                                                onClick={() => toggleAccordion(i)}
+                                                className="w-full flex items-center justify-between py-4 px-2 text-lg font-medium transition-colors duration-200"
+                                            >
+                                                <span>{item.label}</span>
+                                                <svg
+                                                    className={`w-5 h-5 transition-transform duration-200 ${openAccordionItems.has(i) ? 'rotate-180' : ''}`}
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </button>
+                                            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openAccordionItems.has(i) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                                <ul className="ml-4 space-y-1 pb-2">
+                                                    {item.dropdownItems.map((child, idx) => (
+                                                        <li key={idx}>
+                                                            <NavLink href={child.url ?? '#'} onClick={closeMobileMenu} isDropdown>
+                                                                {child.label}
+                                                            </NavLink>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
                                         </div>
                                     )}
                                 </div>
