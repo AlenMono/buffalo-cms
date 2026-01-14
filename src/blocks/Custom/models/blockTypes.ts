@@ -18,6 +18,7 @@ export const blockOptions = [
   { label: 'Iframe', value: 'iframe' },
   { label: 'Cemetery Locations', value: 'cemetery-locations' },
   { label: 'Cemetery List', value: 'cemetery-list' },
+  { label: 'Team', value: 'team' },
   { label: 'Image Galleries', value: 'image-galleries' },
   { label: 'Video', value: 'video' },
 ] as const

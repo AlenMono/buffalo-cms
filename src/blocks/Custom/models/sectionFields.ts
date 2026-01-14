@@ -82,6 +82,10 @@ export const sectionFields: Field = {
       value: 'planning-process',
     },
     {
+      label: 'Team',
+      value: 'team',
+    },
+    {
       label: 'Testimonial',
       value: 'testimonial',
     },

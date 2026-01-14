@@ -489,6 +489,7 @@ export interface CustomBlock {
     | 'resources'
     | 'stats'
     | 'planning-process'
+    | 'team'
     | 'testimonial'
     | 'video'
     | 'signature';
@@ -909,6 +910,15 @@ export interface CustomBlock {
         cemeteryName?: string | null;
         cemeteryAdress?: string | null;
         cemeteryLink?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  teamTitle?: string | null;
+  teamList?:
+    | {
+        name: string;
+        info?: string | null;
+        email?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -1705,6 +1715,15 @@ export interface CustomBlockSelect {
         cemeteryName?: boolean;
         cemeteryAdress?: boolean;
         cemeteryLink?: boolean;
+        id?: boolean;
+      };
+  teamTitle?: boolean;
+  teamList?:
+    | boolean
+    | {
+        name?: boolean;
+        info?: boolean;
+        email?: boolean;
         id?: boolean;
       };
   id?: boolean;

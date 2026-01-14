@@ -17,6 +17,7 @@ import FAQBlock from './components/FAQBlock';
 import BurialOptionListBlock from './components/BurialOptionListBlock';
 import IframeBlock from './components/IframeBlock';
 import CemeteryListBlock from './components/CemeteryListBlock';
+import TeamBlock from './components/TeamBlock';
 import CemeteryLocationsBlock from './components/CemeteryLocationsBlock '
 import ImageGalleryBlock from './components/ImageGalleryBlock'
 import VideoBlock from './components/VideoBlock'
@@ -40,6 +41,7 @@ const blockComponentMap: Record<BlockSection, React.ComponentType<any>> = {
     'burial-options-list': BurialOptionListBlock,
     iframe: IframeBlock,
     'cemetery-list': CemeteryListBlock,
+    team: TeamBlock,
     'cemetery-locations': CemeteryLocationsBlock,
     'image-galleries': ImageGalleryBlock,
     video: VideoBlock,
