@@ -30,11 +30,11 @@ const StatsBlock = ({ statsColumn, statsTitle, statsDescription, badges }: Stats
             </div>
 
             {statsColumn && statsColumn?.length > 0 && (
-                <div className={cn('grid gap-4 grid-cols-2 md:grid-cols-4 pt-6 pb-10')}>
+                <div className={cn('grid gap-4 grid-cols-2 lg:grid-cols-4 pt-6')}>
                     {statsColumn?.map(data => {
                         return (
-                            <div key={data.statsValue} className='flex flex-col items-start'>
-                                <p className='text-[44px] leading-[52px] xl:text-[88px] xl:leading-[88px] font-semibold font-faustina text-gold'>{data.statsValue}</p>
+                            <div key={data.statsValue} className='flex flex-col items-center lg:items-start'>
+                                <p className='text-[44px] leading-[52px] md:text-[88px] md:leading-[88px] font-semibold font-faustina text-gold'>{data.statsValue}</p>
                                 <p className='font-faustina italic font-normal text-brand-30'>{data.statsLabel}</p>
                             </div>
                         )
