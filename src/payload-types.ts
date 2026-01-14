@@ -849,6 +849,7 @@ export interface CustomBlock {
     };
     [k: string]: unknown;
   } | null;
+  faqFilters?: boolean | null;
   faqLayout?: ('block' | 'full-page') | null;
   faqs?:
     | {
@@ -1676,6 +1677,7 @@ export interface CustomBlockSelect {
         id?: boolean;
       };
   faqRichTitle?: boolean;
+  faqFilters?: boolean;
   faqLayout?: boolean;
   faqs?:
     | boolean
