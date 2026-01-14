@@ -16,6 +16,7 @@ import { PlanningProcessBlock } from './components/PlanningProccessBlock';
 import FAQBlock from './components/FAQBlock';
 import BurialOptionListBlock from './components/BurialOptionListBlock';
 import IframeBlock from './components/IframeBlock';
+import CemeteryListBlock from './components/CemeteryListBlock';
 import CemeteryLocationsBlock from './components/CemeteryLocationsBlock '
 import ImageGalleryBlock from './components/ImageGalleryBlock'
 import VideoBlock from './components/VideoBlock'
@@ -38,6 +39,7 @@ const blockComponentMap: Record<BlockSection, React.ComponentType<any>> = {
     faq: FAQBlock,
     'burial-options-list': BurialOptionListBlock,
     iframe: IframeBlock,
+    'cemetery-list': CemeteryListBlock,
     'cemetery-locations': CemeteryLocationsBlock,
     'image-galleries': ImageGalleryBlock,
     video: VideoBlock,
