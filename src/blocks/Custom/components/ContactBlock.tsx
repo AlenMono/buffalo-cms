@@ -31,7 +31,7 @@ const ContactBlock: React.FC<ContactBlockProps> = ({
                 <Image src="/img/right-flower.png" alt="Flowers" width={411} height={628} />
             </div>
             {contactTitle && (
-                <RichText data={contactTitle} className="section-title mb-6 lg:mb-16" />
+                <RichText data={contactTitle} className="section-title !mb-6 lg:mb-16" />
             )}
 
             {contactDescription && <p className="text-brand-30 text-sm md:text-lg mb-6">{contactDescription}</p>}
