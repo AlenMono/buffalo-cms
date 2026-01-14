@@ -30,6 +30,10 @@ const faqField = {
       { label: 'Burial', value: 'burial' },
       { label: 'Grief', value: 'grief' },
     ],
+    admin: {
+      condition: (_data: any, siblingData: any) =>
+        siblingData?.section === 'faq' && siblingData?.faqFilters,
+    },
   },
 }
 
