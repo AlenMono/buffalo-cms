@@ -474,6 +474,7 @@ export interface CustomBlock {
     | 'burial-options'
     | 'burial-options-list'
     | 'cemetery-locations'
+    | 'cemetery-list'
     | 'contact'
     | 'contact-form'
     | 'custom'
@@ -884,6 +885,30 @@ export interface CustomBlock {
     | {
         heading: string;
         subheading: string;
+        id?: string | null;
+      }[]
+    | null;
+  cemeteryListTitle?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  cemeteryListDescription?: string | null;
+  cemeteryList?:
+    | {
+        cemeteryName?: string | null;
+        cemeteryAdress?: string | null;
+        cemeteryLink?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -1670,6 +1695,16 @@ export interface CustomBlockSelect {
     | {
         heading?: boolean;
         subheading?: boolean;
+        id?: boolean;
+      };
+  cemeteryListTitle?: boolean;
+  cemeteryListDescription?: boolean;
+  cemeteryList?:
+    | boolean
+    | {
+        cemeteryName?: boolean;
+        cemeteryAdress?: boolean;
+        cemeteryLink?: boolean;
         id?: boolean;
       };
   id?: boolean;

@@ -19,6 +19,7 @@ import { imageGaleriesFields } from './models/imageGaleriesFields'
 import { cemeteryLocationsFields } from './models/cementeryLocationsFields'
 import { videoFields } from './models/videoFields'
 import { contactFormFields } from './models/contactFormFields'
+import { cemeteryListFields } from './models/cemeteryListFields'
 
 export const CustomBlock: Block = {
   slug: 'customBlock',
@@ -81,5 +82,8 @@ export const CustomBlock: Block = {
 
     // contact form
     ...Object.values(contactFormFields),
+
+    // Cemetery List
+    ...Object.values(cemeteryListFields),
   ],
 }

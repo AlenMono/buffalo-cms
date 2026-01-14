@@ -21,6 +21,10 @@ export const sectionFields: Field = {
       value: 'cemetery-locations',
     },
     {
+      label: 'Cemetery List',
+      value: 'cemetery-list',
+    },
+    {
       label: 'Contact',
       value: 'contact',
     },
