@@ -31,7 +31,7 @@ const NavLink = ({
     isDropdown?: boolean
 }) => (
     <Link
-        href={href}
+        href={`/${href}`}
         className={isDropdown ? "relative text-sm text-brand-30 inline-block hover:bg-primary-dark hover:text-invert-darkest w-full px-3 py-2 rounded-md transition-colors duration-200" : "relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-300 hover:after:w-full"}
         onClick={onClick}
     >

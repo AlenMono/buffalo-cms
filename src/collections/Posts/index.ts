@@ -30,6 +30,7 @@ import { slugField } from 'payload'
 import { isAdminOrHasSiteAccess } from '@/access/isAdminOrHasSiteAccess'
 import { isAdminOrHasSiteAccessOrPublished } from '@/access/isAdminOrHasSiteAccessOrPublished'
 import { isAdmin } from '@/access/isAdmin'
+import { PullQuote } from '@/blocks/BlogCustom/model/PullQuote'
 
 export const Posts: CollectionConfig<'posts'> = {
   slug: 'posts',
@@ -104,7 +105,7 @@ export const Posts: CollectionConfig<'posts'> = {
                     ...rootFeatures,
                     UnorderedListFeature(),
                     HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
-                    BlocksFeature({ blocks: [Banner, Code, MediaBlock] }),
+                    BlocksFeature({ blocks: [Banner, Code, MediaBlock, PullQuote] }),
                     FixedToolbarFeature(),
                     InlineToolbarFeature(),
                     HorizontalRuleFeature(),

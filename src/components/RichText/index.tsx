@@ -21,6 +21,7 @@ import { BannerBlock } from '@/blocks/Banner/Component'
 import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { cn } from '@/utilities/ui'
 import React from 'react'
+import { PullQuoteBlock } from '@/blocks/BlogCustom/components/PullQouteBlock'
 
 type NodeTypes =
   | DefaultNodeTypes
@@ -190,6 +191,9 @@ const jsxConverters = ({
     ),
     code: ({ node }: any) => <CodeBlock className="col-start-2" {...node.fields} />,
     cta: ({ node }: any) => <CallToActionBlock {...node.fields} />,
+    pullQuote: ({ node }: any) => (
+      <PullQuoteBlock {...node.fields} />
+    ),
   },
 })
 

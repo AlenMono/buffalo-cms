@@ -4,7 +4,7 @@ export const aboutUsList = [
   { href: '/faq', label: 'FAQ' },
   { href: '/cemetery-locations', label: 'Cemetery Locations' },
   { href: '/careers', label: 'Careers' },
-  { href: '/blog', label: 'Blog' },
+  { href: '/posts', label: 'Blog' },
 ]
 
 export const planningList = [
