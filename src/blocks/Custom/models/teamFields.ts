@@ -11,7 +11,7 @@ const teamMember = {
   },
   info: {
     name: 'info',
-    label: 'Team Info',
+    label: 'Role / Info',
     type: 'textarea',
   },
   email: {
