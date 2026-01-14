@@ -48,6 +48,12 @@ export const faqFields = {
     }),
     admin: { condition: isFAQSection },
   },
+  faqFilters: {
+    name: 'faqFilters',
+    type: 'checkbox',
+    required: false,
+    admin: { condition: isFAQSection },
+  },
   faqLayout: {
     name: 'faqLayout',
     type: 'select',

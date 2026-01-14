@@ -1,12 +1,12 @@
 import type { Metadata } from 'next/types'
 
 import { CollectionArchive } from '@/components/CollectionArchive'
-import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
 import PageClient from './page.client'
+import BackgroundVisual from '@/heros/components/BackgroundVisual'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
@@ -32,20 +32,13 @@ export default async function Page() {
   })
 
   return (
-    <div className="pt-24 pb-24">
+    <div className="container mt-8 lg:mt-16 relative pb-16">
+      <BackgroundVisual heroImpact="high" backgroundVisual={'landing-d'} />
+
       <PageClient />
-      <div className="container mb-16 text-center">
+      <div className="container mb-16 md:mb-24 text-center">
         <h1 className='hero-title'><strong>News</strong> and Announcements</h1>
         <p className='hero-paragraph'>Updates, reflections, and community news from Buffalo Catholic Cemeteries.</p>
-      </div>
-
-      <div className="container mb-8">
-        <PageRange
-          collection="posts"
-          currentPage={posts.page}
-          limit={12}
-          totalDocs={posts.totalDocs}
-        />
       </div>
 
       <CollectionArchive posts={posts.docs} />

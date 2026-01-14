@@ -16,6 +16,7 @@ type FAQBlockProps = {
     faqRichTitle?: any
     faqs: FAQ[]
     faqLayout?: 'block' | 'full-page'
+    faqFilters?: boolean
 }
 
 type FilterSectionType = {
@@ -30,7 +31,7 @@ const filterSections: FilterSectionType[] = [
     { label: 'Grief', value: 'grief' }
 ]
 
-export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayout }) => {
+export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayout, faqFilters }) => {
     const [selectedFilter, setSelectedFilter] = useState('all')
 
     // Filter FAQs based on selected type
@@ -68,7 +69,7 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayou
     if (faqLayout === "full-page") {
         return (
             <div className='bg-background-light border border-primary-dark px-9 py-7 rounded-lg max-w-[938px] mx-auto'>
-                {renderFilterButtons()}
+                {faqFilters && renderFilterButtons()}
                 <Accordion
                     items={items}
                     singleOpen

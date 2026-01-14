@@ -71,7 +71,7 @@ const Dropdown = ({ item, isOpen, toggle, closeDropdown }: DropdownProps) => {
             </button>
 
             <div
-                className={`absolute left-0 top-full mt-2 w-48 bg-background border border-secondary shadow-lg rounded-md z-50 origin-top transition-all duration-300 ease-out transform
+                className={`absolute left-0 top-full mt-2 w-[299px] bg-background border border-secondary shadow-lg rounded-md z-50 origin-top transition-all duration-300 ease-out transform
         ${isOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'}`}
             >
                 <ul className="p-1">
