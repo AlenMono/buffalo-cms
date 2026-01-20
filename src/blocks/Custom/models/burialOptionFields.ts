@@ -16,6 +16,13 @@ const showIfBurialVertical = (_data: any, _siblingData: any, parentData: any) =>
   )
 }
 
+const showIfBurialHorizontal = (_data: any, _siblingData: any, parentData: any) => {
+  return (
+    parentData?.blockData.section === 'burial-options' &&
+    parentData?.blockData.burialLayout === 'horizontal'
+  )
+}
+
 const showIfBurialVerticalOrC = (_data: any, _siblingData: any, parentData: any) => {
   return (
     parentData?.blockData.section === 'burial-options' &&
@@ -69,7 +76,7 @@ const burialOptionFields = {
     labels: { singular: 'Badge', plural: 'Badges' },
     fields: [{ name: 'title', type: 'text', required: true }],
     required: false,
-    admin: { condition: showIfBurialHorizontalOrC },
+    admin: { condition: showIfBurialHorizontal },
   },
 }
 
@@ -103,6 +110,12 @@ export const burialFields = {
   },
   burialDescription: {
     name: 'burialDescription',
+    type: 'text',
+    required: false,
+    admin: { condition: showIfBurialHorizontalOrC },
+  },
+  burialNote: {
+    name: 'burialNote',
     type: 'text',
     required: false,
     admin: { condition: showIfBurialHorizontalOrC },
