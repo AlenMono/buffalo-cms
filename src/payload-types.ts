@@ -475,6 +475,7 @@ export interface CustomBlock {
     | 'burial-options-list'
     | 'cemetery-locations'
     | 'cemetery-list'
+    | 'cemetery-tour'
     | 'contact'
     | 'contact-form'
     | 'custom'
@@ -921,6 +922,38 @@ export interface CustomBlock {
         name: string;
         info?: string | null;
         email?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  cemeteryTourTitle?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  cemeteryTourDescription?: string | null;
+  /**
+   * Paste the URL to your video file (e.g., .mp4, .webm, etc.)
+   */
+  cemeteryVideoUrl?: string | null;
+  /**
+   * Optional: URL to an image to display before the video plays
+   */
+  cemeteryVideoPoster?: string | null;
+  cemeteryTourLinks?:
+    | {
+        resourceTitle: string;
+        resourceUrl: string;
+        resourceDescription?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -1728,6 +1761,18 @@ export interface CustomBlockSelect {
         name?: boolean;
         info?: boolean;
         email?: boolean;
+        id?: boolean;
+      };
+  cemeteryTourTitle?: boolean;
+  cemeteryTourDescription?: boolean;
+  cemeteryVideoUrl?: boolean;
+  cemeteryVideoPoster?: boolean;
+  cemeteryTourLinks?:
+    | boolean
+    | {
+        resourceTitle?: boolean;
+        resourceUrl?: boolean;
+        resourceDescription?: boolean;
         id?: boolean;
       };
   id?: boolean;
