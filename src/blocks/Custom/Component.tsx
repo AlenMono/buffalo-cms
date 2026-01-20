@@ -22,6 +22,7 @@ import CemeteryLocationsBlock from './components/CemeteryLocationsBlock '
 import ImageGalleryBlock from './components/ImageGalleryBlock'
 import VideoBlock from './components/VideoBlock'
 import { ContactFormBlock } from './components/ContactFormBlock';
+import CemeteryTourBlock from './components/CemeteryTourBlock';
 
 
 const blockComponentMap: Record<BlockSection, React.ComponentType<any>> = {
@@ -46,6 +47,7 @@ const blockComponentMap: Record<BlockSection, React.ComponentType<any>> = {
     'image-galleries': ImageGalleryBlock,
     video: VideoBlock,
     'contact-form': ContactFormBlock,
+    'cemetery-tour': CemeteryTourBlock,
 };
 
 export const CustomBlock = (props: BaseBlockProps) => {

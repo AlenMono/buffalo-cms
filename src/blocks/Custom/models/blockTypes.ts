@@ -5,6 +5,7 @@ export const blockOptions = [
   { label: 'Burial Options', value: 'burial-options' },
   { label: 'Burial Options List', value: 'burial-options-list' },
   { label: 'Contact Form', value: 'contact-form' },
+  { label: 'Cemetery Tour', value: 'cemetery-tour' },
   { label: 'Stats', value: 'stats' },
   { label: 'Guidance and Comfort', value: 'guidance-and-comfort' },
   { label: 'Grief Support', value: 'grief-support' },

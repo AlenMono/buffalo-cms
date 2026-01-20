@@ -25,6 +25,10 @@ export const sectionFields: Field = {
       value: 'cemetery-list',
     },
     {
+      label: 'Cemetery Tour',
+      value: 'cemetery-tour',
+    },
+    {
       label: 'Contact',
       value: 'contact',
     },
