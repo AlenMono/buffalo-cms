@@ -16,13 +16,6 @@ const showIfBurialVertical = (_data: any, _siblingData: any, parentData: any) =>
   )
 }
 
-const showIfBurialHorizontal = (_data: any, _siblingData: any, parentData: any) => {
-  return (
-    parentData?.blockData.section === 'burial-options' &&
-    parentData?.blockData.burialLayout === 'horizontal'
-  )
-}
-
 const showIfBurialVerticalOrC = (_data: any, _siblingData: any, parentData: any) => {
   return (
     parentData?.blockData.section === 'burial-options' &&
@@ -112,14 +105,14 @@ export const burialFields = {
     name: 'burialDescription',
     type: 'text',
     required: false,
-    admin: { condition: showIfBurialHorizontal },
+    admin: { condition: showIfBurialHorizontalOrC },
   },
   image: {
     name: 'image',
     type: 'upload',
     relationTo: 'media',
     required: false,
-    admin: { condition: isBurialSection },
+    admin: { condition: showIfBurialVertical },
   },
   burialOptions: {
     name: 'burialOptions',
