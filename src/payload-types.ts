@@ -600,6 +600,7 @@ export interface CustomBlock {
   } | null;
   burialLayout?: ('vertical' | 'horizontal' | 'burial-c') | null;
   burialDescription?: string | null;
+  burialNote?: string | null;
   image?: (number | null) | Media;
   burialOptions?:
     | {
@@ -1568,6 +1569,7 @@ export interface CustomBlockSelect {
   sectionTitle?: boolean;
   burialLayout?: boolean;
   burialDescription?: boolean;
+  burialNote?: boolean;
   image?: boolean;
   burialOptions?:
     | boolean

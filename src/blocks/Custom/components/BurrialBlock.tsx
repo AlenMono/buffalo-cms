@@ -32,10 +32,11 @@ interface BurialBlockProps {
     burialOptions: BurialOption[];
     burialLayout?: 'horizontal' | 'vertical' | 'burial-c';
     burialDescription?: string
+    burialNote?: string
 }
 
 
-const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOptions, burialLayout, burialDescription }) => {
+const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOptions, burialLayout, burialDescription, burialNote }) => {
     if (burialLayout === 'horizontal') {
         return (
             <div className="p-5 md:p-9 md:pt-7 bg-secondary border border-primary-darkest rounded-lg">
@@ -70,6 +71,13 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                         }
                     </div>
                 </div>
+
+                {/* burialNote */}
+                {burialNote &&
+                    <div className="text-center pt-8 md:pt-11 text-sm md:text-base text-brand-30">
+                        {burialNote}
+                    </div>
+                }
             </div>
         )
     }
@@ -109,6 +117,13 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                         }
                     </div>
                 </div>
+
+                {/* burialNote */}
+                {burialNote &&
+                    <div className="text-center pt-8 md:pt-11 text-sm md:text-base text-brand-30">
+                        {burialNote}
+                    </div>
+                }
             </div>
         )
     }
