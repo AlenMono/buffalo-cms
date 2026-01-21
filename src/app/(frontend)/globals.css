@@ -172,3 +172,7 @@ html[data-theme='light'] {
 .next-video-container {
   @apply !aspect-auto;
 }
+
+[data-next-video] img {
+  @apply !object-cover;
+}
