@@ -54,7 +54,6 @@ const CemeteryTourBlock: React.FC<CemeteryTourBlockProps> = ({
                     src={cemeteryVideoUrl}
                     poster={cemeteryVideoPoster}
                     controls
-                    height={630}
                     title="Cemetery Tour"
                     blurDataURL='https://i.postimg.cc/FHYWP62s/Untitled-design.png'
                 />

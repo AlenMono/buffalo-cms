@@ -30,7 +30,11 @@ export default function ImageSwiper({ items }: { items: Item[] }) {
                 <Swiper
                     modules={[Pagination, Navigation]}
                     navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
-                    pagination={{ clickable: true, el: paginationRef.current as unknown as string, dynamicBullets: true, dynamicMainBullets: 5 }}
+                    pagination={{
+                        clickable: true,
+                        el: paginationRef.current as unknown as string,
+                        type: 'bullets'
+                    }}
                     onBeforeInit={(swiper) => {
                         // ensure navigation elements are wired (refs set)
                         // @ts-expect-error - wiring refs for Swiper navigation
@@ -50,7 +54,7 @@ export default function ImageSwiper({ items }: { items: Item[] }) {
                         return (
                             <SwiperSlide key={idx}>
                                 {src ? (
-                                    <div className="relative w-full h-[590px]">
+                                    <div className="relative w-full h-[205px] md:h-[590px]">
                                         <Image src={src} alt={alt || 'gallery image'} fill className="object-cover" />
                                     </div>
                                 ) : null}
