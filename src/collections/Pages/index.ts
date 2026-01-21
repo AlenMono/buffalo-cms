@@ -17,9 +17,7 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 import { CustomBlock } from '@/blocks/Custom/config'
 import { FormBlock } from '@/blocks/Form/config'
-import { isAdminOrHasSiteAccess } from '@/access/isAdminOrHasSiteAccess'
 import { isAdmin } from '@/access/isAdmin'
-import { isAdminOrHasSiteAccessOrPublished } from '@/access/isAdminOrHasSiteAccessOrPublished'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -27,10 +25,10 @@ export const Pages: CollectionConfig<'pages'> = {
     // Anyone logged in can create
     create: authenticated,
     // Only admins or editors with site access can update
-    update: isAdminOrHasSiteAccess(),
+    update: authenticated,
     // Admins or editors with site access can read,
     // otherwise users not logged in can only read published
-    read: isAdminOrHasSiteAccessOrPublished,
+    read: authenticated,
     // Only admins can delete
     delete: isAdmin,
   },
