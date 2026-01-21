@@ -10,7 +10,7 @@ export default async function NewsBlock() {
     return (
         <section>
             <div className="max-w-[1128px] mx-auto">
-                <div className="flex justify-between items-center mb-8">
+                <div className="flex justify-between items-center gap-8 mb-8">
                     <h2 className="section-title"><span className='italic font-semibold'>News</span> & Announcements</h2>
                     <Link href="/posts" className={buttonVariants({ variant: 'outline', size: 'md' })}>
                         Read All News

@@ -50,7 +50,7 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayou
     }))
 
     const renderFilterButtons = () => (
-        <div className="flex gap-2 mb-16 flex-wrap justify-center">
+        <div className="flex gap-2 mb-8 md:mb-16 flex-wrap justify-center">
             {filterSections.map(item => (
                 <button
                     key={item.value}
@@ -68,7 +68,7 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayou
 
     if (faqLayout === "full-page") {
         return (
-            <div className='bg-background-light border border-primary-dark px-9 py-7 rounded-lg max-w-[938px] mx-auto'>
+            <div className='bg-background-light border border-primary-dark px-5 md:px-9 py-7 rounded-lg max-w-[938px] mx-auto'>
                 {faqFilters && renderFilterButtons()}
                 <Accordion
                     items={items}
