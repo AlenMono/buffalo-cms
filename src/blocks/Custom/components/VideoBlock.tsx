@@ -22,7 +22,6 @@ export const VideoBlock: React.FC<VideoBlockProps> = ({ videoUrl, videoTitle, vi
                         src={videoUrl}
                         poster={videoPoster}
                         controls
-                        height={630}
                         title={videoTitle}
                         blurDataURL='https://i.postimg.cc/FHYWP62s/Untitled-design.png'
                     />
