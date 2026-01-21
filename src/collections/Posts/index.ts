@@ -27,8 +27,6 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { slugField } from 'payload'
-import { isAdminOrHasSiteAccess } from '@/access/isAdminOrHasSiteAccess'
-import { isAdminOrHasSiteAccessOrPublished } from '@/access/isAdminOrHasSiteAccessOrPublished'
 import { isAdmin } from '@/access/isAdmin'
 import { PullQuote } from '@/blocks/BlogCustom/model/PullQuote'
 
@@ -38,10 +36,10 @@ export const Posts: CollectionConfig<'posts'> = {
     // Anyone logged in can create
     create: authenticated,
     // Only admins or editors with site access can update
-    update: isAdminOrHasSiteAccess(),
+    update: authenticated,
     // Admins or editors with site access can read,
     // otherwise users not logged in can only read published
-    read: isAdminOrHasSiteAccessOrPublished,
+    read: authenticated,
     // Only admins can delete
     delete: isAdmin,
   },
