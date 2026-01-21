@@ -25,7 +25,7 @@ const BurialOptionListBlock: React.FC<BurialOptionListBlockProps> = ({ burialOpt
 
     return (
         <section>
-            <div className="grid gap-6 lg:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-12">
                 {burialOptionsList.map((option, index) => {
                     const isOdd = index % 2 === 0
                     return (
@@ -61,7 +61,7 @@ const BurialOptionListBlock: React.FC<BurialOptionListBlockProps> = ({ burialOpt
                                         alt={option.image.alt || option.title}
                                         width={580}
                                         height={450}
-                                        className="object-cover w-full h-[200px] md:h-[360px] lg:h-[450px]"
+                                        className="object-cover w-full h-[200px] md:h-[300px] lg:h-[450px]"
                                     />
                                 )}
                             </div>
