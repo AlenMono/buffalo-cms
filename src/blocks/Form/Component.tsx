@@ -201,7 +201,7 @@ export const FormBlock: React.FC<
                     {!isLoading && hasSubmitted && confirmationType === 'message' && (
                         <div className='bg-green-300 rounded-lg p-4 mt-4 flex items-center gap-2'>
                             <CheckCircle width="18" />
-                            <RichText data={confirmationMessage} paragraphClassName='font-satoshi text-sm' />
+                            <RichText data={confirmationMessage} paragraphClassName='font-satoshi text-sm !m-0' />
                         </div>
                     )}
                 </FormProvider>
