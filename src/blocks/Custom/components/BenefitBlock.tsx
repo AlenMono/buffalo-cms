@@ -80,7 +80,7 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
           {benefitDescription && <p className="text-brand-30 xl:max-w-[266px]">{benefitDescription}</p>}
         </div>
 
-        <div className="flex flex-col gap-5 xl:gap-12 max-w-[495px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:flex flex-col gap-5 xl:gap-12 lg:max-w-[495px]">
           {benefits.map((card, idx) => (
             <div key={idx} className="flex gap-3 lg:gap-4">
               <CheckIcon className="mt-1 min-w-5" />
