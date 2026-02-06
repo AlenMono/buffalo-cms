@@ -14,9 +14,10 @@ interface BurialOption {
 
 interface BurialOptionAccordionProps {
   options: BurialOption[]
+  onSelectOption?: (index: number) => void
 }
 
-export const BurialOptionAccordion: React.FC<BurialOptionAccordionProps> = ({ options }) => {
+export const BurialOptionAccordion: React.FC<BurialOptionAccordionProps> = ({ options, onSelectOption }) => {
   const items = options.map((option) => ({
     title: <p className="text-base md:text-xl text-brand-30">{option.title}</p>,
     content: (
@@ -34,7 +35,7 @@ export const BurialOptionAccordion: React.FC<BurialOptionAccordionProps> = ({ op
     ),
   }))
 
-  return <Accordion items={items} singleOpen />
+  return <Accordion items={items} singleOpen onItemOpen={onSelectOption} />
 }
 
 export default BurialOptionAccordion

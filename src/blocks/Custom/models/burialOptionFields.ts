@@ -70,6 +70,13 @@ const burialOptionFields = {
     required: true,
     admin: { condition: showIfBurialHorizontalOrC },
   },
+  burialOptionImage: {
+    name: 'burialOptionImage',
+    type: 'upload',
+    relationTo: 'media',
+    required: false,
+    admin: { condition: showIfBurialVertical },
+  },
   burialBadges: {
     name: 'burialBadges',
     type: 'array',

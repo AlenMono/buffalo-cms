@@ -39,13 +39,15 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
   if (!src && resource && typeof resource === 'object') {
     const { alt: altFromResource, height: fullHeight, url, width: fullWidth } = resource
 
-    width = fullWidth!
-    height = fullHeight!
-    alt = altFromResource || ''
+    if (url) {
+      width = fullWidth!
+      height = fullHeight!
+      alt = altFromResource || ''
 
-    const cacheTag = resource.updatedAt
+      const cacheTag = resource.updatedAt
 
-    src = getMediaUrl(url, cacheTag)
+      src = getMediaUrl(url, cacheTag)
+    }
   }
 
   const loading = loadingFromProps || (!priority ? 'lazy' : undefined)
@@ -54,8 +56,8 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
   const sizes = sizeFromProps
     ? sizeFromProps
     : Object.entries(breakpoints)
-        .map(([, value]) => `(max-width: ${value}px) ${value * 2}w`)
-        .join(', ')
+      .map(([, value]) => `(max-width: ${value}px) ${value * 2}w`)
+      .join(', ')
 
   return (
     <picture className={cn(pictureClassName)}>
