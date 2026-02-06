@@ -29,7 +29,10 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
         cardSpacing = ''
 
     if (planningProcessLayout === 'steps-a' || planningProcessLayout === 'steps-b') {
-        listClassName = `grid-cols-1 md:grid-cols-2 xl:grid-cols-${planningProcessCards.length || 4}`
+        const cardCount = planningProcessCards.length || 4
+        const xlGridCols = cardCount <= 2 ? 'xl:grid-cols-2' : cardCount === 3 ? 'xl:grid-cols-3' : 'xl:grid-cols-4'
+
+        listClassName = `grid-cols-1 md:grid-cols-2 ${xlGridCols}`
         cardSpacing = 'gap-8 xl:gap-[132px]'
     }
     if (planningProcessLayout === 'steps-c') {
