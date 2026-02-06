@@ -29,7 +29,7 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
         cardSpacing = ''
 
     if (planningProcessLayout === 'steps-a' || planningProcessLayout === 'steps-b') {
-        listClassName = 'grid-cols-1 md:grid-cols-2 xl:grid-cols-4'
+        listClassName = `grid-cols-1 md:grid-cols-2 xl:grid-cols-${planningProcessCards.length || 4}`
         cardSpacing = 'gap-8 xl:gap-[132px]'
     }
     if (planningProcessLayout === 'steps-c') {
@@ -74,7 +74,7 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
                 <div className="z-10 relative">
                     {planningProcessTitle && (
                         <div className="mb-6 text-center">
-                            <RichText data={planningProcessTitle} className="section-title" />
+                            <RichText data={planningProcessTitle} className="section-title" h3ClassName="!mb-0" />
                         </div>
                     )}
 
