@@ -610,6 +610,7 @@ export interface CustomBlock {
         buttonText?: string | null;
         'burial-link'?: string | null;
         burialImage?: (number | null) | Media;
+        burialOptionImage?: (number | null) | Media;
         burialBadges?:
           | {
               title: string;
@@ -1612,6 +1613,7 @@ export interface CustomBlockSelect {
         buttonText?: boolean;
         'burial-link'?: boolean;
         burialImage?: boolean;
+        burialOptionImage?: boolean;
         burialBadges?:
           | boolean
           | {

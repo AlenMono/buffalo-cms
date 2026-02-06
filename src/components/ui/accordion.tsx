@@ -14,6 +14,7 @@ interface AccordionProps {
     singleOpen?: boolean
     variant?: 'outline'
     wrapperClassName?: string
+    onItemOpen?: (index: number) => void
 }
 
 export const Accordion: React.FC<AccordionProps> = ({
@@ -21,6 +22,7 @@ export const Accordion: React.FC<AccordionProps> = ({
     singleOpen = true,
     variant,
     wrapperClassName,
+    onItemOpen,
 }) => {
     const [openIndexes, setOpenIndexes] = useState<number[]>([])
     const contentRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -28,10 +30,16 @@ export const Accordion: React.FC<AccordionProps> = ({
     const toggleItem = (index: number) => {
         if (singleOpen) {
             setOpenIndexes((prev) => (prev[0] === index ? [] : [index]))
+            if (openIndexes[0] !== index) {
+                onItemOpen?.(index)
+            }
         } else {
             setOpenIndexes((prev) =>
                 prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
             )
+            if (!openIndexes.includes(index)) {
+                onItemOpen?.(index)
+            }
         }
     }
 

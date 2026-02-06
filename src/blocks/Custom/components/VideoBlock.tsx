@@ -1,5 +1,4 @@
 import React from 'react'
-import Video from 'next-video';
 
 type VideoBlockProps = {
     videoTitle?: string
@@ -18,13 +17,15 @@ export const VideoBlock: React.FC<VideoBlockProps> = ({ videoUrl, videoTitle, vi
                 )}
 
                 <div className="bg-background-light border border-primary-dark p-3 rounded-lg">
-                    <Video
-                        src={videoUrl}
-                        poster={videoPoster}
-                        controls
-                        title={videoTitle}
-                        blurDataURL='https://i.postimg.cc/FHYWP62s/Untitled-design.png'
-                    />
+                    <div className="w-full relative rounded-lg overflow-hidden" style={{ paddingBottom: '56.25%', height: 0 }}>
+                        <video
+                            src={videoUrl}
+                            poster={videoPoster}
+                            controls
+                            className="absolute top-0 left-0 w-full h-full object-cover"
+                            title={videoTitle}
+                        />
+                    </div>
                 </div>
             </div>
         </section>

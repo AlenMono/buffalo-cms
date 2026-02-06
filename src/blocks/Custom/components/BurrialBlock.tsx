@@ -1,5 +1,6 @@
+'use client'
 import Image from 'next/image';
-import React from 'react'
+import React, { useState } from 'react'
 import BurialOptionAccordion from './BurialOptionAccordion';
 import RichText from '@/components/RichText';
 
@@ -13,7 +14,13 @@ interface BurialOption {
     buttonLink?: string;
     buttonText?: string;
     burialBadges?: BadgeType[];
-    burialImage: {
+    burialImage?: {
+        url: string
+        alt?: string
+        width?: number
+        height?: number
+    }
+    burialOptionImage?: {
         url: string
         alt?: string
         width?: number
@@ -37,6 +44,7 @@ interface BurialBlockProps {
 
 
 const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOptions, burialLayout, burialDescription, burialNote }) => {
+    const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
     if (burialLayout === 'horizontal') {
         return (
             <div className="p-5 md:p-9 md:pt-7 bg-secondary border border-primary-darkest rounded-lg">
@@ -57,8 +65,8 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                                         <Image
                                             width={263}
                                             height={180}
-                                            src={option?.burialImage?.url}
-                                            alt="Cemetery"
+                                            src={option?.burialImage?.url || '/img/graveyard.png'}
+                                            alt={option?.burialImage?.alt || "Cemetery"}
                                             className='object-cover w-full rounded-lg h-[180px]'
                                         />
                                         <div className='flex flex-col items-start gap-3'>
@@ -72,7 +80,6 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                     </div>
                 </div>
 
-                {/* burialNote */}
                 {burialNote &&
                     <div className="text-center pt-8 md:pt-11 text-sm md:text-base text-brand-30">
                         {burialNote}
@@ -103,8 +110,8 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                                         <Image
                                             width={198}
                                             height={132}
-                                            src={option?.burialImage?.url}
-                                            alt="Cemetery"
+                                            src={option?.burialImage?.url || '/img/graveyard.png'}
+                                            alt={option?.burialImage?.alt || "Cemetery"}
                                             className='object-cover w-full lg:w-[198px] h-[120px] lg:h-auto rounded-lg lg:min-h-[132px]'
                                         />
                                         <div className='flex flex-col items-start justify-between gap-3'>
@@ -118,7 +125,6 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                     </div>
                 </div>
 
-                {/* burialNote */}
                 {burialNote &&
                     <div className="text-center pt-8 md:pt-11 text-sm md:text-base text-brand-30">
                         {burialNote}
@@ -128,25 +134,37 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
         )
     }
 
-
     return (
         <div className="flex justify-between gap-5 p-3 pl-5 bg-secondary border border-primary-darkest rounded-lg">
             <div className="flex flex-col justify-between md:min-w-[360px] md:max-w-[360px] lg:min-w-[415px] lg:max-w-[415px]">
                 {sectionTitle && <RichText data={sectionTitle} className='section-title text-center md:text-left mb-10' />}
                 <div className="flex mb-6 md:hidden">
                     <div className='p-3 rounded-lg relative bg-background-light border border-primary-darkest'>
-                        <Image width={760} height={214} src={image?.url || 'public/img/graveyard.png'} alt="Cemetery" className='h-full object-cover min-h-[215px]' />
+                        <Image
+                            width={760}
+                            height={214}
+                            src={burialOptions[selectedOptionIndex]?.burialOptionImage?.url || image?.url || '/img/graveyard.png'}
+                            alt={burialOptions[selectedOptionIndex]?.burialOptionImage?.alt || "Cemetery"}
+                            className='h-full object-cover min-h-[215px]'
+                        />
                     </div>
                 </div>
                 <div>
                     <BurialOptionAccordion
                         options={burialOptions}
+                        onSelectOption={setSelectedOptionIndex}
                     />
                 </div>
             </div>
             <div className="hidden md:flex">
                 <div className='p-3 rounded-lg relative bg-background-light border border-primary-darkest'>
-                    <Image width={760} height={660} src={image?.url || 'public/img/graveyard.png'} alt="Cemetery" className='h-full object-cover min-h-[442px] lg:min-h-[596px]' />
+                    <Image
+                        width={760}
+                        height={660}
+                        src={burialOptions[selectedOptionIndex]?.burialOptionImage?.url || image?.url || '/img/graveyard.png'}
+                        alt={burialOptions[selectedOptionIndex]?.burialOptionImage?.alt || "Cemetery"}
+                        className='h-full object-cover min-h-[442px] lg:min-h-[596px]'
+                    />
                 </div>
             </div>
         </div>
