@@ -32,6 +32,9 @@ const GuidanceAndComfortBlock = ({
     promoImage,
     guideButtonLink
 }: GuidanceAndComfortBlockProps) => {
+
+    const isDownloadButton = guideButtonText === "Download the Guidebook";
+
     if (promoLayot === 'promo-b') {
         return (
             <section className='relative overflow-hidden rounded-lg bg-background-light p-5 lg:p-9 flex flex-col justify-between gap-10 md:gap-20 border border-secondary'>
@@ -112,9 +115,14 @@ const GuidanceAndComfortBlock = ({
 
                 <Link
                     href={guideButtonLink || '#'}
-                    className={cn(buttonVariants({ variant: 'default', size: 'md' }))}
+                    className={cn(buttonVariants({ variant: 'default', size: 'md', className: isDownloadButton && 'relative flex flex-col' }))}
                 >
                     {guideButtonText || 'Download the Guidebook'}
+                    {isDownloadButton &&
+                        <span className='text-white/60 text-xs font-medium'>
+                            Coming Soon
+                        </span>
+                    }
                 </Link>
             </div>
 
