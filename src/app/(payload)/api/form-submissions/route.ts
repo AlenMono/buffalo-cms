@@ -42,6 +42,9 @@ export async function POST(request: NextRequest) {
           .join('')
       : ''
 
+    const replySubject = 'Re: BCC Website - New Submission'
+    const mailtoHref = `mailto:${submitterEmail || adminEmail}?subject=${encodeURIComponent(replySubject)}`
+
     const html = `
 <!DOCTYPE html>
 <html>
@@ -56,7 +59,7 @@ export async function POST(request: NextRequest) {
       </div>
 
       <h1 style="color: #000; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 16px;">
-        New Form Submission
+        BCC Website - New Submission
       </h1>
       
       <p style="color: #666; font-size: 14px; margin-bottom: 32px;">
@@ -69,7 +72,7 @@ export async function POST(request: NextRequest) {
         </div>
       </div>
 
-      <a href="mailto:${submitterEmail}" 
+      <a href="${mailtoHref}" 
         style="background-color: #000; border-radius: 5px; color: #fff; font-size: 14px; font-weight: 500; text-decoration: none; padding: 12px 30px; display: inline-block;">
         Reply Directly
       </a>
@@ -89,7 +92,7 @@ export async function POST(request: NextRequest) {
       from: fromEmail,
       to: adminEmail,
       replyTo: submitterEmail || adminEmail,
-      subject: `New Form Submission`,
+      subject: `BCC Website - New Submission`,
       html,
     })
 

@@ -3,7 +3,6 @@ import RichText from '@/components/RichText'
 import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import type { DefaultTypedEditorState } from '@payloadcms/richtext-lexical'
-import Video from 'next-video';
 
 interface CemeteryTourLink {
     resourceTitle: string
@@ -50,13 +49,18 @@ const CemeteryTourBlock: React.FC<CemeteryTourBlockProps> = ({
 
             {/* Video Player Section */}
             <div className="bg-background-light border border-primary-dark p-3 rounded-lg">
-                <Video
-                    src={cemeteryVideoUrl}
-                    poster={cemeteryVideoPoster}
-                    controls
-                    title="Cemetery Tour"
-                    blurDataURL='https://i.postimg.cc/FHYWP62s/Untitled-design.png'
-                />
+                <div
+                    className="w-full relative rounded-lg overflow-hidden"
+                    style={{ paddingBottom: '56.25%', height: 0 }}
+                >
+                    <video
+                        src={cemeteryVideoUrl}
+                        poster={cemeteryVideoPoster}
+                        controls
+                        className="absolute top-0 left-0 w-full h-full object-cover"
+                        title="Cemetery Tour"
+                    />
+                </div>
             </div>
 
             {/* Tour Links Grid */}
