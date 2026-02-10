@@ -42,9 +42,6 @@ export async function POST(request: NextRequest) {
           .join('')
       : ''
 
-    const replySubject = 'Re: BCC Website - New Submission'
-    const mailtoHref = `mailto:${submitterEmail || adminEmail}?subject=${encodeURIComponent(replySubject)}`
-
     const html = `
 <!DOCTYPE html>
 <html>
@@ -72,13 +69,6 @@ export async function POST(request: NextRequest) {
         </div>
       </div>
 
-      <a href="${mailtoHref}" 
-        style="background-color: #000; border-radius: 5px; color: #fff; font-size: 14px; font-weight: 500; text-decoration: none; padding: 12px 30px; display: inline-block;">
-        Reply Directly
-      </a>
-
-      <hr style="border: none; border-top: 1px solid #eaeaea; margin: 40px 0 20px;" />
-      
       <p style="color: #888; font-size: 12px; line-height: 18px;">
         This email was sent from your Buffalo Catholic Cemeteries website. <br />
         <strong>Submitter Email:</strong> ${submitterEmail || 'Not provided'}
