@@ -74,8 +74,9 @@ export const Accordion: React.FC<AccordionProps> = ({
                             isOpen && variant === 'outline' ? 'bg-background opacity-100' : 'opacity-100',
                             !isOpen && 'opacity-60',
                         )}
+                        onClick={() => toggleItem(index)}
                     >
-                        <div className="flex justify-between items-center transition-all duration-200 gap-4" onClick={() => toggleItem(index)}>
+                        <div className="flex justify-between items-center transition-all duration-200 gap-4">
                             <div className={cn("text-xl font-bold text-brand")}>{item.title}</div>
                             <X
                                 className={cn(

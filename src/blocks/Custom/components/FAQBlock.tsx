@@ -8,7 +8,8 @@ import Link from 'next/link'
 
 type FAQ = {
     faqQuestion: string
-    faqAnswer: string
+    faqAnswer?: string
+    faqRichAnswer?: any
     faqType?: string
 }
 
@@ -44,7 +45,7 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayou
         title: <span className="text-lg md:text-2xl font-medium text-brand">{faq.faqQuestion}</span>,
         content: (
             <div className="mt-3 text-sm md:text-base text-brand-30">
-                <p>{faq.faqAnswer}</p>
+                {faq.faqAnswer ? <p>{faq.faqAnswer}</p> : <RichText data={faq.faqRichAnswer} />}
             </div>
         ),
     }))
