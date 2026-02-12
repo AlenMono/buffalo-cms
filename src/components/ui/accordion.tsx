@@ -15,6 +15,7 @@ interface AccordionProps {
     variant?: 'outline'
     wrapperClassName?: string
     onItemOpen?: (index: number) => void
+    defaultOpenIndex?: number
 }
 
 export const Accordion: React.FC<AccordionProps> = ({
@@ -23,8 +24,9 @@ export const Accordion: React.FC<AccordionProps> = ({
     variant,
     wrapperClassName,
     onItemOpen,
+    defaultOpenIndex,
 }) => {
-    const [openIndexes, setOpenIndexes] = useState<number[]>([])
+    const [openIndexes, setOpenIndexes] = useState<number[]>(defaultOpenIndex !== undefined ? [defaultOpenIndex] : [])
     const contentRefs = useRef<(HTMLDivElement | null)[]>([])
 
     const toggleItem = (index: number) => {
@@ -69,7 +71,7 @@ export const Accordion: React.FC<AccordionProps> = ({
                             'cursor-pointer',
                             variant === 'outline'
                                 ? 'p-4 bg-background-light border border-primary-dark rounded-lg hover:bg-background'
-                                : 'py-4 border-b border-b-brand-30',
+                                : cn('py-4', index !== items.length - 1 && 'border-b border-b-brand-30'),
                             isOpen && variant === 'outline' ? 'bg-background opacity-100' : 'opacity-100',
                             !isOpen && 'opacity-60',
                         )}

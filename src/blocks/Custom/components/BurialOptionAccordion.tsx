@@ -35,7 +35,7 @@ export const BurialOptionAccordion: React.FC<BurialOptionAccordionProps> = ({ op
     ),
   }))
 
-  return <Accordion items={items} singleOpen onItemOpen={onSelectOption} />
+  return <Accordion items={items} singleOpen defaultOpenIndex={0} onItemOpen={onSelectOption} />
 }
 
 export default BurialOptionAccordion
