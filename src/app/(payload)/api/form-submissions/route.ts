@@ -11,8 +11,7 @@ export async function POST(request: NextRequest) {
     console.log('Final parsed Reply-To address:', submitterEmail || 'MISSING')
 
     const resendClient = new Resend(process.env.RESEND_API_KEY || '')
-    // const adminEmail = process.env.ADMIN_EMAIL || 'tchristy@buffalocatholiccemeteries.org'
-    const adminEmail = process.env.ADMIN_EMAIL || 'alen.rajher@gmail.com'
+    const adminEmail = process.env.ADMIN_EMAIL || 'tchristy@buffalocatholiccemeteries.org'
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
 
     const fieldLabels: Record<string, string> = {
@@ -70,7 +69,7 @@ export async function POST(request: NextRequest) {
       </div>
 
       <p style="color: #888; font-size: 12px; line-height: 18px;">
-        This email was sent from your Buffalo Catholic Cemeteries website. <br />
+        This email was sent from your <a href="https://bflocc.com/home">Buffalo Catholic Cemeteries website</a>. <br />
         <strong>Submitter Email:</strong> ${submitterEmail || 'Not provided'}
       </p>
     </div>

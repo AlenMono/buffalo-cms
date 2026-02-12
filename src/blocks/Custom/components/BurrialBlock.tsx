@@ -163,7 +163,7 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                         height={660}
                         src={burialOptions[selectedOptionIndex]?.burialOptionImage?.url || image?.url || '/img/graveyard.png'}
                         alt={burialOptions[selectedOptionIndex]?.burialOptionImage?.alt || "Cemetery"}
-                        className='h-full object-cover min-h-[442px] lg:min-h-[596px]'
+                        className='h-full object-cover min-h-[442px] lg:min-h-[596px] max-h-[596px]'
                     />
                 </div>
             </div>

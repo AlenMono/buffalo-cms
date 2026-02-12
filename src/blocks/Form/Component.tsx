@@ -41,6 +41,7 @@ export const FormBlock: React.FC<
         formState: { errors },
         handleSubmit,
         register,
+        reset,
     } = formMethods
 
     const [isLoading, setIsLoading] = useState(false)
@@ -93,6 +94,7 @@ export const FormBlock: React.FC<
 
                     setIsLoading(false)
                     setHasSubmitted(true)
+                    reset()
 
                     if (confirmationType === 'redirect' && redirect) {
                         const { url } = redirect
