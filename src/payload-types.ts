@@ -857,6 +857,21 @@ export interface CustomBlock {
   faqs?:
     | {
         faqQuestion?: string | null;
+        faqRichAnswer?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
         faqAnswer?: string | null;
         faqType?: ('services' | 'burial' | 'grief') | null;
         id?: string | null;
@@ -1720,6 +1735,7 @@ export interface CustomBlockSelect {
     | boolean
     | {
         faqQuestion?: boolean;
+        faqRichAnswer?: boolean;
         faqAnswer?: boolean;
         faqType?: boolean;
         id?: boolean;

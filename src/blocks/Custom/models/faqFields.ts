@@ -4,6 +4,7 @@ import {
   HeadingFeature,
   InlineToolbarFeature,
   lexicalEditor,
+  UnorderedListFeature,
 } from '@payloadcms/richtext-lexical'
 
 const isFAQSection = checkSelectedSection('faq')
@@ -15,11 +16,31 @@ const faqField = {
     type: 'text',
     required: false,
   },
+  faqRichAnswer: {
+    name: 'faqRichAnswer',
+    label: 'Answer',
+    type: 'richText',
+    editor: lexicalEditor({
+      features: ({ rootFeatures }) => {
+        return [
+          ...rootFeatures,
+          UnorderedListFeature(),
+          HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+          FixedToolbarFeature(),
+          InlineToolbarFeature(),
+        ]
+      },
+    }),
+    required: false,
+  },
   faqAnswer: {
     name: 'faqAnswer',
-    label: 'Answer',
+    label: 'Answer (Plain Text)',
     type: 'textarea',
     required: false,
+    admin: {
+      condition: (data: any) => !data?.faqRichAnswer,
+    },
   },
   faqType: {
     name: 'faqType',
