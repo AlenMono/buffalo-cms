@@ -9,7 +9,7 @@ interface BurialOption {
   title: string
   description?: string
   buttonText?: string
-  buttonLink?: string
+  'burial-link'?: string
 }
 
 interface BurialOptionAccordionProps {
@@ -25,8 +25,9 @@ export const BurialOptionAccordion: React.FC<BurialOptionAccordionProps> = ({ op
         {option.description && <p className="text-base text-brand mb-5">{option.description}</p>}
         {option.buttonText && (
           <Link
-            href={option.buttonLink || '#'}
+            href={option['burial-link'] || '#'}
             className={cn(buttonVariants({ variant: 'outline', size: 'sm' }))}
+            onClick={(e) => e.stopPropagation()}
           >
             {option.buttonText}
           </Link>
