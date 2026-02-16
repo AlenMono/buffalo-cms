@@ -42,10 +42,6 @@ export const Footer: GlobalConfig = {
     {
       name: 'navItems',
       type: 'array',
-      admin: {
-        description: 'Legacy footer links. Prefer using Columns above.',
-        initCollapsed: true,
-      },
       fields: [
         link({
           appearances: false,
@@ -53,6 +49,7 @@ export const Footer: GlobalConfig = {
       ],
       maxRows: 6,
       admin: {
+        description: 'Legacy footer links. Prefer using Columns above.',
         initCollapsed: true,
         components: {
           RowLabel: '@/Footer/RowLabel#RowLabel',
