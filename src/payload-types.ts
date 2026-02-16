@@ -479,7 +479,6 @@ export interface CustomBlock {
     | 'contact'
     | 'contact-form'
     | 'custom'
-    | 'default'
     | 'faq'
     | 'grief-support'
     | 'iframe'
