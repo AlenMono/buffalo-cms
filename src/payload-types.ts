@@ -2326,7 +2326,7 @@ export interface Footer {
         id?: string | null;
       }[]
     | null;
-  navItems?:
+  socialLinks?:
     | {
         link: {
           type?: ('reference' | 'custom') | null;
@@ -2398,7 +2398,7 @@ export interface FooterSelect<T extends boolean = true> {
             };
         id?: T;
       };
-  navItems?:
+  socialLinks?:
     | T
     | {
         link?:
