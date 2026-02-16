@@ -40,20 +40,15 @@ export const Footer: GlobalConfig = {
       },
     },
     {
-      name: 'navItems',
+      name: 'socialLinks',
       type: 'array',
       fields: [
         link({
           appearances: false,
         }),
       ],
-      maxRows: 6,
       admin: {
-        description: 'Legacy footer links. Prefer using Columns above.',
         initCollapsed: true,
-        components: {
-          RowLabel: '@/Footer/RowLabel#RowLabel',
-        },
       },
     },
   ],
