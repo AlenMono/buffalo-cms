@@ -9,17 +9,14 @@ import { getCachedGlobal } from '@/utilities/getGlobals'
 
 export async function Footer() {
     const currentYear = new Date().getFullYear()
-    const footerData = (await getCachedGlobal('footer', 1)()) as FooterType
+    const footerData = (await getCachedGlobal('footer', 1)()) as FooterData
 
-    const payloadColumns = ((footerData as any)?.columns ?? []) as Array<{
-        title?: string | null
-        links?: Array<{ link?: FooterNavLink | null }> | null
-    }>
+    const payloadColumns = footerData?.columns ?? []
 
-    const columns = payloadColumns.length
+    const columns: FooterColumn[] = payloadColumns.length
         ? payloadColumns.map((column) => ({
             title: column?.title || 'Untitled',
-            links: column?.links?.map((item) => item?.link).filter(Boolean) ?? [],
+            links: column?.links?.map((item) => item?.link).filter(isFooterNavLink) ?? [],
         }))
         : mapLegacyNavItems(footerData?.navItems ?? [])
 
@@ -63,6 +60,15 @@ export async function Footer() {
 }
 
 type FooterNavLink = React.ComponentProps<typeof CMSLink>
+type FooterColumn = { title: string; links: FooterNavLink[] }
+type FooterData = FooterType & {
+    columns?: Array<{
+        title?: string | null
+        links?: Array<{ link?: FooterNavLink | null }> | null
+    }> | null
+}
+
+const isFooterNavLink = (link: FooterNavLink | null | undefined): link is FooterNavLink => Boolean(link)
 
 const FooterLinks = ({ title, links }: { title: string; links: FooterNavLink[] }) => {
     return (
