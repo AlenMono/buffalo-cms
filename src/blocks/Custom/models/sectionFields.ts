@@ -41,10 +41,6 @@ export const sectionFields: Field = {
       value: 'custom',
     },
     {
-      label: 'Default',
-      value: 'default',
-    },
-    {
       label: 'Faq',
       value: 'faq',
     },
