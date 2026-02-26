@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { authenticated } from '../../access/authenticated'
+import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
 import { Content } from '../../blocks/Content/config'
 import { hero } from '@/heros/config'
 import { slugField } from 'payload'
@@ -28,7 +29,7 @@ export const Pages: CollectionConfig<'pages'> = {
     update: authenticated,
     // Admins or editors with site access can read,
     // otherwise users not logged in can only read published
-    read: authenticated,
+    read: authenticatedOrPublished,
     // Only admins can delete
     delete: isAdmin,
   },
@@ -130,7 +131,7 @@ export const Pages: CollectionConfig<'pages'> = {
   versions: {
     drafts: {
       autosave: {
-        interval: 100, // We set this interval for optimal live preview
+        interval: 800,
       },
       schedulePublish: true,
     },

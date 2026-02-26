@@ -16,7 +16,6 @@ import { Banner } from '../../blocks/Banner/config'
 import { Code } from '../../blocks/Code/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
-import { populateAuthors } from './hooks/populateAuthors'
 import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
 
 import {
@@ -39,7 +38,7 @@ export const Posts: CollectionConfig<'posts'> = {
     update: authenticated,
     // Admins or editors with site access can read,
     // otherwise users not logged in can only read published
-    read: authenticated,
+    read: authenticatedOrPublished,
     // Only admins can delete
     delete: isAdmin,
   },
@@ -232,13 +231,12 @@ export const Posts: CollectionConfig<'posts'> = {
   ],
   hooks: {
     afterChange: [revalidatePost],
-    afterRead: [populateAuthors],
     afterDelete: [revalidateDelete],
   },
   versions: {
     drafts: {
       autosave: {
-        interval: 100, // We set this interval for optimal live preview
+        interval: 800,
       },
       schedulePublish: true,
     },

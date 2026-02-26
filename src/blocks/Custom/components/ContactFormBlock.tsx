@@ -53,25 +53,25 @@ export const ContactFormBlock: React.FC<ContactFormBlockProps> = ({ contactBenef
                 ) : (
                     <div className="max-w-2xl animate-pulse space-y-6">
                         <div className="space-y-2">
-                            <div className="h-4 w-24 rounded bg-primary-dark"></div>
-                            <div className="h-11 w-full rounded-md bg-primary-dark"></div>
+                            <div className="h-4 w-24 rounded bg-gold-light"></div>
+                            <div className="h-11 w-full rounded-md bg-gold-light"></div>
                         </div>
 
                         <div className="flex gap-2">
                             <div className='flex-1 space-y-2'>
-                                <div className="h-4 w-16 rounded bg-primary-dark"></div>
-                                <div className="h-11 w-full rounded-md bg-primary-dark"></div>
+                                <div className="h-4 w-16 rounded bg-gold-light"></div>
+                                <div className="h-11 w-full rounded-md bg-gold-light"></div>
                             </div>
 
                             <div className='flex-1 space-y-2'>
-                                <div className="h-4 w-28 rounded bg-primary-dark"></div>
-                                <div className="h-11 w-full rounded-md bg-primary-dark"></div>
+                                <div className="h-4 w-28 rounded bg-gold-light"></div>
+                                <div className="h-11 w-full rounded-md bg-gold-light"></div>
                             </div>
                         </div>
 
                         <div className="space-y-2">
-                            <div className="h-4 w-20 rounded bg-primary-dark"></div>
-                            <div className="h-40 w-full rounded-md bg-primary-dark"></div>
+                            <div className="h-4 w-20 rounded bg-gold-light"></div>
+                            <div className="h-40 w-full rounded-md bg-gold-light"></div>
                         </div>
 
                         <div className="h-11 w-36 rounded-md bg-brand"></div>
@@ -85,7 +85,7 @@ export const ContactFormBlock: React.FC<ContactFormBlockProps> = ({ contactBenef
                             <CheckIcon className="mt-1 min-w-5" />
                             <div className="flex flex-col gap-2">
                                 <h3 className="text-lg md:text-xl font-semibold">{card.heading}</h3>
-                                <p className="text-brand-30">{card.subheading}</p>
+                                <p className="text-brand-mid">{card.subheading}</p>
                             </div>
                         </div>
                     ))}

@@ -54,7 +54,7 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
               <CheckIcon className="mt-1 min-w-5" />
               <div className="flex flex-col gap-2 lg:gap-5">
                 <h3 className="text-lg md:text-xl font-semibold">{card.heading}</h3>
-                <p className="text-brand-30 text-sm md:text-lg">{card.subheading}</p>
+                <p className="text-brand-mid text-sm md:text-lg">{card.subheading}</p>
               </div>
             </div>
           ))}
@@ -77,7 +77,7 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
             />
           )}
 
-          {benefitDescription && <p className="text-brand-30 xl:max-w-[266px]">{benefitDescription}</p>}
+          {benefitDescription && <p className="text-brand-mid xl:max-w-[266px]">{benefitDescription}</p>}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:flex flex-col gap-5 xl:gap-12 lg:max-w-[495px]">
@@ -86,7 +86,7 @@ export const BenefitBlock: React.FC<PlanningBlockProps> = ({
               <CheckIcon className="mt-1 min-w-5" />
               <div className="flex flex-col gap-2 lg:gap-5">
                 <h3 className="text-lg md:text-xl font-semibold">{card.heading}</h3>
-                <p className="text-brand-30 text-sm md:text-lg">{card.subheading}</p>
+                <p className="text-brand-mid text-sm md:text-lg">{card.subheading}</p>
               </div>
             </div>
           ))}

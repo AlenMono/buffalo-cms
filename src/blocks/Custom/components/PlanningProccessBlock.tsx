@@ -41,9 +41,9 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
 
         if (planningProcessCards.length === 0) {
             return (
-                <div className="flex flex-col justify-center items-center gap-3 bg-background-light border border-primary-dark p-5 lg:px-9 lg:py-7 rounded-lg relative overflow-hidden h-[416px] text-center">
-                    <h3 className="section-title font-faustina text-brand-10">No Current <br /> Openings</h3>
-                    <p className="text-base text-brand-30 max-w-[493px] mx-auto">
+                <div className="flex flex-col justify-center items-center gap-3 bg-surface border border-gold-light p-5 lg:px-9 lg:py-7 rounded-lg relative overflow-hidden h-[416px] text-center">
+                    <h3 className="section-title font-faustina text-brand-dark">No Current <br /> Openings</h3>
+                    <p className="text-base text-brand-mid max-w-[493px] mx-auto">
                         We don’t have any open positions at the moment. Please check back in the future as
                         opportunities may become available.
                     </p>
@@ -54,7 +54,7 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
 
     return (
         <section className="max-w-[1320px] mx-auto">
-            <div className="bg-background-light border border-primary-dark p-5 lg:px-9 lg:py-7 rounded-lg relative overflow-hidden">
+            <div className="bg-surface border border-gold-light p-5 lg:px-9 lg:py-7 rounded-lg relative overflow-hidden">
                 {planningProcessLayout === 'steps-b' && (
                     <>
                         <Image
@@ -82,7 +82,7 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
                     )}
 
                     {planningProcessDescription && (
-                        <p className="mx-auto text-brand-30 text-center mb-12 max-w-[493px] text-sm md:text-base">
+                        <p className="mx-auto text-brand-mid text-center mb-12 max-w-[493px] text-sm md:text-base">
                             {planningProcessDescription}
                         </p>
                     )}
@@ -93,7 +93,7 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
                                 <div
                                     key={idx}
                                     className={cn(
-                                        'p-5 bg-background border border-primary-dark rounded-lg flex flex-col justify-between',
+                                        'p-5 bg-background border border-gold-light rounded-lg flex flex-col justify-between',
                                         cardSpacing,
                                     )}
                                 >
@@ -103,7 +103,7 @@ export const PlanningProcessBlock: React.FC<PlanningProcessBlockProps> = ({
 
                                     <div className="flex flex-col gap-3">
                                         <h3 className="text-lg md:text-2xl font-bold text-brand">{card.heading}</h3>
-                                        <p className="text-brand-30 text-sm">{card.description}</p>
+                                        <p className="text-brand-mid text-sm">{card.description}</p>
                                         {card.link && (
                                             <div className="flex items-center gap-2">
                                                 <Link

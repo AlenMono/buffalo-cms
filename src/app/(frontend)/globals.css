@@ -163,7 +163,7 @@ html[data-theme='light'] {
 }
 
 .prose :where(ul > li):not(:where([class~='not-prose'], [class~='not-prose'] *))::marker {
-  @apply text-brand-mid;
+  color: var(--brand-mid);
 }
 
 .list-bullet li {

@@ -18,7 +18,6 @@ import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
 import { Cemeteries } from './collections/Cemeteries'
-import { seed } from './seed'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -66,6 +65,7 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
     },
+    push: false,
   }),
   collections: [Pages, Posts, Media, Categories, Users, Cemeteries],
   cors: [getServerSideURL()].filter(Boolean),
@@ -92,7 +92,7 @@ export default buildConfig({
   // },
   email: resendAdapter({
     apiKey: process.env.RESEND_API_KEY || '',
-    defaultFromAddress: 'no-reply@resend.dev',
+    defaultFromAddress: process.env.RESEND_FROM_EMAIL_PAYLOAD || 'no-reply@resend.dev',
     defaultFromName: 'Buffalo Catholic Cemeteries',
   }),
   jobs: {

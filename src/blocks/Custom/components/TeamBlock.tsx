@@ -24,15 +24,15 @@ const TeamBlock: React.FC<TeamBlockProps> = ({
             )}
             <div className="grid gap-4 md:grid-cols-2">
                 {teamList.map((member, index) => (
-                    <div key={index} className="bg-background-light rounded-lg border border-primary-dark px-5 pt-3 pb-4">
+                    <div key={index} className="bg-surface rounded-lg border border-gold-light px-5 pt-3 pb-4">
                         <h3 className="text-2xl font-semibold font-faustina text-brand">{member.name}</h3>
                         {member.info && (
-                            <p className="text-brand-30 text-sm mt-2">{member.info}</p>
+                            <p className="text-brand-mid text-sm mt-2">{member.info}</p>
                         )}
                         {member.email && (
                             <div className='flex items-center gap-2 mt-6'>
                                 <EmailSendIcon />
-                                <p className='text-sm font-bold font-satoshi text-brand-30'>
+                                <p className='text-sm font-bold font-satoshi text-brand-mid'>
                                     {member.email}
                                 </p>
                             </div>

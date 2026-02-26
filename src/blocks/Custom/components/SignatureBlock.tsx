@@ -34,7 +34,7 @@ const SignatureBlock = (props: SignatureBlockProps) => {
               <RichText
                 data={body}
                 className="text-left"
-                paragraphClassName="text-base lg:text-2xl font-satoshi text-brand-30"
+                paragraphClassName="text-base lg:text-2xl font-satoshi text-brand-mid"
               />
             </div>
 

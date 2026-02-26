@@ -23,7 +23,7 @@ export default async function NewsBlock() {
                             <Link
                                 href={`/posts/${item.slug}`}
                                 key={item.id}
-                                className="flex flex-col border border-primary-dark bg-background-light rounded-lg overflow-hidden p-4 min-h-[360px] card-hovered"
+                                className="flex flex-col border border-gold-light bg-surface rounded-lg overflow-hidden p-4 min-h-[360px] card-hovered"
                             >
                                 {item.heroImage && typeof item.heroImage === 'object' && item.heroImage.url && (
                                     <Image

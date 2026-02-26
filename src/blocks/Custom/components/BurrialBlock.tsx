@@ -47,7 +47,7 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
     if (burialLayout === 'horizontal') {
         return (
-            <div className="p-5 md:p-9 md:pt-7 bg-secondary border border-primary-darkest rounded-lg">
+            <div className="p-5 md:p-9 md:pt-7 bg-secondary border border-gold rounded-lg">
                 <div className='flex flex-col justify-between gap-5'>
                     <div className="flex flex-col md:flex-row justify-between md:items-end gap-4 flex-1 flex-wrap mb-4 md:mb-10 lg:mb-28">
                         {sectionTitle && <RichText data={sectionTitle} paragraphClassName="section-title" h1ClassName="section-title" />}
@@ -60,7 +60,7 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 flex-1">
                         {
                             burialOptions?.map((option, index) => {
-                                return <div key={index} className='bg-[#FFF9EE] border border-primary-darkest rounded-lg p-4 md:p-5'>
+                                return <div key={index} className='bg-[#FFF9EE] border border-gold rounded-lg p-4 md:p-5'>
                                     <div className='flex flex-col justify-between items-start h-full gap-7'>
                                         <Image
                                             width={263}
@@ -71,7 +71,7 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                                         />
                                         <div className='flex flex-col items-start gap-3'>
                                             <h4 className="text-lg md:text-2xl font-semibold">{option.title}</h4>
-                                            {option.burialBadges?.map((badge, index) => <p key={index} className='text-xs md:text-sm border border-brand-30 rounded-full px-2 md:px-3 py-1 text-brand-30'>{badge.title}</p>)}
+                                            {option.burialBadges?.map((badge, index) => <p key={index} className='text-xs md:text-sm border border-brand-mid rounded-full px-2 md:px-3 py-1 text-brand-mid'>{badge.title}</p>)}
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                 </div>
 
                 {burialNote &&
-                    <div className="text-center pt-8 md:pt-11 text-sm md:text-base text-brand-30">
+                    <div className="text-center pt-8 md:pt-11 text-sm md:text-base text-brand-mid">
                         {burialNote}
                     </div>
                 }
@@ -92,7 +92,7 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
 
     if (burialLayout === 'burial-c') {
         return (
-            <div className="p-5 md:p-9 md:pt-7 bg-secondary border border-primary-darkest rounded-lg">
+            <div className="p-5 md:p-9 md:pt-7 bg-secondary border border-gold rounded-lg">
                 <div className='flex flex-col justify-between gap-5'>
                     <div className="flex flex-col md:flex-row justify-between md:items-end gap-4 flex-1 flex-wrap mb-4 md:mb-10 lg:mb-28">
                         {sectionTitle && <RichText data={sectionTitle} paragraphClassName="section-title" h1ClassName="section-title" />}
@@ -105,7 +105,7 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
                         {
                             burialOptions?.map((option, index) => {
-                                return <div key={index} className='bg-[#FFF9EE] border border-primary-darkest rounded-lg p-4 md:p-5'>
+                                return <div key={index} className='bg-[#FFF9EE] border border-gold rounded-lg p-4 md:p-5'>
                                     <div className='flex flex-col lg:flex-row h-full gap-7'>
                                         <Image
                                             width={198}
@@ -126,7 +126,7 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                 </div>
 
                 {burialNote &&
-                    <div className="text-center pt-8 md:pt-11 text-sm md:text-base text-brand-30">
+                    <div className="text-center pt-8 md:pt-11 text-sm md:text-base text-brand-mid">
                         {burialNote}
                     </div>
                 }
@@ -135,11 +135,11 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
     }
 
     return (
-        <div className="flex justify-between gap-5 p-3 pl-5 bg-secondary border border-primary-darkest rounded-lg">
+        <div className="flex justify-between gap-5 p-3 pl-5 bg-secondary border border-gold rounded-lg">
             <div className="flex flex-col justify-between md:min-w-[360px] md:max-w-[360px] lg:min-w-[415px] lg:max-w-[415px]">
                 {sectionTitle && <RichText data={sectionTitle} className='section-title text-center md:text-left mb-10' />}
                 <div className="flex mb-6 md:hidden">
-                    <div className='p-3 rounded-lg relative bg-background-light border border-primary-darkest'>
+                    <div className='p-3 rounded-lg relative bg-surface border border-gold'>
                         <Image
                             width={760}
                             height={214}
@@ -157,7 +157,7 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                 </div>
             </div>
             <div className="hidden md:flex">
-                <div className='p-3 rounded-lg relative bg-background-light border border-primary-darkest'>
+                <div className='p-3 rounded-lg relative bg-surface border border-gold'>
                     <Image
                         width={760}
                         height={660}

@@ -31,12 +31,12 @@ const BurialOptionListBlock: React.FC<BurialOptionListBlockProps> = ({ burialOpt
                     return (
                         <div
                             key={index}
-                            className="grid grid-cols-1 lg:grid-cols-2 bg-background-light border border-primary-dark overflow-hidden rounded-lg p-5 lg:p-9 relative"
+                            className="grid grid-cols-1 lg:grid-cols-2 bg-surface border border-gold-light overflow-hidden rounded-lg p-5 lg:p-9 relative"
                         >
                             <div className='flex flex-col lg:hidden items-start mb-6 z-[1]'>
-                                <h3 className="text-2xl lg:text-4xl lg:font-semibold mb-3 text-brand-10 font-faustina">{option.title}</h3>
+                                <h3 className="text-2xl lg:text-4xl lg:font-semibold mb-3 text-brand-dark font-faustina">{option.title}</h3>
                                 {option.category && (
-                                    <span className="text-xs lg:text-sm border rounded-full px-3 py-1 text-brand-30">
+                                    <span className="text-xs lg:text-sm border rounded-full px-3 py-1 text-brand-mid">
                                         {option.category}
                                     </span>
                                 )}
@@ -51,7 +51,7 @@ const BurialOptionListBlock: React.FC<BurialOptionListBlockProps> = ({ burialOpt
                             />
                             <div
                                 className={cn(
-                                    'p-3 border border-primary-dark bg-background-light rounded-lg z-[1]',
+                                    'p-3 border border-gold-light bg-surface rounded-lg z-[1]',
                                     isOdd ? 'lg:order-2' : 'lg:order-1',
                                 )}
                             >
@@ -73,9 +73,9 @@ const BurialOptionListBlock: React.FC<BurialOptionListBlockProps> = ({ burialOpt
                                 )}
                             >
                                 <div className='hidden lg:flex lg:flex-col items-start'>
-                                    <h3 className="text-2xl lg:text-4xl lg:font-semibold mb-3 text-brand-10 font-faustina">{option.title}</h3>
+                                    <h3 className="text-2xl lg:text-4xl lg:font-semibold mb-3 text-brand-dark font-faustina">{option.title}</h3>
                                     {option.category && (
-                                        <span className="text-xs lg:text-sm border rounded-full px-3 py-1 text-brand-30">
+                                        <span className="text-xs lg:text-sm border rounded-full px-3 py-1 text-brand-mid">
                                             {option.category}
                                         </span>
                                     )}
@@ -83,7 +83,7 @@ const BurialOptionListBlock: React.FC<BurialOptionListBlockProps> = ({ burialOpt
 
                                 <div>
                                     {option.description && (
-                                        <p className="text-brand-30 text-sm lg:text-xl mb-4 mt-10">{option.description}</p>
+                                        <p className="text-brand-mid text-sm lg:text-xl mb-4 mt-10">{option.description}</p>
                                     )}
                                     {option.buttonLink && (
                                         <Link

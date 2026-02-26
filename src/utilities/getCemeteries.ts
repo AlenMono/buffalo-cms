@@ -1,5 +1,6 @@
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
+import type { Cemetery } from '@/payload-types'
 
 export async function getCemeteries() {
   const payload = await getPayload({ config: configPromise })
@@ -7,16 +8,15 @@ export async function getCemeteries() {
   const result = await payload.find({
     collection: 'cemeteries',
     limit: 100,
-    sort: '-date',
+    sort: 'order',
     pagination: false,
     depth: 1,
   })
 
-  const docs = result.docs || []
+  const docs: Cemetery[] = result.docs || []
 
   // Normalize shape so consumers can rely on consistent fields
-  const docsAny = docs as any[]
-  return docsAny.map((cAny) => {
+  return docs.map((cAny) => {
     const imageObj =
       cAny.image && typeof cAny.image === 'object' && cAny.image.url
         ? { url: cAny.image.url, alt: cAny.image.alt ?? null }
@@ -38,7 +38,7 @@ export async function getCemeteries() {
             weekend: cAny.workingHours.weekend ?? undefined,
           }
         : undefined,
-      detailsLink: cAny.slug ? `/cemeteries/${cAny.slug}` : cAny.detailsLink || '#',
+      detailsLink: cAny.detailsLink || '#',
       image: imageObj,
 
       // Block-compatible fields (cemeteryItemFields)

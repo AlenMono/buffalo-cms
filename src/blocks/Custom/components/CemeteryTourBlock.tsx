@@ -40,7 +40,7 @@ const CemeteryTourBlock: React.FC<CemeteryTourBlockProps> = ({
                 )}
                 {cemeteryTourDescription && (
                     <div className="flex md:justify-end">
-                        <p className="max-w-[460px] text-sm md:text-lg text-brand-30">
+                        <p className="max-w-[460px] text-sm md:text-lg text-brand-mid">
                             {cemeteryTourDescription}
                         </p>
                     </div>
@@ -48,7 +48,7 @@ const CemeteryTourBlock: React.FC<CemeteryTourBlockProps> = ({
             </div>
 
             {/* Video Player Section */}
-            <div className="bg-background-light border border-primary-dark p-3 rounded-lg">
+            <div className="bg-surface border border-gold-light p-3 rounded-lg">
                 <div
                     className="w-full relative rounded-lg overflow-hidden"
                     style={{ paddingBottom: '56.25%', height: 0 }}
@@ -74,12 +74,12 @@ const CemeteryTourBlock: React.FC<CemeteryTourBlockProps> = ({
                             className="flex flex-col gap-2 group"
                         >
                             <div className="flex items-center gap-4">
-                                <div className="flex items-start gap-2 transition-all duration-300 group-hover:text-accent-darkest">
+                                <div className="flex items-start gap-2 transition-all duration-300 group-hover:text-gold-deep">
                                     <p className="text-lg md:text-xl font-semibold">{link.resourceTitle}</p>
                                     <ArrowUpRight className="mt-1 min-w-5" size={20} />
                                 </div>
                             </div>
-                            <p className="text-sm md:text-base text-brand-30">{link.resourceDescription}</p>
+                            <p className="text-sm md:text-base text-brand-mid">{link.resourceDescription}</p>
                         </Link>
                     ))}
                 </div>

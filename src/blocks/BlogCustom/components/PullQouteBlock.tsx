@@ -9,12 +9,12 @@ export const PullQuoteBlock = ({ quote, author }: PullQuoteProps) => {
             <QuoteSvg />
 
             <div className="flex flex-col gap-3 mt-3">
-                <p className="font-faustina text-2xl italic text-brand-30 m-0">
+                <p className="font-faustina text-2xl italic text-brand-mid m-0">
                     {quote}
                 </p>
 
                 {author && (
-                    <p className="text-sm text-brand-30">
+                    <p className="text-sm text-brand-mid">
                         — {author}
                     </p>
                 )}

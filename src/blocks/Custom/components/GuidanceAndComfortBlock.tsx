@@ -37,7 +37,7 @@ const GuidanceAndComfortBlock = ({
 
     if (promoLayot === 'promo-b') {
         return (
-            <section className='relative overflow-hidden rounded-lg bg-background-light p-5 lg:p-9 flex flex-col justify-between gap-10 md:gap-20 border border-secondary'>
+            <section className='relative overflow-hidden rounded-lg bg-surface p-5 lg:p-9 flex flex-col justify-between gap-10 md:gap-20 border border-secondary'>
                 <Image
                     src={'/img/wreath-full.png'}
                     alt={'Background Image'}
@@ -50,7 +50,7 @@ const GuidanceAndComfortBlock = ({
                     <div className='flex flex-col items-start justify-between gap-10'>
                         <div className='flex flex-col items-start'>
                             {badgeText && (
-                                <div className="flex items-center px-3 py-1 rounded-full border border-brand-30 text-brand-30 text-xs font-medium mb-4">
+                                <div className="flex items-center px-3 py-1 rounded-full border border-brand-mid text-brand-mid text-xs font-medium mb-4">
                                     {badgeText}
                                 </div>
                             )}
@@ -68,7 +68,7 @@ const GuidanceAndComfortBlock = ({
                         )}
                     </div>
 
-                    <div className="bg-background-light border border-primary-dark p-2 rounded-lg relative">
+                    <div className="bg-surface border border-gold-light p-2 rounded-lg relative">
                         <Image
                             src={promoImage?.url || '/img/default-promo-image.png'}
                             alt={promoImage?.alt || 'Promo Image'}
@@ -85,14 +85,14 @@ const GuidanceAndComfortBlock = ({
     return (
         <section
             className={cn(
-                'relative overflow-hidden rounded-lg bg-background-light p-5 lg:p-9 xl:h-[548px] flex flex-col justify-between gap-10 md:gap-20 border border-secondary'
+                'relative overflow-hidden rounded-lg bg-surface p-5 lg:p-9 xl:h-[548px] flex flex-col justify-between gap-10 md:gap-20 border border-secondary'
             )}
         >
             {/* Text Content */}
             <div className="relative flex-1 z-10">
                 <div>
                     {badgeText && (
-                        <span className="inline-block px-3 py-1 rounded-full border border-brand-30 text-brand-30 text-xs font-medium mb-4">
+                        <span className="inline-block px-3 py-1 rounded-full border border-brand-mid text-brand-mid text-xs font-medium mb-4">
                             {badgeText}
                         </span>
                     )}
@@ -100,7 +100,7 @@ const GuidanceAndComfortBlock = ({
                     {guideTitle && (
                         <RichText
                             data={guideTitle}
-                            className="section-title text-brand-30"
+                            className="section-title text-brand-mid"
                         />
                     )}
                 </div>
@@ -108,7 +108,7 @@ const GuidanceAndComfortBlock = ({
 
             <div className='flex justify-between flex-wrap items-end  gap-8 z-10'>
                 {guideDescription && (
-                    <p className="max-w-[640px] text-base md:text-xl text-brand-30">
+                    <p className="max-w-[640px] text-base md:text-xl text-brand-mid">
                         {guideDescription}
                     </p>
                 )}

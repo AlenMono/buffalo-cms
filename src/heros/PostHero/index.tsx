@@ -49,7 +49,7 @@ export const PostHero: React.FC<{
 
             {heroImage && typeof heroImage !== 'string' && (
                 <div className="container mt-16">
-                    <div className='border border-primary-dark bg-background-light p-3 rounded-lg'>
+                    <div className='border border-gold-light bg-surface p-3 rounded-lg'>
                         <Media
                             fill
                             priority

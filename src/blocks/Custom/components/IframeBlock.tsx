@@ -18,7 +18,7 @@ export const IframeBlock: React.FC<Iframe> = ({ iframeUrl, iframeTitle, iframeWi
                     <h3 className="text-2xl font-bold text-gray-900">{iframeTitle}</h3>
                 )}
 
-                <div className='bg-background-light border border-primary-dark p-3 rounded-lg '>
+                <div className='bg-surface border border-gold-light p-3 rounded-lg '>
                     <div className="w-full relative rounded-lg overflow-hidden" style={{ paddingBottom: '56.25%', height: 0 }}>
                         <iframe
                             src={iframeUrl}

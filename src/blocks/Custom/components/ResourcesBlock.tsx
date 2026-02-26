@@ -19,12 +19,12 @@ const ResourcesBlock = ({ resourceTitle, resourcesLinks, resourcesLayot }: Resou
     if (resourcesLayot === 'wrapped') {
         return (
             <div className=' max-w-[1128px] mx-auto'>
-                <div className='bg-background-light rounded-lg border border-primary-dark px-9 py-8 relative overflow-hidden'>
+                <div className='bg-surface rounded-lg border border-gold-light px-9 py-8 relative overflow-hidden'>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 '>
                         {resourcesLinks?.map((link, index) => (
                             <Link href={link.resourceUrl} target='_blank' key={index} className='flex flex-col gap-2 group'>
                                 <div className='flex items-center gap-4'>
-                                    <div className='flex items-start gap-2 transition-all duration-300 group-hover:text-accent-darkest'>
+                                    <div className='flex items-start gap-2 transition-all duration-300 group-hover:text-gold-deep'>
                                         <p className='text-lg md:text-xl font-semibold'>{link.resourceTitle}</p>
 
                                         <ArrowUpRight className='mt-1 min-w-5' size={20} />

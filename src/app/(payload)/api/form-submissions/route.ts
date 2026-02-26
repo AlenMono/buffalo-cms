@@ -1,14 +1,21 @@
 import { NextRequest } from 'next/server'
 import { Resend } from 'resend'
 
+function escapeHtml(str: string): string {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     const { submissionData } = body
 
     let submitterEmail = ''
-
-    console.log('Final parsed Reply-To address:', submitterEmail || 'MISSING')
 
     const resendClient = new Resend(process.env.RESEND_API_KEY || '')
     const adminEmail = process.env.ADMIN_EMAIL || 'tchristy@buffalocatholiccemeteries.org'
@@ -23,14 +30,16 @@ export async function POST(request: NextRequest) {
       ? submissionData
           .map((item: any) => {
             const rawLabel = item.field || 'Field'
-            const label =
+            const label = escapeHtml(
               fieldLabels[rawLabel.toLowerCase()] ||
-              rawLabel.charAt(0).toUpperCase() + rawLabel.slice(1)
+                rawLabel.charAt(0).toUpperCase() + rawLabel.slice(1),
+            )
 
-            const value = item.value || 'N/A'
+            const rawValue = item.value || 'N/A'
+            const value = escapeHtml(rawValue)
 
             if (rawLabel.toLowerCase().includes('email')) {
-              submitterEmail = value
+              submitterEmail = rawValue
             }
 
             return `
@@ -87,6 +96,7 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error('Resend Error:', error)
+      return Response.json({ error: 'Failed to send email' }, { status: 500 })
     }
 
     return Response.json({ success: true })

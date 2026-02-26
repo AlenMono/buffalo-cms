@@ -64,7 +64,7 @@ const CemeteryLocationsBlock = async ({
                             <div>
                                 <div className='flex items-center gap-4 mb-3'>
                                     <LocationIcon fill="#2A322B" className='min-w-5 h-5 w-5' />
-                                    <h4 className="font-semibold text-brand-10 text-xl">Location</h4>
+                                    <h4 className="font-semibold text-brand-dark text-xl">Location</h4>
                                 </div>
 
                                 <p className="text-lg pl-9 underline">{selected.cemeteryAddress}</p>
@@ -75,7 +75,7 @@ const CemeteryLocationsBlock = async ({
                             <div >
                                 <div className='flex items-center gap-4 mb-3'>
                                     <ClockIcon fill="#2A322B" className='min-w-5 h-5 w-5' />
-                                    <h4 className="font-semibold text-brand-10 text-xl">Working hours</h4>
+                                    <h4 className="font-semibold text-brand-dark text-xl">Working hours</h4>
                                 </div>
 
                                 {selected.hoursWeekdays && <p className="text-lg pl-9">Mon - Fri: {selected.hoursWeekdays}</p>}
@@ -87,7 +87,7 @@ const CemeteryLocationsBlock = async ({
                             <div>
                                 <div className='flex items-center gap-4 mb-3'>
                                     <PhoneIcon fill="#2A322B" className='min-w-5 h-5 w-5' />
-                                    <h4 className="font-semibold text-brand-10 text-xl">Contact</h4>
+                                    <h4 className="font-semibold text-brand-dark text-xl">Contact</h4>
                                 </div>
 
                                 <p className="text-lg pl-9 flex items-center gap-2">
@@ -127,7 +127,7 @@ const CemeteryLocationsBlock = async ({
                             <Link
                                 href={cemetery.detailsLink}
                                 key={cemetery.id}
-                                className="flex flex-col lg:flex-row rounded-lg p-5 bg-background-light border border-primary-dark card-hovered cursor-pointer gap-4"
+                                className="flex flex-col lg:flex-row rounded-lg p-5 bg-surface border border-gold-light card-hovered cursor-pointer gap-4"
                             >
                                 {cemetery.image?.url && (
                                     <div className="relative lg:w-40 h-[188px] lg:h-auto">
@@ -143,7 +143,7 @@ const CemeteryLocationsBlock = async ({
                                 <div className="flex flex-col justify-between gap-4 flex-1">
                                     <div>
                                         <h3 className="text-lg md:text-xl font-semibold font-faustina">{cemetery.name}</h3>
-                                        <p className='text-xs font-satoshi italic text-brand-30'>
+                                        <p className='text-xs font-satoshi italic text-brand-mid'>
                                             {cemetery.subtitle}
                                         </p>
                                     </div>
@@ -160,14 +160,14 @@ const CemeteryLocationsBlock = async ({
                                             <ClockIcon className="min-w-4" />
 
                                             {cemetery.workingHours?.weekday && (
-                                                <div className="text-sm text-brand-30 flex-1">
+                                                <div className="text-sm text-brand-mid flex-1">
                                                     <p>Mon–Fri:</p>
                                                     <p>{cemetery.workingHours.weekday}</p>
                                                 </div>
                                             )}
 
                                             {cemetery.workingHours?.weekend && (
-                                                <div className="text-sm text-brand-30 flex-1">
+                                                <div className="text-sm text-brand-mid flex-1">
                                                     <p>Sat–Sun:</p>
                                                     <p>{cemetery.workingHours.weekend}</p>
                                                 </div>

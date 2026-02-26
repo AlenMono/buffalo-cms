@@ -25,7 +25,7 @@ export default function ImageSwiper({ items }: { items: Item[] }) {
 
     return (
         <div className="relative">
-            <div className="bg-background-light border border-primary-dark p-2 rounded-lg relative">
+            <div className="bg-surface border border-gold-light p-2 rounded-lg relative">
 
                 <Swiper
                     modules={[Pagination, Navigation]}

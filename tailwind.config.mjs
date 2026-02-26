@@ -59,20 +59,24 @@ const config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
-        brand: 'var(--brand)',
-        'brand-10': 'var(--brand-10)',
-        'brand-20': 'var(--brand-20)',
-        'brand-30': 'var(--brand-30)',
-        'brand-60': 'var(--brand-60)',
-        'text-primary': 'var(--text-primary)',
+        /* Brand green scale (darkest → lightest) */
+        'brand-darkest': 'var(--brand-darkest)',
+        'brand-dark':    'var(--brand-dark)',
+        brand:           'var(--brand)',
+        'brand-mid':     'var(--brand-mid)',
+        'brand-light':   'var(--brand-light)',
+        /* Backgrounds */
+        background: 'var(--background)',
+        surface:    'var(--surface)',
+        foreground: 'var(--foreground)',
+        /* Gold / warm-accent scale (lightest → deepest) */
+        'gold-light': 'var(--gold-light)',
+        gold:         'var(--gold)',
+        'gold-deep':  'var(--gold-deep)',
+        /* UI semantic */
         accent: {
           DEFAULT: 'var(--accent)',
         },
-        background: 'var(--background)',
-        'background-light': 'var(--background-light)',
-        'invert-darkest': 'var(--invert-darkest)',
-        'primary-darkest': 'var(--primary-darkest)',
-        'accent-darkest': 'var(--accent-darkest)',
         border: 'var(--border)',
         card: {
           DEFAULT: 'var(--card)',
@@ -81,8 +85,6 @@ const config = {
           DEFAULT: 'var(--destructive)',
           foreground: 'var(--destructive-foreground)',
         },
-        foreground: 'var(--foreground)',
-        gold: 'var(--gold)',
         input: 'var(--input)',
         muted: {
           DEFAULT: 'var(--muted)',
@@ -91,7 +93,6 @@ const config = {
         primary: {
           DEFAULT: 'var(--primary)',
           foreground: 'var(--primary-foreground)',
-          dark: 'var(--primary-dark)',
         },
         ring: 'var(--ring)',
         secondary: {

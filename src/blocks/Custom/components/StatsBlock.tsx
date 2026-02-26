@@ -35,7 +35,7 @@ const StatsBlock = ({ statsColumn, statsTitle, statsDescription, badges }: Stats
                         return (
                             <div key={data.statsValue} className='flex flex-col items-center lg:items-start'>
                                 <p className='text-[44px] leading-[52px] md:text-[88px] md:leading-[88px] font-semibold font-faustina text-gold'>{data.statsValue}</p>
-                                <p className='font-faustina italic font-normal text-brand-30'>{data.statsLabel}</p>
+                                <p className='font-faustina italic font-normal text-brand-mid'>{data.statsLabel}</p>
                             </div>
                         )
                     })}
