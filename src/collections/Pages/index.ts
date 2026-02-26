@@ -17,7 +17,6 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 import { CustomBlock } from '@/blocks/Custom/config'
 import { FormBlock } from '@/blocks/Form/config'
-import { isAdmin } from '@/access/isAdmin'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -30,7 +29,7 @@ export const Pages: CollectionConfig<'pages'> = {
     // otherwise users not logged in can only read published
     read: authenticated,
     // Only admins can delete
-    delete: isAdmin,
+    delete: authenticated,
   },
   // This config controls what's populated by default when a page is referenced
   // https://payloadcms.com/docs/queries/select#defaultpopulate-collection-config-property
