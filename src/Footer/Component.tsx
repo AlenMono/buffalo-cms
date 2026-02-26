@@ -22,8 +22,8 @@ export async function Footer() {
         : mapLegacyNavItems(footerData?.navItems ?? [])
 
     return (
-        <footer className='bg-background-light'>
-            <div className="container py-8 gap-8 mt-autotext-brand">
+        <footer className='bg-surface'>
+            <div className="container py-8 gap-8 mt-auto text-brand">
                 <div className="flex flex-col lg:flex-row md:justify-between gap-8">
                     <div className="max-w-[266px] flex flex-col justify-between gap-4">
                         <div className="lg:mb-16">
@@ -127,24 +127,34 @@ const FooterLink = ({ link }: { link: FooterNavLink }) => {
         <div>
             <CMSLink
                 appearance="inline"
-                className="text-sm text-bran font-satoshi hover:opacity-70 transition-all duration-200"
+                className="text-sm text-brand font-satoshi hover:opacity-70 transition-all duration-200"
                 {...link}
             />
         </div>
     )
 }
 
+const getSocialPlatform = (link: FooterNavLink): string => {
+    const searchable = `${link.label ?? ''} ${link.url ?? ''}`.toLowerCase()
+    if (searchable.includes('facebook')) return 'Facebook'
+    if (searchable.includes('instagram')) return 'Instagram'
+    if (searchable.includes('x.com') || searchable.includes('twitter') || /\bx\b/.test(searchable)) return 'X (Twitter)'
+    return link.label || 'social media'
+}
+
 const SocialFooterLink = ({ link }: { link: FooterNavLink }) => {
     const icon = getSocialIcon(link)
     const openInNewTab = link.newTab ?? isExternalUrl(link.url)
+    const platform = getSocialPlatform(link)
 
     return (
         <CMSLink
             appearance="inline"
-            className="text-sm text-bran font-satoshi hover:opacity-70 transition-all duration-200 inline-flex items-center gap-2 flex-row-reverse"
+            className="text-sm text-brand font-satoshi hover:opacity-70 transition-all duration-200 inline-flex items-center gap-2 flex-row-reverse"
             {...link}
             label=""
             newTab={openInNewTab}
+            aria-label={`Follow us on ${platform}`}
         >
             {icon}
         </CMSLink>

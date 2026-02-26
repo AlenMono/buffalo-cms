@@ -27,20 +27,22 @@ const CemeteryListBlock: React.FC<CemeteryListBlockProps> = ({
 
     return (
         <section className="max-w-[1320px] mx-auto">
-            <div className="bg-background-light border border-primary-dark p-5 lg:px-9 lg:py-7 rounded-lg relative overflow-hidden">
+            <div className="bg-surface border border-gold-light p-5 lg:px-9 lg:py-7 rounded-lg relative overflow-hidden">
 
                 <Image
                     src="/img/wreath-full.svg"
                     width={999}
                     height={958}
-                    alt="Wreath"
+                    alt=""
+                    aria-hidden="true"
                     className="absolute -top-20 h-[290px] md:h-auto md:top-1/2 -left-[55%] md:transform md:translate-y-[-50%]"
                 />
                 <Image
                     src="/img/wreath-full.svg"
                     width={999}
                     height={958}
-                    alt="Wreath"
+                    alt=""
+                    aria-hidden="true"
                     className="absolute -top-20 h-[290px] md:h-auto md:top-1/2 -right-[55%] transform md:translate-y-[-50%] scale-x-[-1] "
                 />
 
@@ -51,26 +53,27 @@ const CemeteryListBlock: React.FC<CemeteryListBlockProps> = ({
                         </div>
                     )}
                     {cemeteryListDescription && (
-                        <p className="mx-auto text-brand-30 text-center mb-12 max-w-[493px] text-sm md:text-base">
+                        <p className="mx-auto text-brand-mid text-center mb-12 max-w-[493px] text-sm md:text-base">
                             {cemeteryListDescription}
                         </p>
                     )}
                     <div className="flex flex-col gap-3">
                         {cemeteryList.map((cemetery, index) => (
-                            <div key={index} className="flex justify-between items-center gap-10 bg-background border border-primary-dark rounded-lg p-6 pt-5">
+                            <div key={index} className="flex justify-between items-center gap-10 bg-background border border-gold-light rounded-lg p-6 pt-5">
                                 <div>
                                     <h3 className="text-2xl font-bold font-satoshi text-brand">{cemetery.cemeteryName}</h3>
-                                    <p className="text-brand-30 text-sm">{cemetery.cemeteryAdress}</p>
+                                    <p className="text-brand-mid text-sm">{cemetery.cemeteryAdress}</p>
                                 </div>
 
                                 {cemetery.cemeteryLink && (
                                     <Link
                                         href={cemetery.cemeteryLink}
+                                        aria-label={`View ${cemetery.cemeteryName}`}
                                         className={buttonVariants({ variant: 'outline', size: 'sm', className: 'w-12 !h-12' })}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <ArrowRight className="min-w-6 min-h-6" />
+                                        <ArrowRight aria-hidden="true" className="min-w-6 min-h-6" />
                                     </Link>
                                 )}
                             </div>

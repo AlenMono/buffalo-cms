@@ -1,5 +1,5 @@
 import RichText from '@/components/RichText'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/utilities/ui'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
@@ -51,7 +51,7 @@ export const PlanningBlock: React.FC<PlanningBlockProps> = ({
                     )}
                     {description && (
                         <div className="flex md:justify-end">
-                            <p className="max-w-[460px] text-sm md:text-lg text-brand-30">{description}</p>
+                            <p className="max-w-[460px] text-sm md:text-lg text-brand-mid">{description}</p>
                         </div>
                     )}
                 </div>
@@ -78,21 +78,21 @@ export const PlanningBlock: React.FC<PlanningBlockProps> = ({
                             <Link
                                 href={card.link || ''}
                                 key={idx}
-                                className='card-hovered flex py-4 pt-3 px-4 lg:px-6 pb-5 rounded-lg relative min-h-[188px] min-w-[300px] border border-primary-dark cursor-pointer bg-background-light overflow-hidden'
+                                className='card-hovered flex py-4 pt-3 px-4 lg:px-6 pb-5 rounded-lg relative min-h-[188px] min-w-[300px] border border-gold-light cursor-pointer bg-surface overflow-hidden'
                             >
                                 <div className="flex flex-col z-10">
                                     <div className="flex-1">
                                         <h3 className={cn("font-semibold mb-1 font-faustina italic", isCardWithBadges ? "text-[24px] leading-[32px] lg:text-4xl" : "text-xl md:text-[28px] leading-[36px] font-semibold mb-1")}>
                                             {card.heading}
                                         </h3>
-                                        <p className={cn("text-brand-30 mb-4", isCardWithBadges ? 'text-xs lg:text-base' : 'text-xs md:text-sm')}>{card.subheading}</p>
+                                        <p className={cn("text-brand-mid mb-4", isCardWithBadges ? 'text-xs lg:text-base' : 'text-xs md:text-sm')}>{card.subheading}</p>
 
                                         {isCardWithBadges && (
                                             <div className="flex flex-wrap gap-1 gap-y-2 mb-4 mt-44">
                                                 {card.badges?.map((b, i) => (
                                                     <span
                                                         key={i}
-                                                        className="text-xs md:text-sm border rounded-full px-2 md:px-3 md:py-1 text-brand-30"
+                                                        className="text-xs md:text-sm border rounded-full px-2 md:px-3 md:py-1 text-brand-mid"
                                                     >
                                                         {b.badge}
                                                     </span>
@@ -104,7 +104,7 @@ export const PlanningBlock: React.FC<PlanningBlockProps> = ({
                                     <div className="flex justify-between items-center gap-4">
                                         <p
                                             className={cn(
-                                                'text-brand-30',
+                                                'text-brand-mid',
                                                 isCardWithBadges ? 'text-sm md:text-lg' : 'text-sm md:text-base',
                                             )}
                                         >
@@ -112,30 +112,32 @@ export const PlanningBlock: React.FC<PlanningBlockProps> = ({
                                         </p>
 
                                         {card.link && !card.buttonLabel && (
-                                            <Button
+                                            <div
+                                                aria-hidden="true"
                                                 className={buttonVariants({
                                                     variant: 'outline',
                                                     className: 'min-w-10 min-h-10 !p-0',
                                                 })}
                                             >
                                                 <ArrowRight className="h-6 w-6" />
-                                            </Button>
+                                            </div>
                                         )}
                                     </div>
                                     {card.buttonLabel && (
-                                        <Button
+                                        <div
                                             className={buttonVariants({
                                                 variant: card.buttonVariant,
                                                 className: 'mt-6',
                                             })}
                                         >
                                             {card.buttonLabel}
-                                        </Button>
+                                        </div>
                                     )}
                                 </div>
                                 <Image
                                     src={backgroundIcon}
-                                    alt={card.heading}
+                                    alt=""
+                                    aria-hidden="true"
                                     className={cn('absolute right-0 z-0', idx === 0 ? "top-0" : "top-6")}
                                     width={170}
                                     height={420}

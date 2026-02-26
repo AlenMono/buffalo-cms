@@ -67,27 +67,35 @@ export const Accordion: React.FC<AccordionProps> = ({
                     <div
                         key={index}
                         className={cn(
-                            'cursor-pointer',
                             variant === 'outline'
-                                ? 'p-4 bg-background-light border border-primary-dark rounded-lg hover:bg-background'
-                                : cn('py-4', index !== items.length - 1 && 'border-b border-b-brand-30'),
+                                ? 'p-4 bg-surface border border-gold-light rounded-lg hover:bg-background'
+                                : cn('py-4', index !== items.length - 1 && 'border-b border-b-brand-mid'),
                             isOpen && variant === 'outline' ? 'bg-background opacity-100' : 'opacity-100',
                             !isOpen && 'opacity-60',
                         )}
-                        onClick={() => toggleItem(index)}
                     >
-                        <div className="flex justify-between items-center transition-all duration-200 gap-4">
+                        <button
+                            onClick={() => toggleItem(index)}
+                            aria-expanded={isOpen}
+                            aria-controls={`accordion-panel-${index}`}
+                            id={`accordion-trigger-${index}`}
+                            className="flex justify-between items-center w-full text-left transition-all duration-200 gap-4 cursor-pointer"
+                        >
                             <div className={cn("text-xl font-bold text-brand")}>{item.title}</div>
                             <X
+                                aria-hidden="true"
                                 className={cn(
                                     'transition-transform duration-300 min-w-5',
-                                    isOpen ? 'rotate-90 text-brand' : 'rotate-45 text-brand-30',
+                                    isOpen ? 'rotate-90 text-brand' : 'rotate-45 text-brand-mid',
                                 )}
                                 size={20}
                             />
-                        </div>
+                        </button>
 
                         <div
+                            id={`accordion-panel-${index}`}
+                            role="region"
+                            aria-labelledby={`accordion-trigger-${index}`}
                             ref={(el) => {
                                 contentRefs.current[index] = el
                             }}

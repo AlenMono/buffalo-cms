@@ -56,46 +56,47 @@
 
   :root {
     --radius: 8px;
-    --background: #fef5e6; /* hsla(38, 92%, 95%, 1) */
-    --background-light: #fffaf1;
-    --invert-darkest: #151a15;
+
+    /* Backgrounds */
+    --background: #fef5e6; /* warm parchment page background */
+    --surface:    #fffaf1; /* lighter surface for cards, inputs, panels */
     --foreground: #202620;
 
-    --card: #0a0a0a; /* hsl(0 0% 4%) */
+    --card: #0a0a0a; /* near-black for dark-themed card sections */
 
-    /* BRAND  */
-    --brand: #343e36;
+    /* Brand green scale (darkest → lightest) */
+    --brand-darkest: #151a15;
+    --brand-dark:    #2a322b;
+    --brand:         #343e36;
+    --brand-mid:     #475049;
+    --brand-light:   #d7e1d6;
 
-    --brand-10: #2a322b;
-    --brand-20: #343e36;
-    --brand-30: #475049;
-    --brand-60: #d7e1d6;
-
-    --primary: #202620;
-    --primary-foreground: #0c0d0f; /* hsl(222.2 47.4% 11.2%) */
+    /* Primary / interactive (used by checkboxes, links) */
+    --primary:            #202620;
+    --primary-foreground: #0c0d0f;
 
     --secondary: #f1dfc1;
 
-    --muted: #232a2e; /* hsl(217.2 32.6% 17.5%) */
-    --muted-foreground: #a8aeb5; /* hsl(215 20.2% 65.1%) */
+    --muted:            #232a2e;
+    --muted-foreground: #a8aeb5;
 
-    --gold: #dab77e;
-    --primary-dark: #f2ddba;
-    --primary-darkest: #dab77e;
-    --accent-darkest: #b47209;
+    /* Gold / warm-accent scale (lightest → deepest) */
+    --gold-light: #f2ddba; /* warm cream — card borders, skeleton loaders */
+    --gold:       #dab77e; /* main gold accent */
+    --gold-deep:  #b47209; /* deep amber — hover/interactive gold */
 
-    --accent: #232a2e; /* hsl(217.2 32.6% 17.5%) */
+    --accent: #232a2e;
 
-    --destructive: #b02c27; /* hsl(0 62.8% 30.6%) */
+    --destructive:            #b02c27;
     --destructive-foreground: #343e36;
 
-    --border: #262626cc; /* hsla(0, 0%, 15%, 0.8) */
-    --input: #232a2e; /* hsl(217.2 32.6% 17.5%) */
-    --ring: #d6d9e6; /* hsl(212.7 26.8% 83.9%) */
+    --border: #262626cc;
+    --input:  #232a2e;
+    --ring:   #d6d9e6;
 
-    --success: #003466; /* hsl(196 100% 14%) */
-    --warning: #664d1a; /* hsl(34 51% 25%) */
-    --error: #9e4f3c; /* hsl(10 39% 43%) */
+    --success: #003466;
+    --warning: #664d1a;
+    --error:   #9e4f3c;
 
     --swiper-pagination-bullet-inactive-color: #475049;
     --swiper-pagination-bullet-inactive-opacity: 1;
@@ -150,19 +151,19 @@ html[data-theme='light'] {
 }
 
 .hero-title {
-  @apply block text-4xl md:text-[56px] md:leading-[64px] font-faustina mb-7;
+  @apply block text-4xl md:text-[56px] md:leading-[64px] lg:text-[64px] lg:leading-[72px] font-faustina mb-7;
 }
 
 .hero-paragraph {
-  @apply text-sm md:text-lg font-satoshi md:leading-[24px] pt-1;
+  @apply text-sm md:text-lg md:leading-[24px] lg:text-xl lg:leading-[28px] font-satoshi pt-1;
 }
 
 .section-title {
-  @apply text-[28px] leading-[36px] md:!text-[44px] md:leading-[52px] mb-0;
+  @apply text-[28px] leading-[36px] md:!text-[44px] md:leading-[52px] lg:!text-[52px] lg:leading-[60px] mb-0;
 }
 
 .prose :where(ul > li):not(:where([class~='not-prose'], [class~='not-prose'] *))::marker {
-  @apply text-brand-30;
+  @apply text-brand-mid;
 }
 
 .list-bullet li {

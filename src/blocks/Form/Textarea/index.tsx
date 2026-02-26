@@ -32,6 +32,7 @@ export const Textarea: React.FC<
         id={name}
         rows={rows}
         placeholder={label}
+        aria-required={required}
         {...register(name, { required: required })}
       />
 

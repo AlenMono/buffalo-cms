@@ -43,24 +43,32 @@ export const MediaBlock: React.FC<Props> = (props) => {
       )}
     >
       {(media || staticImage) && (
-        <Media
-          imgClassName={cn('border border-primary-dark bg-background-light rounded-lg', imgClassName)}
-          resource={media}
-          src={staticImage}
-        />
-      )}
-      {caption && (
-        <div
-          className={cn(
-            'mt-6',
-            {
-              container: !disableInnerContainer,
-            },
-            captionClassName,
-          )}
-        >
-          <RichText data={caption} enableGutter={false} />
-        </div>
+        caption ? (
+          <figure>
+            <Media
+              imgClassName={cn('border border-gold-light bg-surface rounded-lg', imgClassName)}
+              resource={media}
+              src={staticImage}
+            />
+            <figcaption
+              className={cn(
+                'mt-6',
+                {
+                  container: !disableInnerContainer,
+                },
+                captionClassName,
+              )}
+            >
+              <RichText data={caption} enableGutter={false} />
+            </figcaption>
+          </figure>
+        ) : (
+          <Media
+            imgClassName={cn('border border-gold-light bg-surface rounded-lg', imgClassName)}
+            resource={media}
+            src={staticImage}
+          />
+        )
       )}
     </div>
   )

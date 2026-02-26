@@ -44,7 +44,7 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayou
     const items = filteredFaqs.map(faq => ({
         title: <span className="text-lg md:text-2xl font-medium text-brand">{faq.faqQuestion}</span>,
         content: (
-            <div className="mt-3 text-sm md:text-base text-brand-30">
+            <div className="mt-3 text-sm md:text-base text-brand-mid">
                 {faq.faqAnswer ? <p>{faq.faqAnswer}</p> : <RichText data={faq.faqRichAnswer} />}
             </div>
         ),
@@ -56,9 +56,10 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayou
                 <button
                     key={item.value}
                     onClick={() => setSelectedFilter(item.value)}
+                    aria-pressed={selectedFilter === item.value}
                     className={`text-sm border-2 rounded-full px-3 py-1 ${selectedFilter === item.value
                         ? 'bg-foreground text-white'
-                        : 'text-brand-30 border-foreground'
+                        : 'text-brand-mid border-foreground'
                         }`}
                 >
                     {item.label}
@@ -69,7 +70,7 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayou
 
     if (faqLayout === "full-page") {
         return (
-            <div className='bg-background-light border border-primary-dark px-5 md:px-9 py-7 rounded-lg max-w-[938px] mx-auto'>
+            <div className='bg-surface border border-gold-light px-5 md:px-9 py-7 rounded-lg max-w-[938px] mx-auto'>
                 {faqFilters && renderFilterButtons()}
                 <Accordion
                     items={items}
@@ -83,7 +84,7 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayou
 
     return (
         <section className="max-w-[1320px] mx-auto">
-            <div className="flex flex-col lg:flex-row justify-between gap-10 bg-background-light rounded-lg border border-primary-dark p-5 lg:px-9 lg:py-7 relative overflow-hidden">
+            <div className="flex flex-col lg:flex-row justify-between gap-10 bg-surface rounded-lg border border-gold-light p-5 lg:px-9 lg:py-7 relative overflow-hidden">
                 <div className="flex flex-col justify-between gap-10 z-[1]">
                     {faqRichTitle && (
                         <RichText data={faqRichTitle} className="text-left section-title" />
@@ -109,7 +110,8 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({ faqRichTitle, faqs, faqLayou
                     src="/img/wreath.svg"
                     width={360}
                     height={200}
-                    alt="Wreath"
+                    alt=""
+                    aria-hidden="true"
                     className="absolute bottom-0 left-0"
                 />
             </div>

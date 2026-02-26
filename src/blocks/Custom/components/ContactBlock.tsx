@@ -25,16 +25,16 @@ const ContactBlock: React.FC<ContactBlockProps> = ({
     return (
         <section className="max-w-[746px] mx-auto text-center">
             <div className="hidden lg:block absolute left-0 h-[520px] z-[-1]">
-                <Image src="/img/left-flower.png" alt="Flowers" width={411} height={628} />
+                <Image src="/img/left-flower.png" alt="" aria-hidden="true" width={411} height={628} />
             </div>
             <div className="hidden lg:block absolute right-0 h-[520px] z-[-1]">
-                <Image src="/img/right-flower.png" alt="Flowers" width={411} height={628} />
+                <Image src="/img/right-flower.png" alt="" aria-hidden="true" width={411} height={628} />
             </div>
             {contactTitle && (
                 <RichText data={contactTitle} className="section-title !mb-6 lg:mb-16" />
             )}
 
-            {contactDescription && <p className="text-brand-30 text-sm md:text-lg mb-6">{contactDescription}</p>}
+            {contactDescription && <p className="text-brand-mid text-sm md:text-lg mb-6">{contactDescription}</p>}
 
             {contactLinks.length > 0 && (
                 <ul className="flex justify-center gap-3">

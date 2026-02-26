@@ -31,6 +31,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body>
         <Providers>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-background focus:text-foreground focus:rounded-md focus:ring-2 focus:ring-ring"
+          >
+            Skip to main content
+          </a>
           <AdminBar
             adminBarProps={{
               preview: isEnabled,
@@ -38,7 +44,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           />
 
           <Header />
-          {children}
+          <main id="main-content" tabIndex={-1}>
+            {children}
+          </main>
           <Footer />
         </Providers>
       </body>

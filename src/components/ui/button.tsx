@@ -20,14 +20,14 @@ const buttonVariants = cva(
         lg: 'h-11 px-8',
       },
       variant: {
-        primary: 'bg-gold text-white hover:bg-primary-darkest',
+        primary: 'bg-gold text-white hover:bg-gold',
         'primary-outline':
-          'bg-transparent border border-gold text-gold hover:bg-gold hover:border-primary-darkest hover:text-white',
-        default: 'bg-brand text-white hover:bg-invert-darkest',
+          'bg-transparent border border-gold text-gold-deep hover:bg-gold hover:border-gold hover:text-white',
+        default: 'bg-brand text-white hover:bg-brand-darkest',
         destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
         ghost: 'hover:bg-secondary',
         link: 'text-primary items-start justify-start underline-offset-4 hover:underline',
-        outline: 'border-2 border-secondary-foreground text-brand bg-transparent hover:bg-brand-60',
+        outline: 'border-2 border-secondary-foreground text-brand bg-transparent hover:bg-brand-light',
         'outline-white': 'border border-white bg-transparent hover:bg-white hover:text-primary',
         secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
       },

@@ -32,7 +32,7 @@ const NavLink = ({
 }) => (
     <Link
         href={`/${href}`}
-        className={isDropdown ? "relative text-sm text-brand-30 inline-block hover:bg-primary-dark hover:text-invert-darkest w-full px-3 py-2 rounded-md transition-colors duration-200" : "relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-300 hover:after:w-full"}
+        className={isDropdown ? "relative text-sm text-brand-mid inline-block hover:bg-gold-light hover:text-brand-darkest w-full px-3 py-2 rounded-md transition-colors duration-200" : "relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-300 hover:after:w-full"}
         onClick={onClick}
     >
         {children}
@@ -57,10 +57,13 @@ const Dropdown = ({ item, isOpen, toggle, closeDropdown }: DropdownProps) => {
         <div className="relative">
             <button
                 onClick={toggle}
+                aria-expanded={isOpen}
+                aria-haspopup="true"
                 className="flex items-center gap-1 hover:text-black focus:outline-none text-nowrap"
             >
                 {item.label}
                 <svg
+                    aria-hidden="true"
                     className={`w-4 h-4 mt-[1px] transition-transform ${isOpen ? 'rotate-180' : ''}`}
                     fill="none"
                     stroke="currentColor"
@@ -95,6 +98,7 @@ export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
     const [openAccordionItems, setOpenAccordionItems] = useState<Set<number>>(new Set())
     const dropdownRef = useRef<HTMLDivElement>(null)
     const mobileMenuRef = useRef<HTMLDivElement>(null)
+    const closeButtonRef = useRef<HTMLButtonElement>(null)
 
     const toggleDropdown = (index: number) => setOpenIndex(openIndex === index ? null : index)
 
@@ -134,6 +138,7 @@ export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
     useEffect(() => {
         if (isMobileMenuOpen) {
             document.body.style.overflow = 'hidden'
+            closeButtonRef.current?.focus()
         } else {
             document.body.style.overflow = ''
         }
@@ -161,6 +166,8 @@ export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
                 onClick={toggleMobileMenu}
                 className="lg:hidden flex flex-col justify-center items-center w-8 h-8 focus:outline-none"
                 aria-label="Toggle mobile menu"
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-menu"
             >
                 <span className={`block w-5 h-0.5 bg-current transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-1'}`}></span>
                 <span className={`block w-5 h-0.5 bg-current transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
@@ -170,6 +177,7 @@ export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
             {/* Desktop Nav */}
             <nav
                 ref={dropdownRef}
+                aria-label="Main navigation"
                 className="gap-6 items-center text-gray-800 text-[16px] font-medium relative hidden lg:flex"
             >
                 {navItems?.map((item, i) => (
@@ -195,6 +203,10 @@ export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
             {isMobileMenuOpen && (
                 <div
                     ref={mobileMenuRef}
+                    id="mobile-menu"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Navigation menu"
                     className="fixed inset-0 bg-background z-50 lg:hidden flex flex-col"
                 >
                     <div className="flex justify-between items-center p-4">
@@ -202,17 +214,18 @@ export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
                             <Logo loading="eager" priority="high" />
                         </Link>
                         <button
+                            ref={closeButtonRef}
                             onClick={closeMobileMenu}
                             className="w-8 h-8 flex items-center justify-center focus:outline-none"
                             aria-label="Close mobile menu"
                         >
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
                     </div>
                     <div className="flex-1 overflow-y-auto p-4">
-                        <nav className="flex flex-col">
+                        <nav aria-label="Mobile navigation" className="flex flex-col">
                             {navItems?.map((item, i) => (
                                 <div key={i}>
                                     {!item.hasDropdown || !item.dropdownItems || item.dropdownItems.length === 0 ? (
@@ -225,10 +238,12 @@ export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
                                         <div>
                                             <button
                                                 onClick={() => toggleAccordion(i)}
+                                                aria-expanded={openAccordionItems.has(i)}
                                                 className="w-full flex items-center justify-between py-4 px-2 text-lg font-medium transition-colors duration-200"
                                             >
                                                 <span>{item.label}</span>
                                                 <svg
+                                                    aria-hidden="true"
                                                     className={`w-5 h-5 transition-transform duration-200 ${openAccordionItems.has(i) ? 'rotate-180' : ''}`}
                                                     fill="none"
                                                     stroke="currentColor"

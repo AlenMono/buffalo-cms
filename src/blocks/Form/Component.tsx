@@ -133,25 +133,25 @@ export const FormBlock: React.FC<
                     {isLoading && !hasSubmitted ?
                         <div className="max-w-2xl animate-pulse space-y-6">
                             <div className="space-y-2">
-                                <div className="h-4 w-24 rounded bg-primary-dark"></div>
-                                <div className="h-11 w-full rounded-md bg-primary-dark"></div>
+                                <div className="h-4 w-24 rounded bg-gold-light"></div>
+                                <div className="h-11 w-full rounded-md bg-gold-light"></div>
                             </div>
 
                             <div className="flex gap-2">
                                 <div className='flex-1 space-y-2'>
-                                    <div className="h-4 w-16 rounded bg-primary-dark"></div>
-                                    <div className="h-11 w-full rounded-md bg-primary-dark"></div>
+                                    <div className="h-4 w-16 rounded bg-gold-light"></div>
+                                    <div className="h-11 w-full rounded-md bg-gold-light"></div>
                                 </div>
 
                                 <div className='flex-1 space-y-2'>
-                                    <div className="h-4 w-28 rounded bg-primary-dark"></div>
-                                    <div className="h-11 w-full rounded-md bg-primary-dark"></div>
+                                    <div className="h-4 w-28 rounded bg-gold-light"></div>
+                                    <div className="h-11 w-full rounded-md bg-gold-light"></div>
                                 </div>
                             </div>
 
                             <div className="space-y-2">
-                                <div className="h-4 w-20 rounded bg-primary-dark"></div>
-                                <div className="h-40 w-full rounded-md bg-primary-dark"></div>
+                                <div className="h-4 w-20 rounded bg-gold-light"></div>
+                                <div className="h-40 w-full rounded-md bg-gold-light"></div>
                             </div>
 
                             <div className="h-11 w-36 rounded-md bg-brand"></div>
@@ -193,16 +193,16 @@ export const FormBlock: React.FC<
                     }
 
                     {error &&
-                        <div className='bg-red-200 rounded-lg p-4 mt-4 flex items-center gap-2'>
-                            <AlertCircle width="18" className='min-w-[18px]' />
+                        <div role="alert" className='bg-red-200 rounded-lg p-4 mt-4 flex items-center gap-2'>
+                            <AlertCircle aria-hidden="true" width="18" className='min-w-[18px]' />
                             {`${error.status || '500'}: ${error.message || ''}`}
                         </div>
                     }
 
 
                     {!isLoading && hasSubmitted && confirmationType === 'message' && (
-                        <div className='bg-green-300 rounded-lg p-4 mt-4 flex items-center gap-2'>
-                            <CheckCircle width="18" />
+                        <div role="alert" className='bg-green-300 rounded-lg p-4 mt-4 flex items-center gap-2'>
+                            <CheckCircle aria-hidden="true" width="18" />
                             <RichText data={confirmationMessage} paragraphClassName='font-satoshi text-sm !m-0' />
                         </div>
                     )}
