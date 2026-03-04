@@ -1,19 +1,13 @@
 import { authenticated } from '@/access/authenticated'
-import { isAdmin } from '@/access/isAdmin'
 import { CollectionConfig } from 'payload'
 
 export const Cemeteries: CollectionConfig = {
   slug: 'cemeteries',
   access: {
-    // Anyone logged in can create
     create: authenticated,
-    // Only admins or editors with site access can update
     update: authenticated,
-    // Admins or editors with site access can read,
-    // otherwise users not logged in can only read published
     read: authenticated,
-    // Only admins can delete
-    delete: isAdmin,
+    delete: authenticated,
   },
   admin: {
     useAsTitle: 'name',
