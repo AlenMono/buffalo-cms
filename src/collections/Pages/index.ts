@@ -21,14 +21,9 @@ import { FormBlock } from '@/blocks/Form/config'
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
   access: {
-    // Anyone logged in can create
     create: authenticated,
-    // Only admins or editors with site access can update
     update: authenticated,
-    // Admins or editors with site access can read,
-    // otherwise users not logged in can only read published
     read: authenticated,
-    // Only admins can delete
     delete: authenticated,
   },
   // This config controls what's populated by default when a page is referenced
