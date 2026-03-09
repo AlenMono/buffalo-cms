@@ -118,10 +118,21 @@
 }
 
 .swiper-pagination-bullet {
+  display: inline-block;
+  width: var(--swiper-pagination-bullet-width, 8px);
+  height: var(--swiper-pagination-bullet-height, 8px);
+  border-radius: var(--swiper-pagination-bullet-border-radius, 100px);
+  background: var(--swiper-pagination-bullet-inactive-color, #475049);
+  opacity: var(--swiper-pagination-bullet-inactive-opacity, 1);
+  cursor: pointer;
+  border: none;
+  padding: 0;
   @apply !transition-all duration-200;
 }
 
 .swiper-pagination-bullet-active {
+  background: var(--swiper-pagination-color, #151a15);
+  opacity: 1;
   @apply !w-11 transition-all duration-200;
 }
 
