@@ -34,7 +34,7 @@ export async function Footer() {
                             <p className="text-sm">New York 14217</p>
                             <p className="text-sm underline">(716) 873-6500</p>
                             {socialLinks.length > 0 ? (
-                                <div className="mt-4 space-y-2 flex items-center gap-4">
+                                <div className="mt-4 flex items-center gap-4">
                                     {socialLinks.map((link) => (
                                         <SocialFooterLink
                                             key={`social-${link.label}-${link.url || ''}`}
@@ -166,6 +166,10 @@ const getSocialIcon = (link: FooterNavLink) => {
         return <TwitterXIcon aria-hidden="true" width={16} height={16} />
     }
 
+    if (searchable.includes('linkedin')) {
+        return <LinkedInIcon width={16} height={16} aria-hidden="true" />
+    }
+
     return null
 }
 
@@ -209,5 +213,14 @@ const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => {
             <path id="Rectangle 2" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" d="M0.858276 3.43141c0 -1.42103 1.151974 -2.573012 2.573014 -2.573012h6.86141c1.421 0 2.573 1.151982 2.573 2.573012v6.86139c0 1.421 -1.152 2.573 -2.573 2.573H3.43129c-1.42104 0 -2.573014 -1.152 -2.573014 -2.573V3.43141Z" stroke-width="1"></path>
             <path id="Ellipse 11" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" d="M4.312 6.862a2.55 2.55 0 1 0 5.1 0 2.55 2.55 0 1 0 -5.1 0" stroke-width="1"></path>
         </g>
+    </svg>
+}
+
+const LinkedInIcon = (props: React.SVGProps<SVGSVGElement>) => {
+    return <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" height="14" width="14" {...props}>
+        <path stroke="#000000" stroke-linecap="round" stroke-linejoin="round" d="M1.5 1.5h11v11h-11z" stroke-width="1"></path>
+        <path stroke="#000000" stroke-linecap="round" stroke-linejoin="round" d="M5 9.5V6" stroke-width="1"></path>
+        <path stroke="#000000" stroke-linecap="round" stroke-linejoin="round" d="M5 4.5a0.5 0.5 0 1 0 0-1 0.5 0.5 0 0 0 0 1z" stroke-width="1"></path>
+        <path stroke="#000000" stroke-linecap="round" stroke-linejoin="round" d="M9 9.5V7.5a1.5 1.5 0 0 0-3 0" stroke-width="1"></path>
     </svg>
 }
