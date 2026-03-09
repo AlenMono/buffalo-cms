@@ -30,8 +30,8 @@ export async function Footer() {
                             <Link className="flex items-center mb-5" href="/">
                                 <Logo isGrayScale />
                             </Link>
-                            <p className="text-sm">Mount Olivet 4000 Elmwood Ave Kenmore</p>
-                            <p className="text-sm">New York 14217</p>
+                            <p className="text-sm">Mount Olivet <br /> 4000 Elmwood Ave</p>
+                            <p className="text-sm">Kenmore, NY, 14217</p>
                             <p className="text-sm underline">(716) 873-6500</p>
                             {socialLinks.length > 0 ? (
                                 <div className="mt-4 flex items-center gap-4">
