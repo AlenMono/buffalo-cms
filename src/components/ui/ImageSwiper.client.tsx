@@ -1,12 +1,12 @@
 "use client"
 
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Navigation } from 'swiper/modules'
+import { Navigation } from 'swiper/modules'
+import type { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import 'swiper/css/pagination'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Button } from './button'
 
@@ -16,35 +16,34 @@ type Item = {
 }
 
 export default function ImageSwiper({ items }: { items: Item[] }) {
-    // hooks must be at top-level and always called
     const prevRef = useRef<HTMLButtonElement | null>(null)
     const nextRef = useRef<HTMLButtonElement | null>(null)
-    const paginationRef = useRef<HTMLDivElement | null>(null)
+    const swiperRef = useRef<SwiperType | null>(null)
+    const [activeIndex, setActiveIndex] = useState(0)
+
+    useEffect(() => {
+        const swiper = swiperRef.current
+        if (!swiper) return
+
+        // @ts-expect-error - wiring refs for Swiper navigation
+        swiper.params.navigation.prevEl = prevRef.current
+        // @ts-expect-error - wiring refs for Swiper navigation
+        swiper.params.navigation.nextEl = nextRef.current
+        swiper.navigation.destroy()
+        swiper.navigation.init()
+        swiper.navigation.update()
+    }, [])
 
     if (!items || items.length === 0) return null
 
     return (
         <div className="relative">
             <div className="bg-background-light border border-primary-dark p-2 rounded-lg relative">
-
                 <Swiper
-                    modules={[Pagination, Navigation]}
-                    navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
-                    pagination={{
-                        clickable: true,
-                        el: paginationRef.current as unknown as string,
-                        type: 'bullets'
-                    }}
-                    onBeforeInit={(swiper) => {
-                        // ensure navigation elements are wired (refs set)
-                        // @ts-expect-error - wiring refs for Swiper navigation
-                        swiper.params.navigation.prevEl = prevRef.current
-                        // @ts-expect-error - wiring refs for Swiper navigation
-                        swiper.params.navigation.nextEl = nextRef.current
-                        // wire pagination container into swiper params
-                        // @ts-expect-error - wiring ref for Swiper pagination element
-                        swiper.params.pagination.el = paginationRef.current
-                    }}
+                    modules={[Navigation]}
+                    navigation={{ prevEl: null, nextEl: null }}
+                    onSwiper={(swiper) => { swiperRef.current = swiper }}
+                    onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                     className="w-full h-full"
                 >
                     {items.map((item, idx) => {
@@ -74,10 +73,18 @@ export default function ImageSwiper({ items }: { items: Item[] }) {
                 >
                     <ArrowLeft className='w-5 h-5' />
                 </Button>
-                <div
-                    ref={paginationRef}
-                    className="swiper-pagination-custom flex gap-2 !w-auto"
-                />
+
+                <div className="flex gap-2 items-center">
+                    {items.map((_, i) => (
+                        <button
+                            key={i}
+                            aria-label={`Go to slide ${i + 1}`}
+                            onClick={() => swiperRef.current?.slideTo(i)}
+                            className={`swiper-pagination-bullet${i === activeIndex ? ' swiper-pagination-bullet-active' : ''}`}
+                        />
+                    ))}
+                </div>
+
                 <Button
                     ref={nextRef}
                     aria-label="Next"
