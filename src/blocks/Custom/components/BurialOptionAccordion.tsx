@@ -19,10 +19,10 @@ interface BurialOptionAccordionProps {
 
 export const BurialOptionAccordion: React.FC<BurialOptionAccordionProps> = ({ options, onSelectOption }) => {
   const items = options.map((option) => ({
-    title: <p className="text-base md:text-xl text-brand-30">{option.title}</p>,
+    title: <p className="text-base md:text-xl text-brand-30 break-words">{option.title}</p>,
     content: (
       <>
-        {option.description && <p className="text-base text-brand mb-5">{option.description}</p>}
+        {option.description && <p className="text-base text-brand mb-5 break-words">{option.description}</p>}
         {option.buttonText && (
           <Link
             href={option['burial-link'] || '#'}

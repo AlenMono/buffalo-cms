@@ -29,9 +29,9 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
     <header
       className={`z-20 sticky top-0 transition-all duration-300 ${isScrolled ? 'bg-background' : ''}`}
     >
-      <div className="container p-6 flex justify-between items-center">
+      <div className="container p-6 flex justify-between items-center gap-4">
         <Link href="/home">
-          <Logo loading="eager" priority="high" />
+          <Logo loading="eager" priority="high" className='h-[52px] min-w-[80px]' />
         </Link>
 
         <HeaderNav navItems={data?.navItems || []} />
