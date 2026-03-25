@@ -30,9 +30,19 @@ export async function Footer() {
                             <Link className="flex items-center mb-5" href="/">
                                 <Logo isGrayScale />
                             </Link>
-                            <p className="text-sm">Mount Olivet <br /> 4000 Elmwood Ave</p>
-                            <p className="text-sm">Kenmore, NY, 14217</p>
-                            <p className="text-sm underline">(716) 873-6500</p>
+                            <div className='flex flex-col gap-2'>
+                                <a
+                                    href="https://maps.google.com/?q=4000+Elmwood+Ave,+Kenmore,+NY+14217"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm hover:opacity-70 transition-all duration-200"
+                                >
+                                    Mount Olivet <br /> 4000 Elmwood Ave <br /> Kenmore, NY, 14217
+                                </a>
+                                <a href="tel:7168736500" className="text-sm underline hover:opacity-70 transition-all duration-200">
+                                    (716) 873-6500
+                                </a>
+                            </div>
                             {socialLinks.length > 0 ? (
                                 <div className="mt-4 flex items-center gap-4">
                                     {socialLinks.map((link) => (

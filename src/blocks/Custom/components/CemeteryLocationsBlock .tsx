@@ -67,7 +67,16 @@ const CemeteryLocationsBlock = async ({
                                     <h4 className="font-semibold text-brand-10 text-xl">Location</h4>
                                 </div>
 
-                                <p className="text-lg pl-9 underline">{selected.cemeteryAddress}</p>
+                                <div className='pl-9'>
+                                    <a
+                                        href={`https://maps.google.com/?q=${encodeURIComponent(selected.cemeteryAddress ?? '')}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-lg underline hover:opacity-70 transition-all duration-200"
+                                    >
+                                        {selected.cemeteryAddress}
+                                    </a>
+                                </div>
                             </div>
                         )}
 
@@ -124,10 +133,9 @@ const CemeteryLocationsBlock = async ({
                     })
                     .map((cemetery) => {
                         return (
-                            <Link
-                                href={cemetery.detailsLink}
+                            <div
                                 key={cemetery.id}
-                                className="flex flex-col lg:flex-row rounded-lg p-5 bg-background-light border border-primary-dark card-hovered cursor-pointer gap-4"
+                                className="flex flex-col lg:flex-row rounded-lg p-5 bg-background-light border border-primary-dark card-hovered gap-4"
                             >
                                 {cemetery.image?.url && (
                                     <div className="relative lg:w-40 h-[188px] lg:h-auto">
@@ -149,9 +157,16 @@ const CemeteryLocationsBlock = async ({
                                     </div>
 
                                     {cemetery.address && (
-                                        <div className="flex gap-2">
+                                        <div className="flex gap-2 items-center">
                                             <LocationIcon className="min-w-4" />
-                                            <p className="text-sm">{cemetery.address}</p>
+                                            <a
+                                                href={`https://maps.google.com/?q=${encodeURIComponent(cemetery.address)}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-sm underline hover:opacity-70 transition-all duration-200"
+                                            >
+                                                {cemetery.address}
+                                            </a>
                                         </div>
                                     )}
 
@@ -179,18 +194,23 @@ const CemeteryLocationsBlock = async ({
                                         {cemetery.phone && (
                                             <div className="flex gap-2">
                                                 <PhoneIcon className="min-w-4" />
-                                                <p className="text-sm font-bold">{cemetery.phone}</p>
+                                                <a
+                                                    href={`tel:${cemetery.phone.replace(/\D/g, '')}`}
+                                                    className="text-sm font-bold underline hover:opacity-70 transition-all duration-200"
+                                                >
+                                                    {cemetery.phone}
+                                                </a>
                                             </div>
                                         )}
 
                                         <div className="flex-1 flex justify-end">
-                                            <p className="px-0 text-sm font-bold text-[#E89A1E]">
+                                            <Link href={cemetery.detailsLink} className="px-0 text-sm font-bold text-[#E89A1E] hover:opacity-70 transition-all duration-200">
                                                 Details →
-                                            </p>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
-                            </Link>
+                            </div>
                         )
                     })}
             </div>
