@@ -43,6 +43,7 @@ const GriefSupportBlock = ({
                         src={backgroundImage.url}
                         alt={backgroundImage.alt || 'Background'}
                         fill
+                        sizes="100vw"
                         className="object-cover opacity-30"
                     />
                 </div>

@@ -135,6 +135,7 @@ const CemeteryLocationsBlock = async ({
                                             src={cemetery.image.url}
                                             alt={cemetery.image.alt || cemetery.name}
                                             fill
+                                            sizes="(max-width: 1024px) 100vw, 160px"
                                             className="object-cover rounded-md"
                                         />
                                     </div>
