@@ -54,7 +54,7 @@ export default function ImageSwiper({ items }: { items: Item[] }) {
                             <SwiperSlide key={idx}>
                                 {src ? (
                                     <div className="relative w-full h-[205px] md:h-[590px]">
-                                        <Image src={src} alt={alt || 'gallery image'} fill className="object-cover" />
+                                        <Image src={src} alt={alt || 'gallery image'} fill sizes="(max-width: 768px) 100vw, 80vw" className="object-cover" />
                                     </div>
                                 ) : null}
                             </SwiperSlide>

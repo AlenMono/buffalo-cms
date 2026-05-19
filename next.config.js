@@ -9,6 +9,8 @@ const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    minimumCacheTTL: 2592000, // 30 days — prevents re-transforming the same image repeatedly
+    deviceSizes: [640, 768, 1024, 1280, 1536, 1920],
     remotePatterns: [
       ...[NEXT_PUBLIC_SERVER_URL /* 'https://example.com' */].map((item) => {
         const url = new URL(item)
