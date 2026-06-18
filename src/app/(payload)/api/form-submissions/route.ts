@@ -12,6 +12,8 @@ export async function POST(request: NextRequest) {
 
     const resendClient = new Resend(process.env.RESEND_API_KEY || '')
     const adminEmail = process.env.ADMIN_EMAIL || 'tchristy@buffalocatholiccemeteries.org'
+    const subAdminEmail = process.env.SUB_ADMIN_EMAIL || ''
+    const recipients = [adminEmail, subAdminEmail].map((e) => e.trim()).filter(Boolean)
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
 
     const fieldLabels: Record<string, string> = {
@@ -79,7 +81,7 @@ export async function POST(request: NextRequest) {
 
     const { error } = await resendClient.emails.send({
       from: fromEmail,
-      to: adminEmail,
+      to: recipients,
       replyTo: submitterEmail || adminEmail,
       subject: `BCC Website - New Submission`,
       html,
