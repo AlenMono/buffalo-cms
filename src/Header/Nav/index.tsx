@@ -32,7 +32,7 @@ const NavLink = ({
 }) => (
     <Link
         href={`/${href}`}
-        className={isDropdown ? "relative text-sm text-brand-30 inline-block hover:bg-primary-dark hover:text-invert-darkest w-full px-3 py-2 rounded-md transition-colors duration-200" : "relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-300 hover:after:w-full"}
+        className={isDropdown ? "relative text-sm text-brand-30 inline-block hover:bg-primary-dark hover:text-invert-darkest w-full px-3 py-2 rounded-md transition-colors duration-200" : "relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-300 hover:after:w-full text-sm xl:text-base"}
         onClick={onClick}
     >
         {children}
@@ -57,7 +57,7 @@ const Dropdown = ({ item, isOpen, toggle, closeDropdown }: DropdownProps) => {
         <div className="relative">
             <button
                 onClick={toggle}
-                className="flex items-center gap-1 hover:text-black focus:outline-none text-nowrap"
+                className="flex items-center gap-1 hover:text-black focus:outline-none text-nowrap text-sm xl:text-base"
             >
                 {item.label}
                 <svg
@@ -170,7 +170,7 @@ export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
             {/* Desktop Nav */}
             <nav
                 ref={dropdownRef}
-                className="gap-6 items-center text-gray-800 text-[16px] font-medium relative hidden lg:flex"
+                className="gap-3 xl:gap-6 items-center text-gray-800 text-[16px] font-medium relative hidden lg:flex"
             >
                 {navItems?.map((item, i) => (
                     <Dropdown
@@ -184,12 +184,20 @@ export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
             </nav>
 
             {/* Locate a Loved One Button - Desktop */}
-            <Link
-                href="/locate-a-loved-one"
-                className={`${buttonVariants({ size: 'sm', variant: 'outline' })} hidden lg:inline-flex`}
-            >
-                Locate a Loved One
-            </Link>
+            <div className='hidden lg:flex gap-2'>
+                <Link
+                    href="/donation"
+                    className={`${buttonVariants({ size: 'sm', variant: 'outline' })}`}
+                >
+                    Donate
+                </Link>
+                <Link
+                    href="/locate-a-loved-one"
+                    className={`${buttonVariants({ size: 'sm', variant: 'outline' })}`}
+                >
+                    Locate a Loved One
+                </Link>
+            </div>
 
             {/* Mobile Menu Overlay */}
             {isMobileMenuOpen && (
@@ -254,7 +262,14 @@ export const HeaderNav = ({ navItems }: { navItems: NavItem[] }) => {
                                 </div>
                             ))}
                         </nav>
-                        <div className="mt-6">
+                        <div className="mt-6 flex flex-col gap-2">
+                            <Link
+                                href="/donate"
+                                className={buttonVariants({ size: 'sm', variant: 'outline' })}
+                                onClick={closeMobileMenu}
+                            >
+                                Donate
+                            </Link>
                             <Link
                                 href="/locate-a-loved-one"
                                 className={buttonVariants({ size: 'sm', variant: 'outline' })}

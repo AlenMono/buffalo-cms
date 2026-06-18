@@ -77,7 +77,7 @@ export const Accordion: React.FC<AccordionProps> = ({
                         onClick={() => toggleItem(index)}
                     >
                         <div className="flex justify-between items-center transition-all duration-200 gap-4">
-                            <div className={cn("text-xl font-bold text-brand")}>{item.title}</div>
+                            <div className={cn("text-xl font-bold text-brand min-w-0 break-words")}>{item.title}</div>
                             <X
                                 className={cn(
                                     'transition-transform duration-300 min-w-5',
@@ -99,7 +99,7 @@ export const Accordion: React.FC<AccordionProps> = ({
                                 maxHeight: isOpen ? `${contentRefs.current[index]?.scrollHeight || 0}px` : '0px',
                             }}
                         >
-                            <div className="mt-3">{item.content}</div>
+                            <div className="mt-2">{item.content}</div>
                         </div>
                     </div>
                 )

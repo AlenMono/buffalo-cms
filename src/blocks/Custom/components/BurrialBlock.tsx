@@ -136,16 +136,16 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
 
     return (
         <div className="flex justify-between gap-5 p-3 pl-5 bg-secondary border border-primary-darkest rounded-lg">
-            <div className="flex flex-col justify-between md:min-w-[360px] md:max-w-[360px] lg:min-w-[415px] lg:max-w-[415px]">
+            <div className="flex flex-col justify-between md:min-w-[420px] md:max-w-[420px] lg:min-w-[500px] lg:max-w-[500px]">
                 {sectionTitle && <RichText data={sectionTitle} className='section-title text-center md:text-left mb-10' />}
                 <div className="flex mb-6 md:hidden">
-                    <div className='p-3 rounded-lg relative bg-background-light border border-primary-darkest'>
+                    <div className='p-3 rounded-lg relative bg-background-light border border-primary-darkest mt-4'>
                         <Image
                             width={760}
                             height={214}
                             src={burialOptions[selectedOptionIndex]?.burialOptionImage?.url || image?.url || '/img/graveyard.png'}
                             alt={burialOptions[selectedOptionIndex]?.burialOptionImage?.alt || "Cemetery"}
-                            className='h-full object-cover min-h-[215px]'
+                            className='h-full object-cover min-h-[215px] max-h-[450px]'
                         />
                     </div>
                 </div>
@@ -163,7 +163,7 @@ const BurialBlock: React.FC<BurialBlockProps> = ({ sectionTitle, image, burialOp
                         height={660}
                         src={burialOptions[selectedOptionIndex]?.burialOptionImage?.url || image?.url || '/img/graveyard.png'}
                         alt={burialOptions[selectedOptionIndex]?.burialOptionImage?.alt || "Cemetery"}
-                        className='h-full object-cover min-h-[442px] lg:min-h-[596px] max-h-[596px]'
+                        className='h-full object-cover min-h-[442px] max-h-[500px]'
                     />
                 </div>
             </div>
