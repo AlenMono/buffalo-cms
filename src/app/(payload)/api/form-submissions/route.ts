@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
 
     const resendClient = new Resend(process.env.RESEND_API_KEY || '')
     const adminEmail = process.env.ADMIN_EMAIL || 'tchristy@buffalocatholiccemeteries.org'
-    const subAdminEmail = process.env.SUB_ADMIN_EMAIL || ''
+    const subAdminEmail = process.env.SUB_ADMIN_EMAIL || 'tchristy@bflocc.org'
     const recipients = [adminEmail, subAdminEmail].map((e) => e.trim()).filter(Boolean)
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
 
