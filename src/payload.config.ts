@@ -77,6 +77,7 @@ export default buildConfig({
         media: true,
       },
       token: process.env.BLOB_READ_WRITE_TOKEN || '',
+      cacheControlMaxAge: 31536000, // 1 year — let CDN/browser cache media so repeat views stop re-hitting Blob (avoids exhausting the operations limit)
     }),
   ],
   secret: process.env.PAYLOAD_SECRET,
