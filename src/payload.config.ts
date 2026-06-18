@@ -74,10 +74,15 @@ export default buildConfig({
     ...plugins,
     vercelBlobStorage({
       collections: {
-        media: true,
+        media: {
+          // Serve media directly from the public Blob CDN URL instead of proxying through
+          // /api/media/file/... — the proxy runs a head() Blob operation on every request,
+          // which exhausted the Hobby-plan operations limit. Safe: media is publicly readable.
+          disablePayloadAccessControl: true,
+        },
       },
       token: process.env.BLOB_READ_WRITE_TOKEN || '',
-      cacheControlMaxAge: 31536000, // 1 year — let CDN/browser cache media so repeat views stop re-hitting Blob (avoids exhausting the operations limit)
+      cacheControlMaxAge: 31536000, // sets Cache-Control on the Blob object (matches adapter default)
     }),
   ],
   secret: process.env.PAYLOAD_SECRET,

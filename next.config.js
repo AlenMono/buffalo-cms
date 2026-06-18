@@ -20,6 +20,10 @@ const nextConfig = {
           protocol: url.protocol.replace(':', ''),
         }
       }),
+      {
+        protocol: 'https',
+        hostname: '*.public.blob.vercel-storage.com', // media served directly from the Vercel Blob CDN
+      },
     ],
   },
   webpack: (webpackConfig) => {
